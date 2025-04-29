@@ -1,0 +1,10 @@
+@use '../colores' as colores;
+@use '../fuentes' as fuentes;
+
+#normal-font {
+    @extend %font-normal;
+}
+
+#bold-font {
+    @extend %font-bold;
+}
