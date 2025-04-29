@@ -1,0 +1,10 @@
+@use "base" as b;
+
+header{
+    height: 6vh;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: b.$color-verde-primario;
+    
+}

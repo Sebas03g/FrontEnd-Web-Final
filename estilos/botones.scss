@@ -1,0 +1,13 @@
+@use "base" as b;
+
+.seleccionado{
+    background-color: b.$color-seleccionado !important;
+}
+
+.icono-menu{
+    height: 4vh;
+    width: 6vh;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+}

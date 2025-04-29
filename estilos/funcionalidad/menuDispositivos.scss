@@ -1,0 +1,31 @@
+@use 'base' as b;
+
+.dropdown-item{
+    animation:none;
+    transition: none !important;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+
+    &:active{
+        background-color: b.$color-seleccionado;
+        color: black;
+    }
+}
+
+.dropdown-menu{
+    height: 93.75vh;
+    width: 20vw;
+    margin-top: 0.6vh !important;
+    background-color: b.$color-secundario;
+    overflow-y: auto;
+    max-height: 93.75vh;
+    z-index: 1;
+    border-radius: 0;
+}
+
+.seleccionado{
+    background-color: b.$color-seleccionado !important;
+}

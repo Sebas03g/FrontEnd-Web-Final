@@ -1,0 +1,46 @@
+@use 'base' as b;
+
+#contenedor{
+    display: flex;
+    flex-direction: column;
+    nav{
+        background-color: black;
+        height: 5vh;
+        border: none;
+        width: 100%;
+    }
+
+}
+
+
+
+.contenido {
+    height: 70vh;
+    width: 100vw;
+    bottom: 0;
+    position: fixed;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: red;
+    display: none;
+
+    .texto{
+        background-color: b.$color-verde-primario;
+        opacity: 80%;
+    }
+}
+
+.activo{
+    display: grid;
+    grid-template-areas: 
+    "           "
+    "    div    "
+    "           "
+    ;
+    grid-template-rows: 2vh 50vh 2vh;
+    grid-template-columns: 5vw auto 5vw;
+}
+
+
+
+
