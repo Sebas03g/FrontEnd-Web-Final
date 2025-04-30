@@ -64,9 +64,13 @@
   border-radius: 8px;
 }
 .informacion .dispositivo {
-  background-color: aqua;
   height: 60vh;
-  width: 15vw;
+  width: 20vw;
+  margin-right: 2vw;
+  margin: 0;
+  padding: 0;
+  background-image: url("../imagenes/imagenCelular.png");
+  border-radius: 8px;
 }
 
 .card {
