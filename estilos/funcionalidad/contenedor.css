@@ -57,7 +57,7 @@
   padding-bottom: 2vh;
 }
 .informacion .contenedorInformacion {
-  background-color: #2E6A2F;
+  background-color: rgba(46, 106, 47, 0.1490196078);
   height: 60vh;
   width: 60vw;
   margin-right: 2vw;
@@ -83,7 +83,9 @@
   padding-bottom: 2vh;
 }
 .eliminacion .contenedorEliminar {
-  background-color: rgba(46, 106, 47, 0.8);
+  display: flex;
+  align-items: center;
+  background-color: rgba(46, 106, 47, 0.1490196078);
   height: 60vh;
   width: 60vw;
   border-radius: 8px;
