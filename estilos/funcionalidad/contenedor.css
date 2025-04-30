@@ -1,16 +1,68 @@
-.contenido {
-  height: 70vh;
+#contenedor {
+  display: none;
+  height: 71vh;
   width: 100vw;
   bottom: 0;
   position: fixed;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+#contenedor nav {
+  grid-area: nav;
+  height: 5vh;
+  border: none;
+  width: 100%;
+  background-color: black;
+}
+#contenedor .botonBajar {
+  grid-area: boton;
+  height: 1vh;
+  width: 100%;
+}
+
+#contenedores {
+  grid-area: contenedores;
   background-color: white;
+}
+
+.contenido {
   display: none;
+  z-index: 2;
+}
+.contenido .texto {
+  background-color: #2E6A2F;
+  opacity: 80%;
+}
+
+.informacion {
+  display: none;
+  height: 65vh;
+  width: 100vw;
+  background-color: red;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 1vh;
+}
+.informacion .contenedorInformacion {
+  background-color: black;
+  height: 50vh;
+  width: 60vw;
+  margin-right: 2vw;
+}
+.informacion .dispositivo {
+  background-color: aqua;
+  height: 50vh;
+  width: 15vw;
 }
 
 .activo {
-  display: flex !important;
+  display: flex;
+}
+
+.abierto {
+  display: grid !important;
+  grid-template-areas: "boton" "nav" "contenedores";
+  grid-template-rows: 1vh 5vh 65vh;
 }
 
 /*# sourceMappingURL=contenedor.css.map */

@@ -1,4 +1,4 @@
-@use 'base' as b;
+@use '../colores' as colores;
 
 .dropdown-item{
     animation:none;
@@ -10,7 +10,7 @@
     height: 5vh;
 
     &:active{
-        background-color: b.$color-seleccionado;
+        background-color: colores.$color-seleccionado;
         color: black;
     }
 }
@@ -19,7 +19,7 @@
     height: 93.75vh;
     width: 20vw;
     margin-top: 0.6vh !important;
-    background-color: b.$color-secundario;
+    background-color: colores.$color-secundario;
     overflow-y: auto;
     max-height: 93.75vh;
     z-index: 1;
@@ -27,5 +27,5 @@
 }
 
 .seleccionado{
-    background-color: b.$color-seleccionado !important;
+    background-color: colores.$color-seleccionado !important;
 }
