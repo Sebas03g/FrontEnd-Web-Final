@@ -12,6 +12,8 @@
   <link href="estilos/funcionalidad/mapa.css" rel="stylesheet">
   <link href="estilos/botones.css" rel="stylesheet">
   <link href="estilos/funcionalidad/encabezado.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 
   <!-- Bootstrap JS (al final del body) -->
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -28,21 +30,29 @@
 <header>
   <section id="encabezado">
     <div class="dropdown">
-      <button class="icono-menu dropdown-toggle seleccionado" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Menú
+      <button class="iconos seleccionado" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-list"></i>
       </button>
       <ul class="dropdown-menu">
         <li>
-            <div class="dropdown-item">
-                <button id="settingsDispositivo">Settings</button>
-                <label >Hola</label>
-                <button id="editarDispositivos">Editar</button>
-            </div>
-            
+          <div class="dropdown-item seleccionado">
+            <button id="settingsDispositivo" class="iconos"><i class="bi bi-gear"></i></button>
+            <label>Hola</label>
+            <button id="editarDispositivos" class="iconos"><i class="bi bi-pencil"></i></button>
+          </div>
         </li>
         <li><button class="dropdown-item">Mundo</button></li>
+        <li><hr class="dropdown-divider"></li>
+    
+        <!-- Botón fijo al final -->
+        <li class="crear-fixed text-center">
+          <button class="btn">
+            <i class="bi bi-plus-circle"></i>
+          </button>
+        </li>
       </ul>
     </div>
+    
   </section>
 </header>
 
@@ -53,25 +63,81 @@
         </div>
     </section>
     <section id="contenedor" class="abierto">
-      <button class="botonBajar">Bajar</button>
-      <nav></nav>
+      <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav" >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                  <button class="nav-link">
+                    <i class="icono-navbar seleccionado bi bi-info-circle"></i>
+                    <p class="texto-navbar">Informacion</p>
+                  </button> 
+              </li>
+              <li class="nav-item">
+                <button class="nav-link ">
+                  <i class="icono-navbar bi bi-list-ul"></i>
+                  <p class="texto-navbar">Permisos</p>
+                </button> 
+              </li>
+              <li class="nav-item">
+                <button class="nav-link">
+                  <i class="icono-navbar bi bi-geo-alt"></i>
+                  <p class="texto-navbar">Ubicaciones</p>
+                </button> 
+              </li>
+              <li class="nav-item">
+                <button class="nav-link">
+                  <i class="icono-navbar bi bi-person"></i>
+                  <p class="texto-navbar">Personas de Confianza</p>
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link">
+                  <i class="icono-navbar bi bi-trash"></i>
+                  <p class="texto-navbar">Eliminar</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
       <div id="contenedores">
         <div class="contenido informacion" >
           <div class ="contenedorInformacion">
+            <div class="container carta">
+              <!-- Carta -->
+              <div class="card" >
+                  <!-- Contenido de la carta -->
+                  <div class="card-body">
+                      <h5 class="card-title">Informacion dispositivo</h5>
+                      <p class="card-text">Nombre del dispositivo<br>
+                        Nombre persona<br>
+                        Cedula<br>
+                        Estado<br>
+                        Última vez conectado<br>
+                        Tiempo de viaje<br>
+                        
+                        </ul>
+                        </p>
+                      <a href="#" class="btn modificar">Modificar</a>
+                  </div>
+              </div>
+            </div>
           </div>
           <div class="dispositivo">
           </div>
         </div>
-        <div class="contenido permisos activo">
+        <div class="contenido permisos">
 
           <div class="container mt-5 busqueda">
-            <!-- Input Field -->
             <div class="mb-3">
                 <label for="inputField" class="form-label">Ingrese algo</label>
                 <input type="text" class="form-control" id="inputField" placeholder="Escriba aquí">
             </div>
-            
-            <!-- Lista debajo del input -->
             <ul class="list-group" id="suggestionsList">
               <li class="list-group-item">Primer elemento</li>
               <li class="list-group-item">Segundo elemento</li>
@@ -91,13 +157,11 @@
         </div>
         <div class="contenido ubicacion">
           <div class="container mt-5 busqueda">
-            <!-- Input Field -->
             <div class="mb-3">
                 <label for="inputField" class="form-label">Ingrese algo</label>
                 <input type="text" class="form-control" id="inputField" placeholder="Escriba aquí">
             </div>
             
-            <!-- Lista debajo del input -->
             <ul class="list-group" id="suggestionsList">
                 <!-- Los elementos de la lista se pueden agregar dinámicamente con JS -->
             </ul>
@@ -145,31 +209,31 @@
             </div>
           </div>
         </div>
-        <div class="contenido eliminacion">
-          <div class="container mt-5 busqueda">
-            <!-- Input Field -->
-            <div class="mb-3">
-                <label for="inputField" class="form-label">Ingrese algo</label>
-                <input type="text" class="form-control" id="inputField" placeholder="Escriba aquí">
-            </div>
-            
-            <!-- Lista debajo del input -->
-            <ul class="list-group" id="suggestionsList">
-                <!-- Los elementos de la lista se pueden agregar dinámicamente con JS -->
-            </ul>
-          </div>
-          <div class="container mt-5 carta">
-            <!-- Carta -->
-            <div class="card d-flex flex-row" style="width: 30rem;">
-                <!-- Contenido de la carta -->
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Título de la carta</h5>
-                    <p class="card-text">Este es un texto de ejemplo para una carta en Bootstrap. Puedes agregar más contenido aquí, como detalles o una breve descripción.</p>
-                    <a href="#" class="btn btn-primary">Ir a alguna parte</a>
-                </div>
-                
-                <!-- Imagen al lado derecho -->
-                <img src="https://via.placeholder.com/150" class="card-img-end" alt="Imagen de carta">
+        <div class="contenido eliminacion activo">
+
+          <div class ="contenedorEliminar">
+            <div class="container carta">
+              <!-- Carta -->
+              <div class="card" >
+                  <!-- Contenido de la carta -->
+                  <div class="card-body">
+                      <h5 class="card-title">Eliminar dispositivo</h5>
+                      <p class="card-text">¿Estás seguro de que deseas eliminar este dispositivo?<br>
+                        <br>
+                        Esta acción desvinculará permanentemente el dispositivo de tu cuenta.<br>
+                        <br>
+                        Ya no podrás rastrearlo, enviar alertas ni acceder a su historial de ubicaciones.<br>
+                        <br>
+                        Información que perderás:<br>
+                        <ul>
+                          <li>Historial de rutas</li>
+                          <li>Acceso al micrófono y alertas</li>
+                          <li>Reportes asociados</li>
+                        </ul>
+                        </p>
+                      <a href="#" class="btn eliminados">Eliminar</a>
+                  </div>
+              </div>
             </div>
           </div>
         </div>

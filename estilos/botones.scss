@@ -1,13 +1,32 @@
-@use "base" as b;
+@use "colores" as colores;
 
 .seleccionado{
-    background-color: b.$color-seleccionado !important;
+    background-color: colores.$color-seleccionado !important;
 }
 
-.icono-menu{
+.eliminados{
+    background-color: colores.$color-secundario;
+    color: black;
+    border: 0.3px solid black;
+    &:hover{
+        background-color: colores.$color-rojo;
+        color: colores.$color-blanco;
+        border: none;
+    }
+}
+
+.modificar{
+    background-color: colores.$color-blanco;
+    &:hover{
+        background-color: colores.$color-seleccionado;
+        border: none;
+    }
+}
+
+.iconos{
     height: 4vh;
     width: 6vh;
-    background-color: black;
+    background-color: transparent;
     border: none;
     border-radius: 20px;
 }

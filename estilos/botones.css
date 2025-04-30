@@ -2,10 +2,29 @@
   background-color: #e8e9eb !important;
 }
 
-.icono-menu {
+.eliminados {
+  background-color: #f9f7f6;
+  color: black;
+  border: 0.3px solid black;
+}
+.eliminados:hover {
+  background-color: #C32F27;
+  color: #ffffff;
+  border: none;
+}
+
+.modificar {
+  background-color: #ffffff;
+}
+.modificar:hover {
+  background-color: #e8e9eb;
+  border: none;
+}
+
+.iconos {
   height: 4vh;
   width: 6vh;
-  background-color: black;
+  background-color: transparent;
   border: none;
   border-radius: 20px;
 }

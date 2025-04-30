@@ -1,23 +1,41 @@
 #contenedor {
   display: none;
-  height: 71vh;
+  height: 82vh;
   width: 100vw;
   bottom: 0;
   position: fixed;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  background-color: white;
 }
-#contenedor nav {
+#contenedor .navbar {
   grid-area: nav;
-  height: 5vh;
+  height: 10vh;
   border: none;
   width: 100%;
-  background-color: black;
+  padding: 10vh 5vw;
+}
+#contenedor .navbar .navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#contenedor .navbar .navbar-nav .nav-item .icono-navbar {
+  padding: 0.5vh 1.5vw;
+  border-radius: 16px;
+}
+#contenedor .navbar #navbarNav {
+  display: flex;
+  width: 100%;
 }
 #contenedor .botonBajar {
   grid-area: boton;
-  height: 1vh;
+  height: 2vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #contenedores {
@@ -29,30 +47,46 @@
   display: none;
   z-index: 2;
 }
-.contenido .texto {
-  background-color: #2E6A2F;
-  opacity: 80%;
-}
 
 .informacion {
   display: none;
   height: 65vh;
   width: 100vw;
-  background-color: red;
   justify-content: center;
   align-items: end;
-  padding-bottom: 1vh;
+  padding-bottom: 2vh;
 }
 .informacion .contenedorInformacion {
-  background-color: black;
-  height: 50vh;
+  background-color: #2E6A2F;
+  height: 60vh;
   width: 60vw;
   margin-right: 2vw;
+  border-radius: 8px;
 }
 .informacion .dispositivo {
   background-color: aqua;
-  height: 50vh;
+  height: 60vh;
   width: 15vw;
+}
+
+.card {
+  background-color: transparent;
+  border: none;
+}
+
+.eliminacion {
+  display: none;
+  height: 65vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 2vh;
+}
+.eliminacion .contenedorEliminar {
+  background-color: rgba(46, 106, 47, 0.8);
+  height: 60vh;
+  width: 60vw;
+  border-radius: 8px;
 }
 
 .activo {
@@ -62,7 +96,7 @@
 .abierto {
   display: grid !important;
   grid-template-areas: "boton" "nav" "contenedores";
-  grid-template-rows: 1vh 5vh 65vh;
+  grid-template-rows: 2vh 15vh 65vh;
 }
 
 /*# sourceMappingURL=contenedor.css.map */
