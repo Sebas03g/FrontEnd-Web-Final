@@ -1,0 +1,15 @@
+.persona {
+  height: 80vh;
+  width: 20vw;
+  background-color: transparent;
+  background-image: url("../imagenCelular.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 6vh 2vw;
+  position: fixed;
+  left: 40vw;
+  top: 10vh;
+}
+
+/*# sourceMappingURL=contenedorTelefono.css.map */

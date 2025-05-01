@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .dropdown-item {
   animation: none;
   transition: none !important;
@@ -13,37 +12,75 @@
   color: black;
 }
 
-.dropdown {
-  position: relative;
-}
-.dropdown .dropdown-menu {
-  height: 93.75vh;
-  width: 20vw;
-  position: relative;
-  margin-top: 0.6vh !important;
-  background-color: #ffffff;
-  overflow-y: auto;
-  max-height: 93.75vh;
-  z-index: 1;
-  border-radius: 0;
-  padding-bottom: 10vh;
-}
-.dropdown .dropdown-menu .crear-fixed {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.5rem;
-  background-color: #f9f7f6; /* o el color que estés usando */
-  border-top: 1px solid #ddd;
-  z-index: 10;
-}
-.dropdown .dropdown-menu .dropdown-item {
-  height: 50px;
+#botonMenu {
+  margin-left: 1vw;
 }
 
-.seleccionado {
-  background-color: #e8e9eb !important;
+#contenedorMenu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 6vh;
+  z-index: 3;
+  width: 20vw;
+  height: 94vh;
+}
+#contenedorMenu .listaDispositivos {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  padding: 0;
+  overflow-y: auto;
+  text-decoration: none;
+}
+#contenedorMenu .listaDispositivos .elementoDispositivo {
+  height: 5vh;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+#contenedorMenu .listaDispositivos .elementoDispositivo .settingsDispositivo, #contenedorMenu .listaDispositivos .elementoDispositivo .editarDispositivos {
+  display: none;
+}
+#contenedorMenu .listaDispositivos .elementoDispositivo:hover {
+  filter: brightness(95%);
+}
+#contenedorMenu .listaDispositivos .seleccionado {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1vw;
+}
+#contenedorMenu .listaDispositivos .seleccionado:hover {
+  filter: brightness(100%);
+}
+#contenedorMenu .listaDispositivos .seleccionado .settingsDispositivo, #contenedorMenu .listaDispositivos .seleccionado .editarDispositivos {
+  display: flex;
+  align-items: center;
+}
+#contenedorMenu .agregar {
+  background-color: #f9f7f6;
+  border-top: 0.1px solid lightgray;
+  height: 5vh;
+}
+#contenedorMenu .agregar:hover {
+  filter: brightness(80%);
+}
+
+.mostrar {
+  display: flex !important;
 }
 
 /*# sourceMappingURL=menuDispositivos.css.map */

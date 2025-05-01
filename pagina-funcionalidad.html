@@ -12,6 +12,7 @@
   <link href="estilos/funcionalidad/mapa.css" rel="stylesheet">
   <link href="estilos/botones.css" rel="stylesheet">
   <link href="estilos/funcionalidad/encabezado.css" rel="stylesheet">
+  <link href="estilos/funcionalidad/contenedorTelefono.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
@@ -24,45 +25,57 @@
     <!-- JS -->
   <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+  
+
 </head>
 <body>
 
 <header>
-  <section id="encabezado">
-    <div class="dropdown">
-      <button class="iconos seleccionado" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-list"></i>
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <div class="dropdown-item seleccionado">
-            <button id="settingsDispositivo" class="iconos"><i class="bi bi-gear"></i></button>
-            <label>Hola</label>
-            <button id="editarDispositivos" class="iconos"><i class="bi bi-pencil"></i></button>
-          </div>
-        </li>
-        <li><button class="dropdown-item">Mundo</button></li>
-        <li><hr class="dropdown-divider"></li>
-    
-        <!-- Botón fijo al final -->
-        <li class="crear-fixed text-center">
-          <button class="btn">
-            <i class="bi bi-plus-circle"></i>
-          </button>
-        </li>
-      </ul>
+  <section id="dropMenuDispositivos">
+    <div class="menuDispositivos">
+
+      <button id="botonMenu" class="iconos seleccionado btn" type="button"><i class="bi bi-list"></i></button>
+
+      <div id="contenedorMenu">
+        <ul class="listaDispositivos">
+          <li>
+            <div class="elementoDispositivo">
+              <button class="settingsDispositivo iconos"><i class="bi bi-gear"></i></button>
+              <label>Hola</label>
+              <button  class="editarDispositivos iconos"><i class="bi bi-pencil"></i></button>
+            </div>
+          </li>
+          <li>
+            <div class="elementoDispositivo seleccionado">
+              <button class="settingsDispositivo iconos "><i class="bi bi-gear"></i></button>
+              <label>Hola</label>
+              <button class="editarDispositivos iconos "><i class="bi bi-pencil"></i></button>
+            </div>
+          </li>
+        </ul>
+        <button class="btn agregar">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </div>
     </div>
+
     
+
   </section>
+  <label>Funcionalidades</label>
+  <a id="enlaceInformacion">
+    <i class="bi bi-person-circle"></i>
+  </a>
+
 </header>
 
 <main>
-    <section id="menuDispositivos"></section>
+
     <section id="apiMapa">
         <div id="mapa">
         </div>
     </section>
-    <section id="contenedor" class="abierto">
+    <section id="contenedor" class="">
       <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
@@ -129,7 +142,8 @@
             </div>
           </div>
           <div class="dispositivo">
-
+            <p>Hola</p>
+            
           </div>
         </div>
         <div class="contenido permisos">
@@ -246,9 +260,13 @@
         </div>
       </div>
     </section>
+    <section id="seccionPersona">
+      <div class="persona">
+        <p>Hola</p>
+        
+      </div>
+    </section>
 </main>
-
-<footer></footer>
 
 </body>
 </html>

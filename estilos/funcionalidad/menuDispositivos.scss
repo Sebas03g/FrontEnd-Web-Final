@@ -15,40 +15,82 @@
     }
 }
 
-  
-.dropdown {
-    position: relative;
+#botonMenu{
+    margin-left: 1vw;
+}
 
-    .dropdown-menu{
-        height: 93.75vh;
-        width: 20vw;
-        position: relative;
-        margin-top: 0.6vh !important;
-        background-color: colores.$color-blanco;
+#contenedorMenu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: colores.$color-blanco;
+    position: fixed;
+    left: 0;
+    top: 6vh;
+    z-index: 3;
+    width: 20vw;
+    height: 94vh;
+
+    .listaDispositivos{
+        display: flex;
+        flex-direction: column;
+        justify-content:start;
+        width: 100%;
+        height: 100%;
+        list-style-type: none;         
+        padding: 0;
         overflow-y: auto;
-        max-height: 93.75vh;
-        z-index: 1;
-        border-radius: 0;
-        padding-bottom: 10vh;
-    
-        .crear-fixed{
-            position: absolute;
-            bottom: 0;
-            left: 0;
+        text-decoration: none;
+
+        
+
+        .elementoDispositivo{
+            height: 5vh;
             width: 100%;
-            padding: 0.5rem;
-            background-color: colores.$color-secundario; /* o el color que estés usando */
-            border-top: 1px solid #ddd;
-            z-index: 10;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            cursor: pointer;
+
+            .settingsDispositivo,.editarDispositivos{
+                display: none;
+            }
+            &:hover{
+                filter: brightness(95%);
+            }
+            
         }
-    
-        .dropdown-item{
-            height: 50px;
+        .seleccionado{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1vw;
+            &:hover{
+                filter: brightness(100%);
+            }
+            .settingsDispositivo,.editarDispositivos{
+                display: flex;
+                align-items: center;
+            }
         }
-    
     }
+
+    .agregar{
+        background-color: colores.$color-secundario;
+        border-top: 0.1px solid lightgray;
+        height: 5vh;
+        &:hover{
+            filter: brightness(80%);
+        }
+    }
+
 }
-  
-.seleccionado{
-    background-color: colores.$color-seleccionado !important;
+
+.mostrar{
+    display: flex !important;
 }
+

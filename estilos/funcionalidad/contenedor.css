@@ -61,16 +61,17 @@
   height: 60vh;
   width: 60vw;
   margin-right: 2vw;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 .informacion .dispositivo {
   height: 60vh;
-  width: 20vw;
-  margin-right: 2vw;
-  margin: 0;
-  padding: 0;
-  background-image: url("../imagenes/imagenCelular.png");
-  border-radius: 8px;
+  width: 15vw;
+  background-color: transparent;
+  background-image: url("../imagenCelular.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 6vh 2vw;
 }
 
 .card {

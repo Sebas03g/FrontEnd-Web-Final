@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["encabezado.scss","../colores.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA;EACA;EACA,kBCPmB","file":"encabezado.css"}
+{"version":3,"sourceRoot":"","sources":["encabezado.scss","../colores.scss"],"names":[],"mappings":"AAEA;EACI;EACA;EACA;EACA;EACA,kBCPmB;EDQnB,OCNW;;;ADSf;EACI;EACA","file":"encabezado.css"}

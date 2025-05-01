@@ -4,6 +4,12 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: #2E6A2F;
+  color: #ffffff;
+}
+
+#enlaceInformacion {
+  margin-right: 1vw;
+  width: 6vh;
 }
 
 /*# sourceMappingURL=encabezado.css.map */
