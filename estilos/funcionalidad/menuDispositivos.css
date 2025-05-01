@@ -13,7 +13,12 @@
 }
 
 #botonMenu {
-  margin-left: 1vw;
+  margin-left: 2vw;
+}
+@media (min-width: 768px) {
+  #botonMenu {
+    margin-left: 1vw;
+  }
 }
 
 #contenedorMenu {
@@ -23,10 +28,15 @@
   background-color: #ffffff;
   position: fixed;
   left: 0;
-  top: 6vh;
   z-index: 3;
-  width: 20vw;
+  top: 6vh;
+  width: 100vw;
   height: 94vh;
+}
+@media (min-width: 768px) {
+  #contenedorMenu {
+    width: 20vw;
+  }
 }
 #contenedorMenu .listaDispositivos {
   display: flex;
@@ -47,6 +57,7 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  color: black;
   cursor: pointer;
 }
 #contenedorMenu .listaDispositivos .elementoDispositivo .settingsDispositivo, #contenedorMenu .listaDispositivos .elementoDispositivo .editarDispositivos {
@@ -58,13 +69,9 @@
 #contenedorMenu .listaDispositivos .seleccionado {
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   justify-content: space-between;
   padding: 0 1vw;
-}
-#contenedorMenu .listaDispositivos .seleccionado:hover {
-  filter: brightness(100%);
 }
 #contenedorMenu .listaDispositivos .seleccionado .settingsDispositivo, #contenedorMenu .listaDispositivos .seleccionado .editarDispositivos {
   display: flex;

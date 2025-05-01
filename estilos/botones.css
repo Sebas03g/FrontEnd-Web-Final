@@ -1,6 +1,10 @@
 .seleccionado {
   background-color: #e8e9eb !important;
 }
+.seleccionado:hover {
+  filter: brightness(100%);
+  color: initial;
+}
 
 .eliminados {
   background-color: #f9f7f6;
@@ -22,11 +26,15 @@
 }
 
 .iconos {
-  height: 4vh;
-  width: 6vh;
+  padding: 0.1vh 2vw;
   background-color: transparent;
   border: none;
   border-radius: 20px;
+}
+@media (min-width: 768px) {
+  .iconos {
+    padding: 0.5vh 1vw;
+  }
 }
 
 /*# sourceMappingURL=botones.css.map */

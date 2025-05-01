@@ -1,6 +1,6 @@
-function crearIcono(){
+function crearIcono(nombre){
   const icono = L.divIcon({
-    html: '<i class="bi bi-phone-fill" style="font-size: 2rem; color: black;"></i>',
+    html:  `<img src='../estilos/imagenCelular.png' alt='${nombre}' width="20" height="40" style="filter: brightness(50%);">`,
     className: '',
     iconSize: [30, 30],
     iconAnchor: [15, 30],  // punto que toca el suelo
@@ -19,7 +19,7 @@ function crearPopUp(dispositivo){
 }
 
 function crearMarker(lat, long, mapa, dispositivo){
-  const marker = L.marker([lat, long], {icon: crearIcono()}).addTo(mapa).bindPopup(crearPopUp(dispositivo))
+  const marker = L.marker([lat, long], {icon: crearIcono(dispositivo.nombre)}).addTo(mapa).bindPopup(crearPopUp(dispositivo))
   marker.on('click', function () {
     mapa.flyTo(marker.getLatLng(), 14);
     console.log(`${dispositivo.id}`)

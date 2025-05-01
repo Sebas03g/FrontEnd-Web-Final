@@ -16,7 +16,10 @@
 }
 
 #botonMenu{
-    margin-left: 1vw;
+    margin-left: 2vw;
+    @media (min-width: 768px) {
+        margin-left: 1vw;
+    }
 }
 
 #contenedorMenu{
@@ -26,10 +29,15 @@
     background-color: colores.$color-blanco;
     position: fixed;
     left: 0;
-    top: 6vh;
     z-index: 3;
-    width: 20vw;
+    top: 6vh;
+    width: 100vw;
     height: 94vh;
+    @media (min-width: 768px) {
+        width: 20vw;
+      }
+
+    
 
     .listaDispositivos{
         display: flex;
@@ -52,6 +60,7 @@
             justify-content: center;
             align-items: center;
             background-color: white;
+            color: black;
             cursor: pointer;
 
             .settingsDispositivo,.editarDispositivos{
@@ -65,13 +74,9 @@
         .seleccionado{
             width: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
             justify-content: space-between;
             padding: 0 1vw;
-            &:hover{
-                filter: brightness(100%);
-            }
             .settingsDispositivo,.editarDispositivos{
                 display: flex;
                 align-items: center;
