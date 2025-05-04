@@ -12,8 +12,13 @@
   color: black;
 }
 
+#menuDispositivos .seleccionado {
+  color: black !important;
+}
+
 #botonMenu {
   margin-left: 2vw;
+  color: #ffffff !important;
 }
 @media (min-width: 768px) {
   #botonMenu {
@@ -38,7 +43,7 @@
     width: 20vw;
   }
 }
-#contenedorMenu .listaDispositivos {
+#contenedorMenu #listaDispositivos {
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -49,7 +54,7 @@
   overflow-y: auto;
   text-decoration: none;
 }
-#contenedorMenu .listaDispositivos .elementoDispositivo {
+#contenedorMenu #listaDispositivos .elementoDispositivo {
   height: 5vh;
   width: 100%;
   left: 0;
@@ -60,30 +65,36 @@
   color: black;
   cursor: pointer;
 }
-#contenedorMenu .listaDispositivos .elementoDispositivo .settingsDispositivo, #contenedorMenu .listaDispositivos .elementoDispositivo .editarDispositivos {
+#contenedorMenu #listaDispositivos .elementoDispositivo .settingsDispositivo, #contenedorMenu #listaDispositivos .elementoDispositivo .editarDispositivos {
   display: none;
 }
-#contenedorMenu .listaDispositivos .elementoDispositivo:hover {
+#contenedorMenu #listaDispositivos .elementoDispositivo:hover {
   filter: brightness(95%);
 }
-#contenedorMenu .listaDispositivos .seleccionado {
+#contenedorMenu #listaDispositivos .elementoDispositivo label {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+#contenedorMenu #listaDispositivos .seleccionado {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1vw;
 }
-#contenedorMenu .listaDispositivos .seleccionado .settingsDispositivo, #contenedorMenu .listaDispositivos .seleccionado .editarDispositivos {
+#contenedorMenu #listaDispositivos .seleccionado .settingsDispositivo, #contenedorMenu #listaDispositivos .seleccionado .editarDispositivos {
   display: flex;
   align-items: center;
 }
-#contenedorMenu .agregar {
+#contenedorMenu #btn-creacion {
   background-color: #f9f7f6;
   border-top: 0.1px solid lightgray;
   height: 5vh;
 }
-#contenedorMenu .agregar:hover {
-  filter: brightness(80%);
+#contenedorMenu #btn-creacion:hover {
+  color: black !important;
+  background-color: hsl(220, 6%, 92%);
 }
 
 .mostrar {

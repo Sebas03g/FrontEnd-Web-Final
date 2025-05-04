@@ -1,0 +1,45 @@
+@use '../colores' as colores;
+
+#mensajes {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1050;
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .mensaje{
+        background-color: white;
+        min-height: 35vh;
+        width: 35vw;
+        border-radius: 20px;
+        padding: 2vh 2vw;
+        button{
+            border: 0.5px solid black ;
+        }
+        i{
+            cursor: pointer;
+            position: relative;
+            left: 100%;
+        }
+        .eliminar{
+            background-color: colores.$color-rojo;
+            color: white;
+        }
+        .comunicacion{
+            background-color: colores.$color-secundario;
+            color: black;
+            &:hover{
+                background-color: colores.$color-seleccionado;
+            }
+            
+        }
+    }
+    
+}
+
+

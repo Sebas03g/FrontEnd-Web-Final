@@ -15,8 +15,17 @@
     }
 }
 
+#menuDispositivos{
+    .seleccionado{
+        color: black !important;
+    }
+
+}
+
 #botonMenu{
     margin-left: 2vw;
+    color: colores.$color-blanco !important;
+    
     @media (min-width: 768px) {
         margin-left: 1vw;
     }
@@ -37,9 +46,7 @@
         width: 20vw;
       }
 
-    
-
-    .listaDispositivos{
+    #listaDispositivos{
         display: flex;
         flex-direction: column;
         justify-content:start;
@@ -69,6 +76,11 @@
             &:hover{
                 filter: brightness(95%);
             }
+            label{
+                width: 100%;
+                text-align: center;
+                cursor: pointer;
+            }
             
         }
         .seleccionado{
@@ -84,12 +96,14 @@
         }
     }
 
-    .agregar{
+    #btn-creacion{
         background-color: colores.$color-secundario;
         border-top: 0.1px solid lightgray;
         height: 5vh;
         &:hover{
-            filter: brightness(80%);
+            color: black !important;
+            background-color: hsl(220, 6%, 92%);
+            ;
         }
     }
 

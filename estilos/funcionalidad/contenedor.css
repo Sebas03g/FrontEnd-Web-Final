@@ -25,6 +25,10 @@
   padding: 0.5vh 1.5vw;
   border-radius: 16px;
 }
+#contenedor .navbar .navbar-nav .nav-item a {
+  cursor: pointer;
+  text-align: center;
+}
 #contenedor .navbar #navbarNav {
   display: flex;
   width: 100%;
@@ -45,7 +49,46 @@
 
 .contenido {
   display: none;
-  z-index: 2;
+  height: 65vh;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: end;
+  padding-bottom: 2vh;
+}
+.contenido .informacionContenido {
+  width: 70vw;
+  height: 60vh;
+  margin-left: 0;
+  padding: 0;
+}
+.contenido .informacionContenido .card {
+  display: flex;
+  flex-direction: row !important;
+  background-color: rgba(46, 106, 47, 0.1490196078);
+  justify-content: space-evenly;
+  align-items: start;
+  height: 60vh;
+  width: 100%;
+  border-radius: 0;
+}
+.contenido .informacionContenido .card .card-body {
+  width: 100%;
+  height: 100%;
+}
+.contenido .informacionContenido #mapaUbicacion {
+  width: 30vw;
+  height: 60vh;
+}
+.contenido .busqueda {
+  width: 20vw;
+  height: 60vh;
+  background-color: #f9f7f6;
+  margin-right: 0;
+}
+.contenido .busqueda .list-group {
+  list-style-type: none;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 .informacion {
@@ -62,21 +105,76 @@
   width: 60vw;
   margin-right: 2vw;
   border-radius: 16px;
+  padding: 5vh 1vw;
+}
+.informacion .contenedorInformacion .carta {
+  display: flex;
+  flex-direction: row !important;
+}
+.informacion .contenedorInformacion .carta #codigo {
+  display: flex;
+  flex-direction: row;
+}
+.informacion .contenedorInformacion .carta #codigo i {
+  margin-left: 1vw;
+  cursor: pointer;
+}
+.informacion .contenedorInformacion .carta .contenedorMensaje button {
+  margin-top: 0.5vh;
+  background-color: #ffffff;
+  color: black;
+  border: none;
+}
+.informacion .contenedorInformacion .carta .contenedorMensaje button:hover {
+  filter: brightness(95%);
+}
+.informacion .contenedorInformacion .card {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.informacion .contenedorInformacion .btnModificar {
+  width: 30vw;
+  height: 5vh;
+  text-align: center;
+  background-color: #ffffff !important;
+}
+.informacion .contenedorInformacion .btnModificar:hover {
+  filter: brightness(95%);
+}
+@media (min-width: 768px) {
+  .informacion .contenedorInformacion .btnModificar {
+    width: 15vw;
+    height: 4vh;
+  }
 }
 .informacion .dispositivo {
   height: 60vh;
-  width: 15vw;
+  width: auto;
   background-color: transparent;
-  background-image: url("../imagenCelular.png");
+  background-image: url("../../imagenes/imagenCelular.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   padding: 6vh 2vw;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.informacion .dispositivo i {
+  color: #C32F27;
+}
+.informacion .dispositivo img {
+  height: auto;
+  width: 13vw;
 }
 
 .card {
-  background-color: rgba(46, 106, 47, 0.1490196078);
   border: none;
+  background-color: transparent;
 }
 
 .eliminacion {
@@ -94,6 +192,9 @@
   width: 60vw;
   border-radius: 8px;
 }
+.eliminacion .contenedorEliminar .card {
+  background-color: rgba(46, 106, 47, 0.1490196078);
+}
 
 .elementoLista {
   width: 100%;
@@ -107,7 +208,7 @@
   filter: brightness(95%);
 }
 
-.permisos {
+.personas {
   display: none;
   height: 65vh;
   width: 100vw;
@@ -115,22 +216,13 @@
   align-items: end;
   padding-bottom: 2vh;
 }
-.permisos .busqueda {
-  width: 20vw;
-  height: 60vh;
-  background-color: #f9f7f6;
-  margin-right: 0;
-}
-.permisos .busqueda .list-group {
-  list-style-type: none;
-}
-.permisos .informacionPermiso {
+.personas .informacionPersonas {
   width: 70vw;
   height: 60vh;
   margin-left: 0;
   padding: 0;
 }
-.permisos .informacionPermiso .card {
+.personas .informacionPersonas .card {
   display: flex;
   flex-direction: row !important;
   justify-content: space-evenly;
@@ -139,11 +231,11 @@
   width: 100%;
   border-radius: 0;
 }
-.permisos .informacionPermiso .card .card-body {
+.personas .informacionPersonas .card .card-body {
   width: 60%;
   height: 100%;
 }
-.permisos .informacionPermiso .card .card-img {
+.personas .informacionPersonas .card .card-img {
   width: 40%;
   height: 100%;
 }

@@ -1,9 +1,9 @@
 @use '../colores' as colores;
 @use '../imagenes' as imagenes;
 
-.persona{
+.contenedor-dispositivo {
     display: none;
-    position:fixed;
+    position: fixed;
     width: 96vw;
     height: 92vh;
     background-color: colores.$color-blanco;
@@ -11,23 +11,61 @@
     top: 7vh;
     left: 2vw;
     border-radius: 5px;
+  
+    @media (min-width: 768px) {
+      height: 80vh;
+      width: auto;
+      min-width: 20vw;
+      background-color: transparent;
+      background-image: url('../../imagenes/imagenCelular.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 3vh 2vw;
+      left: 40vw;
+      top: 10vh;
+      border-radius: 0;
 
-    @media (min-width: 768px){
-        height: 80vh;
-        width: 20vw;
-        background-color: transparent;
-        background-image: url('../imagenCelular.png');
-        background-size: 100% 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 6vh 2vw;
-        left: 40vw;
-        top: 10vh;
-        border-radius: none;
+      .formulario{
+        padding-top: 2vh;
+      }
     }
 
+    .botonCerrarDispositivo{
+        font-size: large;
+        cursor:initial;
+        i{
+            cursor: pointer;
+        }
+    }
+  
 }
 
-.activo{
+.activo {
     display: flex;
+  }
+
+.contenedorIconos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
 }
+.micDispostivo{
+    i{
+        cursor: pointer;
+    }
+}
+
+#seccionPersona{
+    .btn-primary{
+        background-color: colores.$color-secundario;
+        color: black;
+        border: 0.5px solid black;
+        &:hover{
+            background-color: colores.$color-seleccionado;
+        }
+    }
+}
+  

@@ -1,4 +1,4 @@
-.persona {
+.contenedor-dispositivo {
   display: none;
   position: fixed;
   width: 96vw;
@@ -10,23 +10,54 @@
   border-radius: 5px;
 }
 @media (min-width: 768px) {
-  .persona {
+  .contenedor-dispositivo {
     height: 80vh;
-    width: 20vw;
+    width: auto;
+    min-width: 20vw;
     background-color: transparent;
-    background-image: url("../imagenCelular.png");
+    background-image: url("../../imagenes/imagenCelular.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 6vh 2vw;
+    padding: 3vh 2vw;
     left: 40vw;
     top: 10vh;
-    border-radius: none;
+    border-radius: 0;
   }
+  .contenedor-dispositivo .formulario {
+    padding-top: 2vh;
+  }
+}
+.contenedor-dispositivo .botonCerrarDispositivo {
+  font-size: large;
+  cursor: initial;
+}
+.contenedor-dispositivo .botonCerrarDispositivo i {
+  cursor: pointer;
 }
 
 .activo {
   display: flex;
+}
+
+.contenedorIconos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.micDispostivo i {
+  cursor: pointer;
+}
+
+#seccionPersona .btn-primary {
+  background-color: #f9f7f6;
+  color: black;
+  border: 0.5px solid black;
+}
+#seccionPersona .btn-primary:hover {
+  background-color: #e8e9eb;
 }
 
 /*# sourceMappingURL=contenedorTelefono.css.map */

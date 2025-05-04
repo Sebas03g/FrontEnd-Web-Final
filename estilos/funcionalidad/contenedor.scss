@@ -31,6 +31,10 @@
                     padding: 0.5vh 1.5vw;
                     border-radius: 16px;
                 }
+                a{
+                    cursor: pointer;
+                    text-align: center;
+                }
             }
         }
         #navbarNav{
@@ -58,7 +62,50 @@
 
 .contenido {
     display: none;
-    z-index: 2;
+    height: 65vh;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: end;
+    padding-bottom: 2vh;
+    .informacionContenido{
+        width: 70vw;
+        height: 60vh;
+        margin-left: 0;
+        padding: 0;
+
+        .card{
+            display: flex;
+            flex-direction: row !important;
+            background-color: colores.$color-fondo-verde;
+            justify-content: space-evenly;
+            align-items: start;
+            height: 60vh;
+            width: 100%;
+            border-radius: 0;
+            .card-body{
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        #mapaUbicacion{
+            width: 30vw;
+            height: 60vh;
+        }
+    }
+
+    .busqueda{
+        width: 20vw;
+        height: 60vh;
+        background-color: colores.$color-secundario;
+        margin-right: 0 ;
+        .list-group{
+            list-style-type: none;
+            max-height: 60vh;
+            overflow-y: auto;     
+        }
+    }
+
 
 }
 .informacion {
@@ -68,6 +115,7 @@
     justify-content: center;
     align-items: end;
     padding-bottom: 2vh;
+
     
 
     .contenedorInformacion {
@@ -76,25 +124,84 @@
         width: 60vw;
         margin-right: 2vw; 
         border-radius: 16px;
+        padding: 5vh 1vw;
+        .carta{
+            display: flex;
+            flex-direction: row !important;
+            #codigo{
+                display:flex;
+                flex-direction: row;
+                i{
+                    margin-left: 1vw;
+                    cursor: pointer;
+                }
+            }
+            .contenedorMensaje{
+                button{
+                    margin-top: 0.5vh;
+                    background-color: colores.$color-blanco;
+                    color: black;
+                    border: none;
+                    &:hover{
+                        filter: brightness(95%);
+                    }
+                }
+            }
+        }
+        .card{
+            height: 50vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .btnModificar{
+            
+            width: 30vw;
+            height: 5vh;
+            text-align: center;
+
+            background-color: colores.$color-blanco !important;
+
+            &:hover{
+                filter: brightness(95%);
+            }
+
+            @media (min-width: 768px) {
+                width: 15vw;
+                height: 4vh;
+            }
+        }
       }
       
       .dispositivo {
         height: 60vh;
-        width: 15vw;
+        width: auto;
         background-color: transparent;
-        background-image: url('../imagenCelular.png');
+        background-image: url('../../imagenes/imagenCelular.png');
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
         padding: 6vh 2vw;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center ;
+        justify-content: space-evenly;
+        i{
+            color: colores.$color-rojo;
+        }
+        img{
+            height: auto;
+            width: 13vw;
+        }
 
       }
 
 }
 
 .card{
-    background-color: colores.$color-fondo-verde;
     border: none;
+    background-color: transparent;
 }
 
 .eliminacion{
@@ -111,7 +218,10 @@
         height: 60vh;
         width: 60vw;
         border-radius: 8px;
-      }
+        .card{
+            background-color: colores.$color-fondo-verde;
+        }
+    }
 }
 
 .elementoLista{
@@ -126,24 +236,14 @@
     }
 }
 
-.permisos{
+.personas{
     display: none;
     height: 65vh;
     width: 100vw;
     justify-content: space-around;
     align-items: end;
     padding-bottom: 2vh;
-
-    .busqueda{
-        width: 20vw;
-        height: 60vh;
-        background-color: colores.$color-secundario;
-        margin-right: 0 ;
-        .list-group{
-            list-style-type: none;      
-        }
-    }
-    .informacionPermiso{
+    .informacionPersonas{
         width: 70vw;
         height: 60vh;
         margin-left: 0;

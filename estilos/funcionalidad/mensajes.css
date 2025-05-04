@@ -1,0 +1,40 @@
+#mensajes {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1050;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#mensajes .mensaje {
+  background-color: white;
+  min-height: 35vh;
+  width: 35vw;
+  border-radius: 20px;
+  padding: 2vh 2vw;
+}
+#mensajes .mensaje button {
+  border: 0.5px solid black;
+}
+#mensajes .mensaje i {
+  cursor: pointer;
+  position: relative;
+  left: 100%;
+}
+#mensajes .mensaje .eliminar {
+  background-color: #C32F27;
+  color: white;
+}
+#mensajes .mensaje .comunicacion {
+  background-color: #f9f7f6;
+  color: black;
+}
+#mensajes .mensaje .comunicacion:hover {
+  background-color: #e8e9eb;
+}
+
+/*# sourceMappingURL=mensajes.css.map */
