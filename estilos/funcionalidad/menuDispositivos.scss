@@ -40,11 +40,16 @@
     left: 0;
     z-index: 3;
     top: 6vh;
-    width: 100vw;
+    
     height: 94vh;
-    @media (min-width: 768px) {
-        width: 20vw;
-      }
+    width: 20vw;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+        width: 40vw;
+    }
+    @media (max-width: 768px) {
+        width: 100vw;
+    }
 
     #listaDispositivos{
         display: flex;

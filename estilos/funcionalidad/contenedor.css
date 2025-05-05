@@ -15,10 +15,17 @@
   width: 100%;
   padding: 10vh 5vw;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  #contenedor .navbar {
+    height: 3vh;
+    padding: 3vh 5vw;
+  }
+}
 #contenedor .navbar .navbar-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   width: 100%;
 }
 #contenedor .navbar .navbar-nav .nav-item .icono-navbar {
@@ -55,11 +62,21 @@
   align-items: end;
   padding-bottom: 2vh;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contenido {
+    align-items: start;
+  }
+}
 .contenido .informacionContenido {
   width: 70vw;
   height: 60vh;
   margin-left: 0;
   padding: 0;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contenido .informacionContenido {
+    width: 70vw;
+  }
 }
 .contenido .informacionContenido .card {
   display: flex;
@@ -79,6 +96,11 @@
   width: 30vw;
   height: 60vh;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contenido .informacionContenido #mapaUbicacion {
+    width: 40vw;
+  }
+}
 .contenido .busqueda {
   width: 20vw;
   height: 60vh;
@@ -90,6 +112,28 @@
   max-height: 60vh;
   overflow-y: auto;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contenido .busqueda {
+    width: 30vw;
+  }
+}
+.contenido .btn-primary {
+  width: 30vw;
+  height: 5vh;
+  text-align: center;
+  background-color: #ffffff !important;
+  color: black;
+  border: none;
+}
+.contenido .btn-primary:hover {
+  filter: brightness(95%);
+}
+@media (min-width: 768px) {
+  .contenido .btn-primary {
+    width: 15vw;
+    height: 4vh;
+  }
+}
 
 .informacion {
   display: none;
@@ -98,6 +142,11 @@
   justify-content: center;
   align-items: end;
   padding-bottom: 2vh;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .informacion {
+    align-items: start;
+  }
 }
 .informacion .contenedorInformacion {
   background-color: rgba(46, 106, 47, 0.1490196078);
@@ -136,18 +185,23 @@
   justify-content: space-between;
 }
 .informacion .contenedorInformacion .btnModificar {
-  width: 30vw;
-  height: 5vh;
   text-align: center;
+  width: 15vw;
+  height: 4vh;
   background-color: #ffffff !important;
 }
 .informacion .contenedorInformacion .btnModificar:hover {
   filter: brightness(95%);
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .informacion .contenedorInformacion .btnModificar {
-    width: 15vw;
-    height: 4vh;
+    height: 2.5vh;
+  }
+}
+@media (max-width: 768px) {
+  .informacion .contenedorInformacion .btnModificar {
+    width: 30vw;
+    height: 5vh;
   }
 }
 .informacion .dispositivo {
@@ -159,10 +213,20 @@
   background-position: center;
   background-repeat: no-repeat;
   padding: 6vh 2vw;
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+}
+@media (min-width: 768px) {
+  .informacion .dispositivo {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .informacion .dispositivo {
+    height: 40vh;
+    width: 30vw;
+  }
 }
 .informacion .dispositivo i {
   color: #C32F27;
@@ -185,12 +249,23 @@
   align-items: end;
   padding-bottom: 2vh;
 }
+@media (min-width: 768px) and (max-width: 1023px) {
+  .eliminacion {
+    align-items: start;
+  }
+}
 .eliminacion .contenedorEliminar {
   display: flex;
   align-items: center;
   height: 60vh;
   width: 60vw;
   border-radius: 8px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .eliminacion .contenedorEliminar {
+    align-items: start;
+    width: 80vw;
+  }
 }
 .eliminacion .contenedorEliminar .card {
   background-color: rgba(46, 106, 47, 0.1490196078);
@@ -215,6 +290,11 @@
   justify-content: space-around;
   align-items: end;
   padding-bottom: 2vh;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .personas {
+    align-items: start;
+  }
 }
 .personas .informacionPersonas {
   width: 70vw;

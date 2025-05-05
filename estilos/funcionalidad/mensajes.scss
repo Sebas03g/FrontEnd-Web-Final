@@ -18,6 +18,13 @@
         width: 35vw;
         border-radius: 20px;
         padding: 2vh 2vw;
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            padding: 1vh 4vw;
+            width: 70vw;
+            min-height: 20vh;
+        }   
+
         button{
             border: 0.5px solid black ;
         }
