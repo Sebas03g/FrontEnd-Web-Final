@@ -37,4 +37,25 @@
   }
 }
 
+.btnModificar {
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: #ffffff !important;
+}
+.btnModificar:hover {
+  filter: brightness(95%);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .btnModificar {
+    height: 2.5vh;
+  }
+}
+@media (max-width: 768px) {
+  .btnModificar {
+    width: 30vw;
+    height: 5vh;
+  }
+}
+
 /*# sourceMappingURL=botones.css.map */

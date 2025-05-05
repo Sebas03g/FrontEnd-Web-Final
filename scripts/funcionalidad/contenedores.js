@@ -114,11 +114,11 @@ function funcionalidadBusquedaLista(lista, funcion, listaBotones){
         nuevoBoton.textContent = elemento.nombre;
         nuevoBoton.dataset.id = elemento.id;
 
+        nuevoElementoLista.appendChild(nuevoBoton);
+
         nuevoElementoLista.addEventListener("click", () => {
             funcion(listaBotones, nuevoBoton, elemento);
         });
-
-        nuevoElementoLista.appendChild(nuevoBoton);
             
         listaBotones.appendChild(nuevoElementoLista);
     });

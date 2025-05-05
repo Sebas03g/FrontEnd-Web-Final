@@ -163,7 +163,7 @@
       </nav>
       <div id="contenedores">
         <div class="hijo informacion activo" id="contenedorInformacion">
-          <div class ="contenedorInformacion">
+          <div class ="informacionContenido">
             <div class="iconoMobil d-block d-sm-none">
               <i class="icono-navbar bi bi-info-circle" id="iconoDispositivoMobil"></i>
             </div>
@@ -300,7 +300,7 @@
                         <option value="red">Inseguro</option>
                       </select>
                     </div>
-                    <button class="btn btn-primary">
+                    <button class="btn btnModificar">
                       Aceptar
                     </button>
                 </div>
@@ -314,7 +314,7 @@
                 <label for="busquedaPC" class="form-label">Personas de Confianza</label>
                 <input type="text" class="form-control input-busqueda" id="busquedaPC" data-id-lista = "listaPersonas" placeholder="Escriba aquí">
             </div>
-            <ul class="list-group" id="listaPersonas">
+            <ul class="list-group d-none d-md-block" id="listaPersonas">
               <li>
                 <button class="elementoLista">
                   Permiso 1
@@ -349,7 +349,7 @@
                       <label for="comentario" class="form-label">Descripcion</label>
                       <textarea class="form-control" id="descripcionPersona" rows="4" placeholder="Escribe la descripcion de la persona aquí..."></textarea>
                     </div>
-                    <button class="btn btn-primary">
+                    <button class="btn btnModificar">
                       Aceptar
                     </button>
                 </div>

@@ -1,3 +1,8 @@
+.card {
+  border: none;
+  background-color: transparent;
+}
+
 #contenedor {
   display: none;
   height: 82vh;
@@ -106,11 +111,24 @@
   height: 60vh;
   background-color: #f9f7f6;
   margin-right: 0;
+  display: flex !important;
+  flex-direction: column;
 }
 .contenido .busqueda .list-group {
   list-style-type: none;
-  max-height: 60vh;
+  height: 100%;
   overflow-y: auto;
+  width: 100%;
+}
+.contenido .busqueda .list-group .elementoLista {
+  width: 100%;
+  height: 80px;
+  border: none;
+  background-color: #f9f7f6;
+  text-align: left;
+}
+.contenido .busqueda .list-group .elementoLista:hover {
+  filter: brightness(95%);
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .contenido .busqueda {
@@ -148,7 +166,7 @@
     align-items: start;
   }
 }
-.informacion .contenedorInformacion {
+.informacion .informacionContenido {
   background-color: rgba(46, 106, 47, 0.1490196078);
   height: 60vh;
   width: 60vw;
@@ -156,53 +174,33 @@
   border-radius: 16px;
   padding: 5vh 1vw;
 }
-.informacion .contenedorInformacion .carta {
+.informacion .informacionContenido .carta {
   display: flex;
   flex-direction: row !important;
 }
-.informacion .contenedorInformacion .carta #codigo {
+.informacion .informacionContenido .carta #codigo {
   display: flex;
   flex-direction: row;
 }
-.informacion .contenedorInformacion .carta #codigo i {
+.informacion .informacionContenido .carta #codigo i {
   margin-left: 1vw;
   cursor: pointer;
 }
-.informacion .contenedorInformacion .carta .contenedorMensaje button {
+.informacion .informacionContenido .carta .contenedorMensaje button {
   margin-top: 0.5vh;
   background-color: #ffffff;
   color: black;
   border: none;
 }
-.informacion .contenedorInformacion .carta .contenedorMensaje button:hover {
+.informacion .informacionContenido .carta .contenedorMensaje button:hover {
   filter: brightness(95%);
 }
-.informacion .contenedorInformacion .card {
+.informacion .informacionContenido .card {
   height: 50vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-.informacion .contenedorInformacion .btnModificar {
-  text-align: center;
-  width: 15vw;
-  height: 4vh;
-  background-color: #ffffff !important;
-}
-.informacion .contenedorInformacion .btnModificar:hover {
-  filter: brightness(95%);
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .informacion .contenedorInformacion .btnModificar {
-    height: 2.5vh;
-  }
-}
-@media (max-width: 768px) {
-  .informacion .contenedorInformacion .btnModificar {
-    width: 30vw;
-    height: 5vh;
-  }
+  overflow-y: auto;
 }
 .informacion .dispositivo {
   height: 60vh;
@@ -236,11 +234,6 @@
   width: 13vw;
 }
 
-.card {
-  border: none;
-  background-color: transparent;
-}
-
 .eliminacion {
   display: none;
   height: 65vh;
@@ -269,18 +262,7 @@
 }
 .eliminacion .contenedorEliminar .card {
   background-color: rgba(46, 106, 47, 0.1490196078);
-}
-
-.elementoLista {
-  width: 100%;
-  height: 10vh;
-  border: none;
-  background-color: transparent;
-  text-align: left;
-  background-color: #f9f7f6;
-}
-.elementoLista:hover {
-  filter: brightness(95%);
+  height: 60vh;
 }
 
 .personas {
@@ -296,26 +278,26 @@
     align-items: start;
   }
 }
-.personas .informacionPersonas {
+.personas .informacionContenido {
   width: 70vw;
   height: 60vh;
   margin-left: 0;
   padding: 0;
 }
-.personas .informacionPersonas .card {
+.personas .informacionContenido .card {
   display: flex;
   flex-direction: row !important;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: start;
   height: 60vh;
   width: 100%;
   border-radius: 0;
 }
-.personas .informacionPersonas .card .card-body {
+.personas .informacionContenido .card .card-body {
   width: 60%;
   height: 100%;
 }
-.personas .informacionPersonas .card .card-img {
+.personas .informacionContenido .card .card-img {
   width: 40%;
   height: 100%;
 }
