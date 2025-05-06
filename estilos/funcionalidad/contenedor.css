@@ -127,6 +127,10 @@
 .contenido .informacionContenido .card .card-body {
   width: 100%;
   height: 100%;
+  overflow-y: hidden;
+}
+.contenido .informacionContenido .card .card-body:hover {
+  overflow-y: auto;
 }
 @media (max-width: 768px) {
   .contenido .informacionContenido .card {
@@ -148,18 +152,26 @@
   height: 60vh;
   background-color: #f9f7f6;
   margin-right: 0;
-  display: flex;
-  flex-direction: columns;
+}
+@media (min-width: 768px) {
+  .contenido .busqueda {
+    display: flex !important;
+    flex-direction: column;
+  }
 }
 .contenido .busqueda .list-group {
   list-style-type: none;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
   width: 100%;
+}
+.contenido .busqueda .list-group:hover {
+  overflow-y: auto;
 }
 .contenido .busqueda .list-group .elementoLista {
   width: 100%;
   height: 60px;
+  padding-left: 5px;
   border: none;
   background-color: #f9f7f6;
   text-align: left;
@@ -266,6 +278,9 @@
 }
 @media (min-width: 768px) {
   .informacion .informacionContenido .card {
+    overflow-y: hidden;
+  }
+  .informacion .informacionContenido .card:hover {
     overflow-y: auto;
   }
 }
@@ -285,6 +300,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+  }
+}
+@media (max-width: 768px) {
+  .informacion .dispositivo {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 5;
+    top: 14vh;
+    left: 5vw;
+    padding: 3vh 4vw;
+    height: 300px;
+    width: auto;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -394,8 +424,8 @@
 .personas .informacionContenido .card {
   display: flex;
   flex-direction: row !important;
-  justify-content: center;
-  align-items: end;
+  justify-content: start;
+  align-items: start;
   height: 60vh;
   width: 100%;
   border-radius: 0;

@@ -8,6 +8,14 @@ function agregarFuncionalidadNav(){
         listaElementos.classList.toggle("mostrar");
         agregarFuncionalidadLinkNav(listaElementos.querySelectorAll("li"));
     });
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("menuNavMobil").querySelector(".iconoMobil") != e.target){
+            elemento.classList.remove("seleccionado")
+            listaElementos.classList.remove("mostrar");
+            console.log("SI");
+            console.log(e.target)
+        }
+    });
 }
 
 function agregarFuncionalidadLinkNav(listaElementos){
@@ -27,13 +35,39 @@ function agregarFuncionalidadContenedor(dispositivos){
     dispositivos.forEach(dispositivo => {
             dispositivo.querySelector(".settingsDispositivo").addEventListener('click',() => {
                 agregarFuncionalidadNav();
+                agregarFuncionalidadIconos();
             });
         });
+}
+
+function iconoInformacion(){
+    document.getElementById("iconoDispositivoMobil").addEventListener("click", () => {
+        document.getElementById("contenedorInformacion").querySelector(".dispositivo").classList.toggle("mostrar");
+    });
+}
+
+function iconosPermisos(){
+
+}
+
+function iconosUbicacion(){
+
+}
+
+function iconosPersonas(){
+
+}
+
+function agregarFuncionalidadIconos(){
+    iconoInformacion();
+    iconosPermisos();
+    iconosUbicacion();
+    iconosPersonas();
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const dispositivos = document.getElementById("listaDispositivos").querySelectorAll(".elementoDispositivo");   
     agregarFuncionalidadContenedor(dispositivos);
-    
 
 });
