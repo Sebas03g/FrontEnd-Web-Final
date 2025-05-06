@@ -102,6 +102,8 @@ function accionesNavBar(elementosNav){
 function accionBotonMenu(botonMenu){
     botonMenu.addEventListener("click", () => {
         document.getElementById("contenedor").classList.remove("abierto")
+        document.getElementById("menuNavMobil").querySelector(".iconoMobil").classList.remove("seleccionado")
+        document.getElementById("menuNavMobil").querySelector(".linksNavMobil").classList.remove("mostrar");
     })
 }
 
@@ -186,6 +188,8 @@ function crearContenedorInformacion(){
     document.getElementById("timpoViajeDispositivo").textContent = `Tiempo de ultimo viaje: ${persona.tiempoViaje}`;
     document.getElementById("codigoUsuario").textContent = persona.codigo;
     document.getElementById("imagenPersona").src = persona.imagen;
+
+    document.getElementById("modificarDispositivo").dataset.idDispositivo = idDispositivo;
 
 }
 function crearContenedorPermisos() {

@@ -44,6 +44,14 @@ function accionesDispositivos(dispositivos){
             document.getElementById("creacionPersona").classList.remove("abierto");
         });
     });
+
+    document.getElementById("modificarDispositivo").addEventListener('click', () => {
+        idDispositivo = document.getElementById("modificarDispositivo").dataset.idDispositivo;;
+        cartaDispositivos();
+        document.getElementById("modificarPersona").classList.toggle("abierto");
+        document.getElementById("contenedor").classList.remove("abierto");
+        document.getElementById("creacionPersona").classList.remove("abierto");
+    });
 }
 
 function cartaDispositivos(){

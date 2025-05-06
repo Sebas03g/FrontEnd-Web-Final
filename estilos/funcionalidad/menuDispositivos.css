@@ -46,6 +46,10 @@
 @media (max-width: 768px) {
   #contenedorMenu {
     width: 100vw;
+    height: 40vh;
+    top: 60vh;
+    bottom: 0;
+    overflow-y: auto;
   }
 }
 #contenedorMenu #listaDispositivos {
