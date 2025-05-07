@@ -14,6 +14,7 @@
   background-color: white;
   height: fit-content;
   width: fit-content;
+  max-width: 80vw;
   border-radius: 20px;
   padding: 2vh 2vw;
 }
@@ -22,6 +23,11 @@
     padding: 1vh 4vw;
     width: 70vw;
     min-height: 20vh;
+  }
+}
+@media (max-width: 768px) {
+  #mensajes .mensaje {
+    padding: 1vh 6vw;
   }
 }
 #mensajes .mensaje button {

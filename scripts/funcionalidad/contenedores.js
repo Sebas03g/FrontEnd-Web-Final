@@ -244,7 +244,7 @@ function crearCartaPermiso(padre, elemento, permiso, nivel) {
     document.getElementById("nombrePermiso").textContent = permiso.nombre;
     document.getElementById("nivelPermiso").textContent = `Nivel ${nivel}`;
     document.getElementById("descripcionPermiso").textContent = permiso.descripcion;
-    document.getElementById("contenedorPermisos").querySelector(".bi-info-circle-fill").addEventListener("click", () => {
+    document.getElementById("contenedorPermisos").querySelectorAll(".bi-info-circle-fill").forEach(elemento => elemento.addEventListener("click", () => {
         funcionPanelMensaje("Niveles", `Existen tres niveles, que afectan como interacciona el gestionador con el sistema:<br>
                             Nivel 1:<br>
                             Permite al gestionador interactuar todo el tiempo con el permiso, sin notificacion<br>
@@ -253,7 +253,7 @@ function crearCartaPermiso(padre, elemento, permiso, nivel) {
                             Nivel 3:<br>
                             Permite al gestionador interactuar con el permiso unicamente si el dispositivo esta en modo perdida`, "comunicacion", "Aceptar"
                             )
-    });
+    }));
 
 }
 
@@ -263,10 +263,39 @@ function crearContenedorUbicacion(){
     let listBotonesUbicaciones = document.getElementById("listaUbicaciones");
     listBotonesUbicaciones.innerHTML = "";
 
+    document.getElementById("crearUbicacion").addEventListener("click", () => crearUbicacion(Array.from(listBotonesUbicaciones.querySelectorAll(".elementoLista"))));
+
     funcionalidadBusquedaLista(listaUbicaciones, crearCartaUbicacion, listBotonesUbicaciones);
 
     crearCartaUbicacion(listBotonesUbicaciones, Array.from(listBotonesUbicaciones.querySelectorAll(".elementoLista"))
     .find(l => l.dataset.id = listaUbicaciones[0].id), listaUbicaciones[0]);
+}
+
+function crearUbicacion(listaBotones){
+
+    document.getElementById("nombreUbicacion").value = "";
+    document.getElementById("descripcionUbicacion").textContent = "";
+    document.getElementById("miComboboxSeguridad").value = "";
+    eliminarClase(listaBotones, "seleccionado");
+
+    if (mapaUbicacion) {
+        mapaUbicacion.remove(); // destruye el mapa anterior
+        mapaUbicacion = null;
+    }
+
+    // Creamos el nuevo mapa
+    mapaUbicacion = L.map(document.getElementById("mapaUbicacion"), {
+        center: [-2.8918931908671124, -79.03600936098859],
+        zoom: 20,
+        zoomControl: false
+    });
+
+    document.getElementById("mapaUbicacion")._leafletMap = mapaUbicacion;
+
+    const mapa = document.getElementById("mapaUbicacion")._leafletMap;
+
+    mapa.invalidateSize();
+
 }
 
 function crearCartaUbicacion(padre,elemento, elementoUbicacion){
@@ -278,6 +307,8 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     document.getElementById("nombreUbicacion").value = elementoUbicacion.nombre;
     document.getElementById("descripcionUbicacion").textContent = elementoUbicacion.descripcion;
     document.getElementById("miComboboxSeguridad").value = elementoUbicacion.tipo;
+    
+    mapa.invalidateSize();
 }
 
 function generarPuntos(elementoUbicacion, mapa){
@@ -309,11 +340,13 @@ function crearMapa(elementoUbicacion) {
     }
 
     // Creamos el nuevo mapa
-    mapaUbicacion = L.map('mapaUbicacion', {
+    mapaUbicacion = L.map(document.getElementById("mapaUbicacion"), {
         center: elementoUbicacion.punto,
         zoom: 14,
         zoomControl: false
     });
+
+    document.getElementById("mapaUbicacion")._leafletMap = mapaUbicacion;
 
     L.control.zoom({
         position: 'bottomright'
@@ -332,10 +365,20 @@ function crearContenedorPersonas(){
     let listBotonesPersonas = document.getElementById("listaPersonas");
     listBotonesPersonas.innerHTML = "";
 
+    document.getElementById("crearPC").addEventListener("click", () => crearPC( Array.from(listBotonesPersonas.querySelectorAll(".elementoLista"))));
+
     funcionalidadBusquedaLista(listaPersonasConfianza, crearCartaPC, listBotonesPersonas);
 
     crearCartaPC(listBotonesPersonas, Array.from(listBotonesPersonas.querySelectorAll(".elementoLista"))
     .find(l => l.dataset.id = listaPersonasConfianza[0].id), listaPersonasConfianza[0]);
+}
+
+function crearPC(listaBotones){
+    document.getElementById("nombrePersona").value = "";
+    document.getElementById("telefonoPersona").value = "";
+    document.getElementById("descripcionPersona").value = "";
+
+    eliminarClase(listaBotones, "seleccionado");
 }
 
 function crearCartaPC(padre,elemento, elementoPersonaConfianza){

@@ -132,6 +132,16 @@
 .contenido .informacionContenido .card .card-body:hover {
   overflow-y: auto;
 }
+.contenido .informacionContenido .card .card-body .iconoMobil {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .contenido .informacionContenido .card .card-body .iconoMobil {
+    display: flex !important;
+  }
+}
 @media (max-width: 768px) {
   .contenido .informacionContenido .card {
     width: 100vw;
@@ -147,6 +157,20 @@
     width: 40vw;
   }
 }
+@media (max-width: 768px) {
+  .contenido .informacionContenido #mapaUbicacion {
+    display: none;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    top: 5vh;
+    left: 5vw;
+    padding: 3vh 4vw;
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+  }
+}
 .contenido .busqueda {
   width: 20vw;
   height: 60vh;
@@ -157,6 +181,21 @@
   .contenido .busqueda {
     display: flex !important;
     flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .contenido .busqueda {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 5;
+    top: 14vh;
+    left: 5vw;
+    padding: 3vh 4vw;
+    height: 500px;
+    width: auto;
   }
 }
 .contenido .busqueda .list-group {
@@ -390,6 +429,10 @@
   }
 }
 
+.permisos .card-body i {
+  cursor: pointer;
+}
+
 .personas {
   display: none;
   height: 65vh;
@@ -440,17 +483,28 @@
     height: 100%;
   }
   .personas .informacionContenido .card .card-img {
-    width: 0;
-    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 5;
+    top: 2vh;
+    left: 5vw;
+    padding: 3vh 4vw;
+    height: 300px;
+    width: 300px;
   }
 }
-.personas .informacionContenido .card .card-body {
-  width: 60%;
-  height: 100%;
-}
-.personas .informacionContenido .card .card-img {
-  width: 40%;
-  height: 100%;
+@media (min-width: 768px) {
+  .personas .informacionContenido .card .card-body {
+    width: 60%;
+    height: 100%;
+  }
+  .personas .informacionContenido .card .card-img {
+    width: 40%;
+    height: 100%;
+  }
 }
 
 .activo {

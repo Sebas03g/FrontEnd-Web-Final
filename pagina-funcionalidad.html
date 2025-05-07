@@ -161,14 +161,14 @@
       <div id="contenedores">
         <div class="hijo informacion activo" id="contenedorInformacion">
           <div class ="informacionContenido">
-            <div class="iconoMobil d-block d-sm-none">
-              <i class="icono-navbar bi bi-info-circle" id="iconoDispositivoMobil"></i>
-            </div>
             <div class="container carta">
               <!-- Carta -->
               <div class="card" >
                   <!-- Contenido de la carta -->
                   <div class="card-body">
+                    <div class="iconoMobil d-block d-sm-none">
+                      <i class="icono-navbar bi bi-info-circle" id="iconoDispositivoMobil"></i>
+                    </div>
                       <h5 class="card-title" >Informacion dispositivo</h5>
                       <div class="card-text">
                           <p id="nombreDispositivo">Nombre del dispositivo</p>
@@ -212,7 +212,7 @@
           </div>
         </div>
         <div class="hijo contenido permisos" id="contenedorPermisos">
-          <div class="container busqueda d-none d-md-block">
+          <div class="container busqueda">
             <ul class="list-group " id="listaPermisos">
               <li>
                 <button class="elementoLista">
@@ -234,11 +234,12 @@
           <div class="container carta informacionContenido">
             <div class="card" >
                 <div class="card-body">
-                    <i class="bi bi-info-circle-fill"></i>
+                  <div class="iconoMobil d-block d-sm-none">
+                    <i class="icono-navbar bi bi-info-circle-fill "></i>
+                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaPermisos"></i>
+                  </div>
+                    <i class="bi bi-info-circle-fill d-none d-md-block"></i>
                     <h5 class="card-title" id="nombrePermiso">Nombre Permiso</h5>
-                    <div class="iconoMobil d-block d-sm-none">
-                      <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaPermisos"></i>
-                    </div>
                     <h6 class="card-subtitle mb-2 text-muted" id="nivelPermiso">Subtítulo</h6>
                     <p class="card-text" id="descripcionPermiso">Este es un texto de ejemplo para una carta en Bootstrap. Puedes agregar más contenido aquí, como detalles o una breve descripción.</p>
                 </div>
@@ -247,12 +248,12 @@
 
         </div>
         <div class="hijo contenido ubicacion" id="contenedorUbicacion">
-          <div class="container busqueda d-none d-md-block">
+          <div class="container busqueda">
             <div class="mb-3">
                 <label for="busquedaUbicacion" class="form-label">Ubicacion</label>
                 <input type="text" class="form-control input-busqueda" id="busquedaUbicacion" data-id-lista = "listaUbicaciones"placeholder="Escriba aquí">
             </div>
-            <ul class="list-group d-none d-md-block" id="listaUbicaciones">
+            <ul class="list-group" id="listaUbicaciones">
               <li>
                 <button class="elementoLista">
                   Permiso 1
@@ -269,16 +270,19 @@
                 </button>
               </li>
             </ul>
+            <button class="btn agregar" id="crearUbicacion">
+              <i class="bi bi-plus-circle"></i>
+            </button>
           </div>
           <div class="container carta informacionContenido">
             <div class="card" >
-                <div id="mapaUbicacion" class ="d-none d-md-block">
+                <div id="mapaUbicacion">
 
                 </div>
                 <div class="card-body">
                   <div class="iconoMobil d-block d-sm-none">
                     <i class="icono-navbar bi bi-geo-alt" id="iconoMobilUbicacion"></i>
-                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaPermisos"></i>
+                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaUbicacion"></i>
                   </div>
                     <h5 class="card-title">Ubicaciones</h5>
                     <div class="mb-3">
@@ -306,12 +310,12 @@
           </div>
         </div>
         <div class="hijo contenido personas" id="contenedorPersonas">
-          <div class="container busqueda d-none d-md-block">
+          <div class="container busqueda">
             <div class="mb-3">
                 <label for="busquedaPC" class="form-label">Personas de Confianza</label>
                 <input type="text" class="form-control input-busqueda" id="busquedaPC" data-id-lista = "listaPersonas" placeholder="Escriba aquí">
             </div>
-            <ul class="list-group d-none d-md-block" id="listaPersonas">
+            <ul class="list-group" id="listaPersonas">
               <li>
                 <button class="elementoLista">
                   Permiso 1
@@ -328,11 +332,18 @@
                 </button>
               </li>
             </ul>
+            <button class="btn agregar" id="crearPC">
+              <i class="bi bi-plus-circle"></i>
+            </button>
           </div>
           <div class="container carta informacionContenido">
             <div class="card" >
-                <img src="https://via.placeholder.com/150" class="card-img d-none d-md-block" alt="Imagen de carta" id="imgConfianza">
+                <img src="https://via.placeholder.com/150" class="card-img" alt="Imagen de carta" id="imgConfianza">
                 <div class="card-body">
+                  <div class="iconoMobil d-block d-sm-none">
+                    <i class="bi bi-image-fill" id="iconoMobilPersona"></i>
+                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaPersona"></i>
+                  </div>
                     <h5 class="card-title">Personas</h5>
                     <div class="mb-3">
                       <label for="nombre" class="form-label">Nombre</label>

@@ -1,25 +1,23 @@
 import { eliminarClase } from '../utilidades.js'
 
+
 function agregarFuncionalidadNav(){
-    const elemento = document.getElementById("menuNavMobil").querySelector(".iconoMobil");
+    const elemento = document.getElementById("menuNavMobil").querySelector("i");
     const listaElementos = document.getElementById("menuNavMobil").querySelector(".linksNavMobil");
     elemento.addEventListener("click", () => {
-        elemento.classList.toggle("seleccionado")
-        listaElementos.classList.toggle("mostrar");
+        elemento.classList.add("seleccionado")
+        listaElementos.classList.add("mostrar");
         agregarFuncionalidadLinkNav(listaElementos.querySelectorAll("li"));
     });
     document.addEventListener("click", (e) => {
-        if(document.getElementById("menuNavMobil").querySelector(".iconoMobil") != e.target){
+        if(document.getElementById("menuNavMobil").querySelector("i") != e.target){
             elemento.classList.remove("seleccionado")
             listaElementos.classList.remove("mostrar");
-            console.log("SI");
-            console.log(e.target)
         }
     });
 }
 
 function agregarFuncionalidadLinkNav(listaElementos){
-    console.log(listaElementos);
     listaElementos.forEach(elemento => {
         elemento.addEventListener("click", () => {
             eliminarClase(listaElementos, "seleccionado");
@@ -42,20 +40,63 @@ function agregarFuncionalidadContenedor(dispositivos){
 
 function iconoInformacion(){
     document.getElementById("iconoDispositivoMobil").addEventListener("click", () => {
-        document.getElementById("contenedorInformacion").querySelector(".dispositivo").classList.toggle("mostrar");
+        document.getElementById("contenedorInformacion").querySelector(".dispositivo").classList.add("mostrar");
+    });
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("iconoDispositivoMobil") != e.target){
+            document.getElementById("contenedorInformacion").querySelector(".dispositivo").classList.remove("mostrar");
+        }
     });
 }
 
 function iconosPermisos(){
-
+    document.getElementById("iconoMobilBusquedaPermisos").addEventListener("click", () => {
+        document.getElementById("contenedorPermisos").querySelector(".busqueda").classList.add("mostrar");
+    });
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("iconoMobilBusquedaPermisos") != e.target){
+            document.getElementById("contenedorPermisos").querySelector(".busqueda").classList.remove("mostrar");
+        }
+    });
 }
 
 function iconosUbicacion(){
+    document.getElementById("iconoMobilBusquedaUbicacion").addEventListener("click", () => {
+        document.getElementById("contenedorUbicacion").querySelector(".busqueda").classList.add("mostrar");
+        document.getElementById("mapaUbicacion").classList.remove("mostrar");
+    });
+    document.getElementById("iconoMobilUbicacion").addEventListener("click", () => {
+        document.getElementById("mapaUbicacion").classList.add("mostrar");
+        const mapa = document.getElementById("mapaUbicacion")._leafletMap;
+        mapa.invalidateSize();
+        document.getElementById("contenedorUbicacion").querySelector(".busqueda").classList.remove("mostrar");
+    });
 
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("iconoMobilBusquedaUbicacion") != e.target && document.getElementById("iconoMobilUbicacion") != e.target &&  
+        document.getElementById("busquedaUbicacion") != e.target && document.getElementById("mapaUbicacion") != e.target){
+            document.getElementById("contenedorUbicacion").querySelector(".busqueda").classList.remove("mostrar");
+            document.getElementById("mapaUbicacion").classList.remove("mostrar");
+        }
+    });
 }
 
 function iconosPersonas(){
-
+    document.getElementById("iconoMobilBusquedaPersona").addEventListener("click", () => {
+        document.getElementById("contenedorPersonas").querySelector(".busqueda").classList.add("mostrar");
+        document.getElementById("imgConfianza").classList.remove("mostrar");
+    });
+    document.getElementById("iconoMobilPersona").addEventListener("click", () => {
+        document.getElementById("imgConfianza").classList.add("mostrar");
+        document.getElementById("contenedorPersonas").querySelector(".busqueda").classList.remove("mostrar");
+    });
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("iconoMobilBusquedaPersona") != e.target && document.getElementById("iconoMobilPersona") != e.target &&  
+        document.getElementById("busquedaPC") != e.target && document.getElementById("imgConfianza") != e.target){
+            document.getElementById("contenedorPersonas").querySelector(".busqueda").classList.remove("mostrar");
+            document.getElementById("imgConfianza").classList.remove("mostrar");
+        }
+    });
 }
 
 function agregarFuncionalidadIconos(){

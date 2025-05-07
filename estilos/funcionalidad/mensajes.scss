@@ -16,6 +16,7 @@
         background-color: white;
         height: fit-content;
         width: fit-content;
+        max-width: 80vw;
         border-radius: 20px;
         padding: 2vh 2vw;
 
@@ -23,7 +24,11 @@
             padding: 1vh 4vw;
             width: 70vw;
             min-height: 20vh;
-        }   
+        }
+        
+        @media(max-width: 768px){
+            padding: 1vh 6vw;
+        }
 
         button{
             border: 0.5px solid black ;
