@@ -299,6 +299,9 @@ function crearUbicacion(listaBotones){
 }
 
 function crearCartaUbicacion(padre,elemento, elementoUbicacion){
+
+    console.log(elemento)
+
     let mapa = crearMapa(elementoUbicacion);
     eliminarClase(padre.querySelectorAll(".elementoLista"), "seleccionado");
     elemento.classList.add("seleccionado");

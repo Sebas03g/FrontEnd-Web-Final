@@ -154,7 +154,7 @@ function creacionMapa() {
   map.getPane('dispositivo').style.zIndex = 650;
 
   L.control.zoom({
-    position: 'bottomright' 
+    position: 'topright' 
   }).addTo(map);
 
   // Añade el mapa base (OpenStreetMap gratuito)

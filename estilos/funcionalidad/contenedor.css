@@ -76,8 +76,7 @@
   grid-area: contenedores;
   background-color: white;
 }
-
-.contenido {
+#contenedores .contenido {
   display: none;
   height: 65vh;
   width: 100vw;
@@ -86,35 +85,35 @@
   padding-bottom: 2vh;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .contenido {
+  #contenedores .contenido {
     align-items: start;
   }
 }
 @media (max-width: 768px) {
-  .contenido {
+  #contenedores .contenido {
     padding-bottom: 0vh;
     height: 77vh;
     height: 100%;
   }
 }
-.contenido .informacionContenido {
+#contenedores .contenido .informacionContenido {
   width: 70vw;
   height: 60vh;
   margin-left: 0;
   padding: 0;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .contenido .informacionContenido {
+  #contenedores .contenido .informacionContenido {
     width: 70vw;
   }
 }
 @media (max-width: 768px) {
-  .contenido .informacionContenido {
+  #contenedores .contenido .informacionContenido {
     width: 100vw;
     height: 72vh;
   }
 }
-.contenido .informacionContenido .card {
+#contenedores .contenido .informacionContenido .card {
   display: flex;
   flex-direction: row !important;
   background-color: rgba(46, 106, 47, 0.1490196078);
@@ -124,41 +123,41 @@
   width: 100%;
   border-radius: 0;
 }
-.contenido .informacionContenido .card .card-body {
+#contenedores .contenido .informacionContenido .card .card-body {
   width: 100%;
   height: 100%;
   overflow-y: hidden;
 }
-.contenido .informacionContenido .card .card-body:hover {
+#contenedores .contenido .informacionContenido .card .card-body:hover {
   overflow-y: auto;
 }
-.contenido .informacionContenido .card .card-body .iconoMobil {
+#contenedores .contenido .informacionContenido .card .card-body .iconoMobil {
   display: none;
   justify-content: space-between;
   align-items: center;
 }
 @media (max-width: 768px) {
-  .contenido .informacionContenido .card .card-body .iconoMobil {
+  #contenedores .contenido .informacionContenido .card .card-body .iconoMobil {
     display: flex !important;
   }
 }
 @media (max-width: 768px) {
-  .contenido .informacionContenido .card {
+  #contenedores .contenido .informacionContenido .card {
     width: 100vw;
     height: 72vh;
   }
 }
-.contenido .informacionContenido #mapaUbicacion {
+#contenedores .contenido .informacionContenido #mapaUbicacion {
   width: 30vw;
   height: 60vh;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .contenido .informacionContenido #mapaUbicacion {
+  #contenedores .contenido .informacionContenido #mapaUbicacion {
     width: 40vw;
   }
 }
 @media (max-width: 768px) {
-  .contenido .informacionContenido #mapaUbicacion {
+  #contenedores .contenido .informacionContenido #mapaUbicacion {
     display: none;
     align-items: center;
     position: absolute;
@@ -171,20 +170,20 @@
     border: 1px solid black;
   }
 }
-.contenido .busqueda {
+#contenedores .contenido .busqueda {
   width: 20vw;
   height: 60vh;
   background-color: #f9f7f6;
   margin-right: 0;
 }
 @media (min-width: 768px) {
-  .contenido .busqueda {
+  #contenedores .contenido .busqueda {
     display: flex !important;
     flex-direction: column;
   }
 }
 @media (max-width: 768px) {
-  .contenido .busqueda {
+  #contenedores .contenido .busqueda {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -192,22 +191,27 @@
     position: absolute;
     z-index: 5;
     top: 14vh;
-    left: 5vw;
+    right: 0;
     padding: 3vh 4vw;
     height: 500px;
     width: auto;
   }
 }
-.contenido .busqueda .list-group {
+#contenedores .contenido .busqueda .list-group {
   list-style-type: none;
   height: 100%;
   overflow-y: hidden;
   width: 100%;
 }
-.contenido .busqueda .list-group:hover {
+@media (max-width: 768px) {
+  #contenedores .contenido .busqueda .list-group {
+    overflow-y: auto;
+  }
+}
+#contenedores .contenido .busqueda .list-group:hover {
   overflow-y: auto;
 }
-.contenido .busqueda .list-group .elementoLista {
+#contenedores .contenido .busqueda .list-group .elementoLista {
   width: 100%;
   height: 60px;
   padding-left: 5px;
@@ -215,15 +219,15 @@
   background-color: #f9f7f6;
   text-align: left;
 }
-.contenido .busqueda .list-group .elementoLista:hover {
+#contenedores .contenido .busqueda .list-group .elementoLista:hover {
   filter: brightness(95%);
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  .contenido .busqueda {
+  #contenedores .contenido .busqueda {
     width: 30vw;
   }
 }
-.contenido .btn-primary {
+#contenedores .contenido .btn-primary {
   width: 30vw;
   height: 5vh;
   text-align: center;
@@ -231,11 +235,11 @@
   color: black;
   border: none;
 }
-.contenido .btn-primary:hover {
+#contenedores .contenido .btn-primary:hover {
   filter: brightness(95%);
 }
 @media (min-width: 768px) {
-  .contenido .btn-primary {
+  #contenedores .contenido .btn-primary {
     width: 15vw;
     height: 4vh;
   }

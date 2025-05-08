@@ -14,6 +14,7 @@
   <link href="estilos/funcionalidad/encabezado.css" rel="stylesheet">
   <link href="estilos/funcionalidad/contenedorTelefono.css" rel="stylesheet">
   <link href="estilos/funcionalidad/mensajes.css" rel="stylesheet">
+  <link href="estilos/funcionalidad/menuUbicaciones.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
 
@@ -24,6 +25,7 @@
   <script type="module" src="scripts/funcionalidad/contenedores.js"></script>
   <script type="module" src="scripts/funcionalidad/cracionPersona.js"></script>
   <script type="module" src="scripts/funcionalidad/funcionalidadMobil.js"></script>
+  <script type="module" src="scripts/funcionalidad/menuUbicaciones.js"></script>
   
   <!-- CSS -->
   
@@ -449,6 +451,75 @@
           <button class="btn btn-primary">Crear</button>
         </div>
       </div>
+    </section>
+    <section id="menuUbicaciones">
+        <div class="contenido ubicacion" id="contenedorUbicacionesGenerales">
+          <div class="container busqueda">
+            <div class="mb-3">
+                <label for="busquedaUbicacionGeneral" class="form-label">Ubicacion</label>
+                <input type="text" class="form-control input-busqueda" id="busquedaUbicacionGeneral" data-id-lista = "listaUbicacionesGenerales"placeholder="Escriba aquí">
+            </div>
+            <ul class="list-group" id="listaUbicacionesGenerales">
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+            </ul>
+            <button class="btn agregar" id="crearUbicacionGeneral">
+              <i class="bi bi-plus-circle"></i>
+            </button>
+          </div>
+          <div class="container carta informacionContenido">
+            <div class="card" >
+                <div id="mapaUbicacionGeneral">
+                  
+                </div>
+                <div class="card-body">
+                  <div class="iconoMobil d-block d-sm-none">
+                    <i class="icono-navbar bi bi-geo-alt" id="iconoMobilUbicacionGeneral"></i>
+                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaUbicacionGeneral"></i>
+                  </div>
+                    <h5 class="card-title">Ubicaciones</h5>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombreUbicacionGeneral" placeholder="Nombre Ubicación">
+                    </div>
+                    <div class="mb-3">
+                      <label for="comentario" class="form-label">Descripcion</label>
+                      <textarea class="form-control" id="descripcionUbicacionGeneral" rows="4" placeholder="Escribe la descripcion de la ubicacion aquí..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="miCombobox" class="form-label">Seleccione el Tipo:</label>
+                      <select class="form-select" id="miComboboxSeguridadGeneral">
+                        <option selected disabled>Elige una opción</option>
+                        <option value="green">Seguro</option>
+                        <option value="red">Inseguro</option>
+                      </select>
+                    </div>
+                    <button class="btn btnModificar">
+                      Aceptar
+                    </button>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+        
+
+        <button id="botonListaUbicaciones">
+          <i class="bi bi-list-ul"></i>
+        </button>
     </section>
 </main>
 
