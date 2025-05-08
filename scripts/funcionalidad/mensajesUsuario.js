@@ -4,7 +4,7 @@ function crearMensaje(titulo, mensaje, clase, txtBtn) {
     contenedor.innerHTML = `
         <div class="mensaje">
             <i class="bi bi-x-circle-fill"></i>
-            <h1>${titulo}</h1>
+            <h4>${titulo}</h4>
             <p>${mensaje}</p>
             <button class="btn" style="background-color: ${clase} !important;">${txtBtn}</button>
 

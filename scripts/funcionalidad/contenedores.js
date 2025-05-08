@@ -279,6 +279,8 @@ function crearUbicacion(listaBotones){
     document.getElementById("miComboboxSeguridad").value = "";
     eliminarClase(listaBotones, "seleccionado");
 
+    document.getElementById("botonEliminarUbicacion").style.display = "none";
+
     if (mapaUbicacion) {
         mapaUbicacion.remove(); // destruye el mapa anterior
         mapaUbicacion = null;
@@ -309,6 +311,12 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     document.getElementById("nombreUbicacion").value = elementoUbicacion.nombre;
     document.getElementById("descripcionUbicacion").textContent = elementoUbicacion.descripcion;
     document.getElementById("miComboboxSeguridad").value = elementoUbicacion.tipo;
+
+    document.getElementById("botonEliminarUbicacion").style.display = "inline";
+
+    document.getElementById("botonEliminarUbicacion").addEventListener("click",() => {
+        funcionPanelMensaje("¿Estás seguro de que deseas eliminar esta ubicacion?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
+    });
     
     mapa.invalidateSize();
 }
@@ -379,6 +387,8 @@ function crearPC(listaBotones){
     document.getElementById("telefonoPersona").value = "";
     document.getElementById("descripcionPersona").value = "";
 
+    document.getElementById("botonEliminarPC").style.display = "none";
+
     eliminarClase(listaBotones, "seleccionado");
 }
 
@@ -389,6 +399,12 @@ function crearCartaPC(padre,elemento, elementoPersonaConfianza){
     document.getElementById("telefonoPersona").value = elementoPersonaConfianza.telefono;
     document.getElementById("descripcionPersona").value = elementoPersonaConfianza.descripcion;
     document.getElementById("imgConfianza").src = elementoPersonaConfianza.imagen;
+
+    document.getElementById("botonEliminarPC").style.display = "inline";
+
+    document.getElementById("botonEliminarPC").addEventListener("click",() => {
+        funcionPanelMensaje("¿Estás seguro de que deseas eliminar esta Persona?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
+    });
 }
 
 function crearContenedores(){
@@ -397,6 +413,12 @@ function crearContenedores(){
     crearContenedorUbicacion();
     crearContenedorPersonas();
     eliminarDispositivo();
+
+    document.querySelectorAll(".btnModificar").forEach(btn => {
+        btn.addEventListener("click", () => {
+            funcionPanelMensaje("¿Estás seguro de que deseas modificar estos datos?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente modificada.", "modificar", "Modificar");
+        });
+    });
     
 }
 

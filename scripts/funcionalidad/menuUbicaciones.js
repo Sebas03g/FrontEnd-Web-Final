@@ -65,7 +65,11 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     document.getElementById("nombreUbicacionGeneral").value = elementoUbicacion.nombre;
     document.getElementById("descripcionUbicacionGeneral").textContent = elementoUbicacion.descripcion;
     document.getElementById("miComboboxSeguridadGeneral").value = elementoUbicacion.tipo;
-    document.getElementById("botonEliminar").style.display = "inline";
+    document.getElementById("botonEliminarUbicacionGeneral").style.display = "inline";
+
+    document.getElementById("botonEliminarUbicacionGeneral").addEventListener("click",() => {
+        funcionPanelMensaje("¿Estás seguro de que deseas eliminar esta ubicacion?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
+    });
     
     mapa.invalidateSize();
 }
@@ -154,7 +158,7 @@ function crearUbicacion(listaBotones){
     });
 
     document.getElementById("mapaUbicacionGeneral")._leafletMap = mapaUbicacion;
-    document.getElementById("botonEliminar").style.display = "none";
+    document.getElementById("botonEliminarUbicacionGeneral").style.display = "none";
 
     const mapa = document.getElementById("mapaUbicacionGeneral")._leafletMap;
 

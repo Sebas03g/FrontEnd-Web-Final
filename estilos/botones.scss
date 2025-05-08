@@ -47,13 +47,4 @@
     &:hover{
         filter: brightness(95%);
     }
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-        height: 2.5vh;
-    }
-
-    @media (max-width: 768px) {
-        width: 30vw;
-        height: 5vh;
-    }
 }
