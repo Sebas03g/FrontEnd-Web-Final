@@ -138,6 +138,19 @@
   height: 100%;
   overflow-y: hidden;
 }
+#menuUbicaciones .contenido .informacionContenido .card .card-body #cerrarMenu {
+  display: flex;
+  left: 95%;
+  position: absolute;
+}
+@media (max-width: 768px) {
+  #menuUbicaciones .contenido .informacionContenido .card .card-body #cerrarMenu {
+    left: 50%;
+  }
+}
+#menuUbicaciones .contenido .informacionContenido .card .card-body #cerrarMenu i {
+  cursor: pointer;
+}
 #menuUbicaciones .contenido .informacionContenido .card .card-body:hover {
   overflow-y: auto;
 }

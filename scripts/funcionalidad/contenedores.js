@@ -2,6 +2,7 @@ import { eliminarClase } from '../utilidades.js'
 import { funcionPanelMensaje } from './mensajesUsuario.js';
 
 let idDispositivo = null;
+let mapaUbicacion = null;
 let listaDispositivos = [
     {id:"1", nombre: "Sophia", correo: "sophia@gmail.com", telefono:"099000000", nombreDispositivo: "Samsung Sophia" , estado: "Activo",  cedula:" 01020123456", conectado:"Actual", tiempoViaje:"30 min", imagen:"../imagenes/Sophia.png", codigo: "A7F4K9X2M8B6", permisos:[
         {"id":1, "nivel":"1"},{"id":2, "nivel":"1"},{"id":3, "nivel":"1"},
@@ -300,8 +301,6 @@ function crearUbicacion(listaBotones){
 
 function crearCartaUbicacion(padre,elemento, elementoUbicacion){
 
-    console.log(elemento)
-
     let mapa = crearMapa(elementoUbicacion);
     eliminarClase(padre.querySelectorAll(".elementoLista"), "seleccionado");
     elemento.classList.add("seleccionado");
@@ -332,7 +331,6 @@ function eliminarDispositivo(){
     });
 }
 
-let mapaUbicacion = null;
 
 function crearMapa(elementoUbicacion) {
 

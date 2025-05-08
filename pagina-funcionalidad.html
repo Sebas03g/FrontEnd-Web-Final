@@ -306,6 +306,9 @@
                     <button class="btn btnModificar">
                       Aceptar
                     </button>
+                    <button class="btn eliminados">
+                      Eliminar
+                    </button>
                 </div>
                 
             </div>
@@ -361,6 +364,9 @@
                     </div>
                     <button class="btn btnModificar">
                       Aceptar
+                    </button>
+                    <button class="btn eliminados">
+                      Eliminar
                     </button>
                 </div>
             </div>
@@ -486,11 +492,16 @@
                   
                 </div>
                 <div class="card-body">
+                  <div id="cerrarMenu">
+                    <i class="bi bi-x-circle-fill"></i>
+                  </div>
+                  
                   <div class="iconoMobil d-block d-sm-none">
                     <i class="icono-navbar bi bi-geo-alt" id="iconoMobilUbicacionGeneral"></i>
                     <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaUbicacionGeneral"></i>
                   </div>
-                    <h5 class="card-title">Ubicaciones</h5>
+                  
+                    <h5 class="card-title">Ubicaciones Generales</h5>
                     <div class="mb-3">
                       <label for="nombre" class="form-label">Nombre</label>
                       <input type="text" class="form-control" id="nombreUbicacionGeneral" placeholder="Nombre Ubicación">
@@ -509,6 +520,9 @@
                     </div>
                     <button class="btn btnModificar">
                       Aceptar
+                    </button>
+                    <button class="btn eliminados" id="botonEliminar">
+                      Eliminar
                     </button>
                 </div>
                 

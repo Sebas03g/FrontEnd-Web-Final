@@ -1,29 +1,168 @@
 import { eliminarClase } from '../utilidades.js'
 import { funcionPanelMensaje } from './mensajesUsuario.js';
 
+let mapaUbicacion = null;
+
 let areas = [
-    {punto:[-2.8918931908671124, -79.03600936098859], nombre:"Zona Segura", tipo:"green"},
-    {punto:[-2.9221155566716095, -79.0415370113893], nombre:"Zona Insegura", tipo:"red"}
+    {id:1, punto:[-2.8918931908671124, -79.03600936098859], nombre:"Zona Segura", descripcion:"Zona de bajo riesgo",tipo:"green"},
+    {id:2, punto:[-2.9221155566716095, -79.0415370113893], nombre:"Zona Insegura", descripcion:"Zona con alto riesgo de secuestro",tipo:"red"}
 ]
 
 function abrirVentanaUbicacionesGenerales(){
 
     const boton = document.getElementById("botonListaUbicaciones");
-    console.log("SI")
 
     boton.addEventListener("click", () => {
-        let elementos = document.getElementById("listaNavDispositivo").querySelectorAll(".icono-navbar");
-        eliminarClase(elementos, "seleccionado");
-        elementos = document.getElementById("contenedores").querySelectorAll(".hijo");
-        eliminarClase(elementos, "activo");
 
-        boton.classList.add("seleccionado");
+        document.getElementById("contenedor").classList.remove("abierto")
+        document.getElementById('contenedorMenu').classList.remove('mostrar');
+        document.getElementById('botonMenu').classList.remove('seleccionado');
 
-        document.getElementById("contenedorUbicacionesGenerales").classList.add("activo");
+        document.getElementById("contenedorUbicacionesGenerales").classList.toggle("activo");
+        boton.classList.toggle("seleccionado");
+        agregarFuncionesBusqueda();
+        crearContenedorUbicacion();
 
     });
 }
 
+function cerrarMenu(){
+    document.getElementById("cerrarMenu").addEventListener("click", () => {
+        document.getElementById("contenedorUbicacionesGenerales").classList.remove("activo")
+        document.getElementById("botonListaUbicaciones").classList.remove("seleccionado")
+    });
+}
+
+function creacionListaUbicacion(lista){
+    const listaBotones = document.getElementById("listaUbicacionesGenerales");
+    lista.forEach(area => {
+        let nuevoElementoLista = document.createElement("li");
+
+        let nuevoBoton = document.createElement("button");
+        nuevoBoton.classList.add("elementoLista");
+        nuevoBoton.textContent = area.nombre;
+        nuevoBoton.dataset.id = area.id;
+
+        nuevoElementoLista.appendChild(nuevoBoton);
+
+        nuevoElementoLista.addEventListener("click", () => {
+            console.log("SI")
+            crearCartaUbicacion(listaBotones, nuevoBoton, area);
+        });
+            
+        listaBotones.appendChild(nuevoElementoLista);
+    });
+
+}
+
+function crearCartaUbicacion(padre,elemento, elementoUbicacion){
+
+    let mapa = crearMapa(elementoUbicacion);
+    eliminarClase(padre.querySelectorAll(".elementoLista"), "seleccionado");
+    elemento.classList.add("seleccionado");
+    generarPuntos(elementoUbicacion, mapa);
+
+    document.getElementById("nombreUbicacionGeneral").value = elementoUbicacion.nombre;
+    document.getElementById("descripcionUbicacionGeneral").textContent = elementoUbicacion.descripcion;
+    document.getElementById("miComboboxSeguridadGeneral").value = elementoUbicacion.tipo;
+    document.getElementById("botonEliminar").style.display = "inline";
+    
+    mapa.invalidateSize();
+}
+
+function generarPuntos(elementoUbicacion, mapa){
+    let area = L.circle(elementoUbicacion.punto, {
+        color: "black",
+        fillColor: elementoUbicacion.tipo,
+        fillOpacity: 0.3,
+        radius: 100
+    }).addTo(mapa);
+    area.bindPopup(elementoUbicacion.nombre);
+}
+
+function agregarFuncionesBusqueda(){
+
+    document.getElementById("busquedaUbicacionGeneral").addEventListener('keyup', () => {
+        let valor = document.getElementById("busquedaUbicacionGeneral").value;
+        let lista = areas.filter(l => l.nombre.toLowerCase().includes(valor.toLowerCase()));
+        if(valor === ""){
+            lista = areas.ubicaciones;
+        }
+        document.getElementById("listaUbicacionesGenerales").innerHTML = "";
+        creacionListaUbicacion(lista);
+    });
+}
+
+function crearMapa(elementoUbicacion) {
+
+    // Si ya hay un mapa, lo removemos correctamente
+    if (mapaUbicacion) {
+        mapaUbicacion.remove(); // destruye el mapa anterior
+        mapaUbicacion = null;
+    }
+
+    // Creamos el nuevo mapa
+    mapaUbicacion = L.map(document.getElementById("mapaUbicacionGeneral"), {
+        center: elementoUbicacion.punto,
+        zoom: 14,
+        zoomControl: false
+    });
+
+    document.getElementById("mapaUbicacionGeneral")._leafletMap = mapaUbicacion;
+
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(mapaUbicacion);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mapaUbicacion);
+
+    return mapaUbicacion;
+}
+
+
+function crearContenedorUbicacion(){
+    let listBotonesUbicaciones = document.getElementById("listaUbicacionesGenerales");
+    listBotonesUbicaciones.innerHTML = "";
+
+    document.getElementById("crearUbicacionGeneral").addEventListener("click", () => crearUbicacion(Array.from(listBotonesUbicaciones.querySelectorAll(".elementoLista"))));
+
+    creacionListaUbicacion(areas);
+
+    crearCartaUbicacion(listBotonesUbicaciones, Array.from(listBotonesUbicaciones.querySelectorAll(".elementoLista"))
+    .find(l => l.dataset.id = areas[0].id), areas[0]);
+}
+
+function crearUbicacion(listaBotones){
+
+    document.getElementById("nombreUbicacionGeneral").value = "";
+    document.getElementById("descripcionUbicacionGeneral").textContent = "";
+    document.getElementById("miComboboxSeguridadGeneral").value = "";
+    eliminarClase(listaBotones, "seleccionado");
+
+    if (mapaUbicacion) {
+        mapaUbicacion.remove(); // destruye el mapa anterior
+        mapaUbicacion = null;
+    }
+
+    // Creamos el nuevo mapa
+    mapaUbicacion = L.map(document.getElementById("mapaUbicacionGeneral"), {
+        center: [-2.8918931908671124, -79.03600936098859],
+        zoom: 20,
+        zoomControl: false
+    });
+
+    document.getElementById("mapaUbicacionGeneral")._leafletMap = mapaUbicacion;
+    document.getElementById("botonEliminar").style.display = "none";
+
+    const mapa = document.getElementById("mapaUbicacionGeneral")._leafletMap;
+
+    mapa.invalidateSize();
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     abrirVentanaUbicacionesGenerales();
+    cerrarMenu();
 });

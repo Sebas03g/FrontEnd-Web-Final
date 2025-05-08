@@ -1,6 +1,5 @@
 import { eliminarClase } from '../utilidades.js'
 
-
 function agregarFuncionalidadNav(){
     const elemento = document.getElementById("menuNavMobil").querySelector("i");
     const listaElementos = document.getElementById("menuNavMobil").querySelector(".linksNavMobil");
@@ -81,6 +80,28 @@ function iconosUbicacion(){
     });
 }
 
+function iconosUbicacionGeneral(){
+    document.getElementById("iconoMobilBusquedaUbicacionGeneral").addEventListener("click", () => {
+        document.getElementById("contenedorUbicacionesGenerales").querySelector(".busqueda").classList.add("mostrar");
+        document.getElementById("mapaUbicacionGeneral").classList.remove("mostrar");
+    });
+    document.getElementById("iconoMobilUbicacionGeneral").addEventListener("click", () => {
+        console.log("SI")
+        document.getElementById("mapaUbicacionGeneral").classList.add("mostrar");
+        const mapa = document.getElementById("mapaUbicacionGeneral")._leafletMap;
+        mapa.invalidateSize();
+        document.getElementById("contenedorUbicacionesGenerales").querySelector(".busqueda").classList.remove("mostrar");
+    });
+
+    document.addEventListener("click", (e) => {
+        if(document.getElementById("iconoMobilBusquedaUbicacionGeneral") != e.target && document.getElementById("iconoMobilUbicacionGeneral") != e.target &&  
+        document.getElementById("busquedaUbicacionGeneral") != e.target && document.getElementById("mapaUbicacionGeneral") != e.target){
+            document.getElementById("contenedorUbicacionesGenerales").querySelector(".busqueda").classList.remove("mostrar");
+            document.getElementById("mapaUbicacionGeneral").classList.remove("mostrar");
+        }
+    });
+}
+
 function iconosPersonas(){
     document.getElementById("iconoMobilBusquedaPersona").addEventListener("click", () => {
         document.getElementById("contenedorPersonas").querySelector(".busqueda").classList.add("mostrar");
@@ -110,5 +131,5 @@ function agregarFuncionalidadIconos(){
 document.addEventListener("DOMContentLoaded", () => {
     const dispositivos = document.getElementById("listaDispositivos").querySelectorAll(".elementoDispositivo");   
     agregarFuncionalidadContenedor(dispositivos);
-
+    iconosUbicacionGeneral();
 });

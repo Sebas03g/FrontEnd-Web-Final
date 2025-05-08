@@ -7,6 +7,7 @@ function accionMenuBoton(btn){
   btn.addEventListener('click', () => {
     menu.classList.toggle('mostrar');
     btn.classList.toggle('seleccionado');
+    document.getElementById("contenedorUbicacionesGenerales").classList.remove("activo");
 
   });
 }

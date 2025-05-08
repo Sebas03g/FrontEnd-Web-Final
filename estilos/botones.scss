@@ -9,9 +9,8 @@
 }
 
 .eliminados{
-    background-color: colores.$color-secundario;
+    background-color: colores.$color-blanco;
     color: black;
-    border: 0.3px solid black;
     &:hover{
         background-color: colores.$color-rojo;
         color: colores.$color-blanco;
