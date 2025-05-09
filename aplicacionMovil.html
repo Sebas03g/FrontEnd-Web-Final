@@ -10,6 +10,7 @@
     <link href="estilos/aplicacionMovil/cuerpo.css", rel="stylesheet">
     <link href="estilos/aplicacionMovil/contenedores.css", rel="stylesheet">
     <link href="estilos/aplicacionMovil/datosContenedor.css", rel="stylesheet">
+    <link href="estilos/botones.css", rel="stylesheet">
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -54,19 +55,19 @@
                     <button class="elementoLista">
                       Permiso 1
                     </button>
-                    <i class="bi bi-check-square-fill"></i>
+                    <input type="checkbox" name="nombreGestor" value="activo" checked>
                   </li>
                   <li>
                     <button class="elementoLista">
                       Permiso 1
                     </button>
-                    <i class="bi bi-check-square-fill"></i>
+                    <input type="checkbox" name="nombreGestor" value="activo" checked>
                   </li>
                   <li>
                     <button class="elementoLista">
                       Permiso 1
                     </button>
-                    <i class="bi bi-check-square-fill"></i>
+                    <input type="checkbox" name="nombreGestor" value="activo" checked>
                   </li>
                 </ul>
                 <button class="btn agregar" id="crearGestor">
@@ -130,22 +131,115 @@
             </div>
         </section>
         <section id="datosContenedor" class="abierto">
-            <div class="datoContenedor abierto" id="dataGestor">
+            <div class="datoContenedor " id="dataGestor">
                 <div class="cabezaDato">
                     <h5 id="nombreGestor">Gestor</h5>
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorGestor">
-
+                  <ul class="list-group " id="listaPermisosGestor">
+                    <li>
+                      <label>Permiso</label>
+                      <select class="form-select" class="selectNivel">
+                        <option value=1 selected>Nivel 1</option>
+                        <option value=2>Nivel 2</option>
+                        <option value=3>Nivel 3</option>
+                        <option value=0>Desactivado</option>
+                      </select>
+                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
+                    </li>
+                    <li>
+                      <label>Permiso</label>
+                      <select class="form-select" class="selectNivel">
+                        <option value=1 selected>Nivel 1</option>
+                        <option value=2>Nivel 2</option>
+                        <option value=3>Nivel 3</option>
+                        <option value=0>Desactivado</option>
+                      </select>
+                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
+                    </li>
+                    <li>
+                      <label>Permiso</label>
+                      <select class="form-select" class="selectNivel">
+                        <option value=1 selected>Nivel 1</option>
+                        <option value=2>Nivel 2</option>
+                        <option value=3>Nivel 3</option>
+                        <option value=0>Desactivado</option>
+                      </select>
+                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
+                    </li>
+                </ul>
                 </div>
             </div>
-            <div class="datoContenedor" id="dataPermiso">
+            <div class="datoContenedor abierto" id="dataPermiso">
                 <div class="cabezaDato">
                     <h5>Permiso</h5>
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorPermiso">
-                        
+                      <div class="card" >
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre</h5>
+                          <p class="card-text">Esta es la descripción del permiso. Puedes incluir aquí instrucciones o contenido adicional.</p>
+                          
+                          <div class="mb-3">
+                            <label for="select1" class="form-label">Nivel</label>
+                            <i class="bi bi-info-circle-fill"></i>
+                            <select class="form-select" id="select1">
+                              <option value="0" selected>Desactivado</option>
+                              <option value="1">Nivel 1</option>
+                              <option value="2">Nivel 2</option>
+                              <option value="3">Nivel 3</option>
+                            </select>
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="select2" class="form-label">Gestor</label>
+                            <select class="form-select" id="select2">
+                              <option value="0" selected>Seleccione</option>
+                              <option value="a">Opción A</option>
+                              <option value="b">Opción B</option>
+                              <option value="c">Opción C</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <ul class="list-group" id="listaGestoresPermiso">
+                        <li>
+                          <label>Gestor</label>
+                          <select class="form-select" class="selectNivel">
+                            <option value=1 selected>Nivel 1</option>
+                            <option value=2>Nivel 2</option>
+                            <option value=3>Nivel 3</option>
+                            <option value=0>Desactivado</option>
+                          </select>
+                          <input type="checkbox" name="nombreGestor" value="activo" checked>
+                        </li>
+                        <li>
+                          <label>Gestor</label>
+                          <select class="form-select" class="selectNivel">
+                            <option value=1 selected>Nivel 1</option>
+                            <option value=2>Nivel 2</option>
+                            <option value=3>Nivel 3</option>
+                            <option value=0>Desactivado</option>
+                          </select>
+                          <input type="checkbox" name="nombreGestor" value="activo" checked>
+                        </li>
+                        <li>
+                          <label>Gestor</label>
+                          <select class="form-select" class="selectNivel">
+                            <option value=1 selected>Gestor 1</option>
+                            <option value=2>Gestor 2</option>
+                            <option value=3>Gestor 3</option>
+                            <option value=0>Desactivado</option>
+                          </select>
+                          <input type="checkbox" name="nombreGestor" value="activo" checked>
+                        </li>
+                    </ul>
+                    <button class="btnActivar" id="btnActivarPermiso">
+                      Activar
+                    </button>
                 </div>
             </div>
             <div class="datoContenedor" id="dataPC">
@@ -154,7 +248,16 @@
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorPC">
-                        
+                      <div class="card">
+                        <img src="/imagenes/placeholder.png" class="card-img-top" alt="Imagen de Persona" id="imgPersona">
+                        <div class="card-body">
+                          <h5 class="card-title">Nombre</h5>
+                          <p class="card-text">Este es el texto descriptivo de la persona. Puedes colocar aquí cualquier contenido relevante.</p>
+                          <div class="text-end">
+                            <i class="bi bi-telephone-outbound"></i>
+                          </div>
+                        </div>
+                      </div>  
                 </div>
             </div>
         </section>

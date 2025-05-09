@@ -13,6 +13,7 @@
 }
 #datosContenedor .datoContenedor {
   display: none;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   background-color: white;
@@ -27,6 +28,70 @@
   width: 100%;
   height: fit-content;
   color: black;
+}
+#datosContenedor #dataGestor #contenedorGestor {
+  height: 100%;
+  width: 100%;
+  padding: 3vh 3vw;
+}
+#datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor {
+  background-color: #f9f7f6;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 1vh 2vw;
+}
+#datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+#datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor li select {
+  width: 50%;
+}
+#datosContenedor #dataPC #contenedorPC {
+  padding: 5vh 3vw;
+}
+#datosContenedor #dataPC #contenedorPC .card {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+#datosContenedor #dataPC #contenedorPC .card .text-end {
+  display: flex;
+  justify-content: center;
+}
+#datosContenedor #dataPC #contenedorPC .card .text-end i {
+  color: #2E6A2F;
+}
+#datosContenedor #dataPermiso #contenedorPermiso {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+#datosContenedor #dataPermiso #contenedorPermiso ul {
+  width: 70%;
+  height: 100%;
+  background-color: #f9f7f6;
+  padding: 3vh 2vw;
+  margin: 3vh 2vw;
+}
+#datosContenedor #dataPermiso #contenedorPermiso ul li {
+  display: flex;
+  justify-content: space-between;
+}
+#datosContenedor #dataPermiso #contenedorPermiso ul li select {
+  width: 50%;
+}
+#datosContenedor #dataPermiso #contenedorPermiso .btnActivar {
+  border: 0.1px solid black;
+  background-color: #ffffff;
+  border-radius: 4px;
+  width: fit-content;
+  height: fit-content;
 }
 
 .abierto {
