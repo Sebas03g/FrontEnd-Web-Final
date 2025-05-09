@@ -1,0 +1,69 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-areas: "encabezado" "icono" "imgUsuario" "opciones" "botonEmergencia";
+  grid-template-rows: 12vh 3vh 20vh 50vh 10vh;
+}
+
+#encabezado {
+  grid-area: encabezado;
+  background-color: #2E6A2F; /* O usa una variable si usas SASS */
+  height: 12vh;
+}
+
+#opcionesUsuario .icono {
+  height: 3vh;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+#opcionesUsuario .icono i {
+  font-size: 20px;
+}
+#opcionesUsuario #imgUsuario {
+  grid-area: imgUsuario;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#opcionesUsuario #imgUsuario #agregarIMG {
+  height: fit-content;
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+}
+#opcionesUsuario #imgUsuario #agregarIMG:hover {
+  filter: brightness(95%);
+}
+#opcionesUsuario #imgUsuario i {
+  font-size: 80px;
+}
+#opcionesUsuario #opciones {
+  grid-area: opciones;
+  height: 50vh;
+}
+#opcionesUsuario #opciones button {
+  height: 8vh;
+  border-radius: 0;
+  border: 1px solid black;
+}
+#opcionesUsuario #botonEmergencia {
+  grid-area: botonEmergencia;
+  height: 15vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+#opcionesUsuario #botonEmergencia button {
+  width: 100%;
+  height: 8vh;
+  border-radius: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=cuerpo.css.map */

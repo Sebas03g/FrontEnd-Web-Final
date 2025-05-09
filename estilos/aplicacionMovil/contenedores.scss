@@ -1,0 +1,96 @@
+@use '../colores' as colores;
+
+#contenedoresOpciones{
+    .contenedor{
+        display: none;
+        justify-content: center;
+        align-items: end;
+        height: 60vh;
+        width: 100vw;
+        background-color: colores.$color-secundario;
+        position: absolute;
+        border-top: 0.1px solid lightgray;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        bottom: 9vh;
+        .botonBajar{
+            width: 100%;
+            position: inherit;
+            top: 0;
+            z-index: 999;
+        }
+        .mb-3{
+            width: 100%;
+            position: inherit;
+            top: 2vh;
+            z-index: 999;
+            label{
+                font-size: 15px;
+                margin-left: 5px;
+            }
+        }
+        .list-group{
+            width: 100%;
+            position: inherit;
+            top: 10vh;
+            z-index: 999;
+            height: 70%;
+            overflow-y: auto;
+            li{
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                width: 100%;           
+                .elementoLista{
+                    width: 90%;
+                    text-align: left;
+                    height: 80px;
+                    border: none;
+                    background-color: colores.$color-secundario;
+                    z-index: 990;
+
+                }
+                i{
+                    width: 10%;
+                }
+
+            }
+        }
+        .agregar{
+            background-color: colores.$color-secundario;
+            z-index: 998;
+            width: 100%;
+            height: 10%;
+            border-top: 0.1px solid lightgray;
+            border-radius: 0;
+        }
+    }
+    #contenedorMensaje{
+        display: none;
+        height: 70vh;
+        width: 100%;
+        justify-content: center;
+        align-items: end;
+        .mb-3{
+            margin-top: 5px;
+            width: 60%;
+            height: 80%;
+            #miTextarea{
+                height: 95%;
+            }
+        }
+        #btnEnviarMensaje{
+            height: fit-content;
+            width: fit-content;
+            margin-bottom: 5%;
+            background-color: white;
+            border: 0.1px solid black;
+        }
+    }
+}
+
+
+
+.abierto{
+    display: flex !important;
+}

@@ -1,0 +1,36 @@
+#datosContenedor {
+  display: none;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 997;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10vh 10vw;
+}
+#datosContenedor .datoContenedor {
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 998;
+  border-radius: 20px;
+  padding: 2vh 2vw;
+}
+#datosContenedor .datoContenedor .cabezaDato {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  color: black;
+}
+
+.abierto {
+  display: flex !important;
+}
+
+/*# sourceMappingURL=datosContenedor.css.map */
