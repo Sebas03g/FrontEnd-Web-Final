@@ -138,7 +138,7 @@
         <section id="datosContenedor" class="">
             <div class="datoContenedor " id="dataGestor">
                 <div class="cabezaDato">
-                    <h5 id="nombreGestor">Gestor</h5>
+                    <h5>Gestor</h5>
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorGestor">
@@ -186,13 +186,13 @@
                 <div id="contenedorPermiso">
                       <div class="card" >
                         <div class="card-body">
-                          <h5 class="card-title">Nombre</h5>
-                          <p class="card-text">Esta es la descripción del permiso. Puedes incluir aquí instrucciones o contenido adicional.</p>
+                          <h5 class="card-title" id="nombrePermiso">Nombre</h5>
+                          <p class="card-text" id="descripcionPermiso">Esta es la descripción del permiso. Puedes incluir aquí instrucciones o contenido adicional.</p>
                           
                           <div class="mb-3">
-                            <label for="select1" class="form-label">Nivel</label>
+                            <label for="seleccionNivel" class="form-label">Nivel</label>
                             <i class="bi bi-info-circle-fill"></i>
-                            <select class="form-select" id="select1">
+                            <select class="form-select" id="seleccionNivel">
                               <option value="0" selected>Desactivado</option>
                               <option value="1">Nivel 1</option>
                               <option value="2">Nivel 2</option>
@@ -201,12 +201,9 @@
                           </div>
 
                           <div class="mb-3">
-                            <label for="select2" class="form-label">Gestor</label>
-                            <select class="form-select" id="select2">
+                            <label for="seleccionGestor" class="form-label">Gestor</label>
+                            <select class="form-select" id="seleccionGestor">
                               <option value="0" selected>Seleccione</option>
-                              <option value="a">Opción A</option>
-                              <option value="b">Opción B</option>
-                              <option value="c">Opción C</option>
                             </select>
                           </div>
                         </div>

@@ -123,6 +123,8 @@ function datoContenedorGestor(id){
         nivel3.textContent="Nivel 3";
         selectNivel.appendChild(nivel3);
 
+        selectNivel.value = permiso.nivel;
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.name = `${permisoCreado.nombre}Permiso${gestor.nombre}`;
@@ -139,6 +141,11 @@ function datoContenedorGestor(id){
 }
 
 function datoContenedorPermiso(id){
+    let permiso = permisos.find(l => l.id == id);
+    document.getElementById("nombrePermiso").textContent = permiso.nombre;
+    document.getElementById("descripcionPermiso").textContent = permiso.descripcion;
+
+    
     
 }
 
