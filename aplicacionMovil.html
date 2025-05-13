@@ -13,6 +13,8 @@
     <link href="estilos/botones.css", rel="stylesheet">
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/aplicacionMovil/contenedores.js"></script>
+    <script type="module" src="scripts/aplicacionMovil/cuerpo.js"></script>
 
 </head>
 <body>
@@ -32,11 +34,11 @@
                 </button>
             </div>
             <div class="d-flex flex-column" id="opciones">
-                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorGestores">Gestores</button>
-                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorPCs">Personas de Confianza</button>
-                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorMensaje">Mensaje</button>
-                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorPermisos">Permisos</button>
-              </div>
+                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorGestores" id="botonGestores">Gestores</button>
+                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorPCs" id="botonPCs">Personas de Confianza</button>
+                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorMensaje" id="botonMensaje">Mensaje</button>
+                <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorPermisos" id="botonPermisos">Permisos</button>
+            </div>
               
             <div id="botonEmergencia">
                 <button type="button" class="btn btn-danger mb-2">Botón 1</button>
@@ -116,27 +118,32 @@
                       <button class="elementoLista">
                         Permiso 1
                       </button>
+                      <input type="checkbox" name="nombreGestor" value="activo" checked>
                     </li>
                     <li>
                       <button class="elementoLista">
                         Permiso 1
                       </button>
+                      <input type="checkbox" name="nombreGestor" value="activo" checked>
                     </li>
                     <li>
                       <button class="elementoLista">
                         Permiso 1
                       </button>
+                      <input type="checkbox" name="nombreGestor" value="activo" checked>
                     </li>
                 </ul>
             </div>
         </section>
-        <section id="datosContenedor" class="abierto">
+        <section id="datosContenedor" class="">
             <div class="datoContenedor " id="dataGestor">
                 <div class="cabezaDato">
                     <h5 id="nombreGestor">Gestor</h5>
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorGestor">
+                  <h5 id="nombreGestor">Nombre</h5>
+                  <p id="mailGestor"></p>
                   <ul class="list-group " id="listaPermisosGestor">
                     <li>
                       <label>Permiso</label>
@@ -171,7 +178,7 @@
                 </ul>
                 </div>
             </div>
-            <div class="datoContenedor abierto" id="dataPermiso">
+            <div class="datoContenedor" id="dataPermiso">
                 <div class="cabezaDato">
                     <h5>Permiso</h5>
                     <i class="bi bi-x-lg"></i>

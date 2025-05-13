@@ -1,33 +1,33 @@
 import { eliminarClase } from '../utilidades.js'
 
 let gestores = [
-    {id:1,nombre:"Diego", estado:true, permisos:[
-        {id:1, nivel:"1", estado:true},
-        {id:2, nivel:"1", estado:true},
-        {id:3, nivel:"1", estado:false},
-        {id:4, nivel:"1", estado:true},
-        {id:5, nivel:"1", estado:true},
-        {id:6, nivel:"1", estado:false},
-        {id:7, nivel:"1", estado:true},
-        {id:8, nivel:"1", estado:true},
-        {id:9, nivel:"1", estado:true},
+    {id:1,nombre:"Diego", mail:"diego@gmail", estado:true, permisos:[
+        {id:1, nivel:1, estado:true},
+        {id:2, nivel:1, estado:true},
+        {id:3, nivel:1, estado:false},
+        {id:4, nivel:1, estado:true},
+        {id:5, nivel:1, estado:true},
+        {id:6, nivel:1, estado:false},
+        {id:7, nivel:1, estado:true},
+        {id:8, nivel:1, estado:true},
+        {id:9, nivel:1, estado:true},
     ]},
-    {id:2, nombre:"Sebastian", estado:false, permisos:[
-        {id:1, nivel:"1", estado:true},
-        {id:2, nivel:"2", estado:true},
-        {id:3, nivel:"3", estado:true},
+    {id:2, nombre:"Sebastian", mail:"sebastian@gmail", estado:false, permisos:[
+        {id:1, nivel:1, estado:true},
+        {id:2, nivel:2, estado:true},
+        {id:3, nivel:3, estado:true},
     ]},
-    {id:3, nombre:"Juan", estado:true, permisos:[
-        {id:1, nivel:"3", estado:true},
+    {id:3, nombre:"Juan", mail:"juan@gmail", estado:true, permisos:[
+        {id:1, nivel:3, estado:true},
     ]}
 ]
 
 let personasConfianza = [
-        { id: "2", idPersona: "2", nombre: "María", telefono: "099001122", descripcion: "Hermana", imagen: "../imagenes/placeholder.png" },
-        { id: "4", idPersona: "2", nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
-        { id: "6", idPersona: "2", nombre: "Diana", telefono: "099005566", descripcion: "Cuñada", imagen: "../imagenes/placeholder.png"},
-        { id: "8", idPersona: "2", nombre: "Lucía", telefono: "099007788", descripcion: "Tía", imagen: "../imagenes/placeholder.png" },
-        { id: "10", idPersona: "2", nombre: "Paola", telefono: "099009900", descripcion: "Sobrina", imagen: "../imagenes/placeholder.png" }
+        { id: 2, idPersona: 2, nombre: "María", telefono: "099001122", descripcion: "Hermana", imagen: "../imagenes/placeholder.png" },
+        { id: "4", idPersona: 2, nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
+        { id: "6", idPersona: 2, nombre: "Diana", telefono: "099005566", descripcion: "Cuñada", imagen: "../imagenes/placeholder.png"},
+        { id: "8", idPersona: 2, nombre: "Lucía", telefono: "099007788", descripcion: "Tía", imagen: "../imagenes/placeholder.png" },
+        { id: "10", idPersona: 2, nombre: "Paola", telefono: "099009900", descripcion: "Sobrina", imagen: "../imagenes/placeholder.png" }
     ]
 
 let permisos = [
@@ -87,83 +87,65 @@ let permisos = [
     }
 ]
 
-function crearContenedores(){
-    crearContenedorGestores();
-    crearContenedorPC();
-    crearContenedorPermisos();
+function crearContenedoresDatos(){
+
 }
 
-function crearContenedorGestores(){
-    let listaGestores = document.getElementById("listaGestores");
-    listaGestores.innerHTML = "";
+function datoContenedorGestor(id){
+    let gestor = gestores.find(l => l.id == id);
 
-    gestores.forEach(gestor => {
+    document.getElementById("nombreGestor").textContent = gestor.nombre;
+    document.getElementById("mailGestor").textContent = gestor.mail;
+
+    gestor.permisos.forEach(permiso => {
+        const permisoCreado = permisos.find(l => l.id = permiso.id);
+
         const nuevoElementoLista = document.createElement("li");
 
-        const nuevoBoton = document.createElement("button")
-        nuevoBoton.classList.add("elementoLista");
-        nuevoBoton.textContent = gestor.nombre;
-        nuevoBoton.dataset.idGestor = gestor.id;
-        
-        const nuevoInput = document.createElement("input")
-        nuevoInput.type = "checkbox";
-        nuevoInput.name = `${gestor.id}GestorCheckBox`
-        nuevoInput.checked = gestor.estado;
+        const nuevaLabel = document.createElement("label");
+        nuevaLabel.textContent = permisoCreado.nombre
 
-        nuevoElementoLista.appendChild(nuevoBoton);
-        nuevoElementoLista.appendChild(nuevoInput);
+        const selectNivel = document.createElement("select");
+        selectNivel.classList.add("selectNivel");
 
-        listaGestores.appendChild(nuevoElementoLista);
+        const nivel1 = document.createElement("option");
+        nivel1.value=1;
+        nivel1.textContent="Nivel 1";
+        selectNivel.appendChild(nivel1);
 
+        const nivel2 = document.createElement("option");
+        nivel2.value=2;
+        nivel2.textContent="Nivel 2";
+        selectNivel.appendChild(nivel2);
+
+        const nivel3 = document.createElement("option");
+        nivel3.value=3;
+        nivel3.textContent="Nivel 3";
+        selectNivel.appendChild(nivel3);
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = `${permisoCreado.nombre}Permiso${gestor.nombre}`;
+        checkbox.value = "activo";
+        checkbox.checked = permiso.estado;
+
+        nuevoElementoLista.appendChild(nuevaLabel);
+        nuevoElementoLista.appendChild(selectNivel);
+        nuevoElementoLista.appendChild(checkbox);
+
+        document.getElementById("listaPermisosGestor").appendChild(nuevoElementoLista);
     });
 
 }
-function crearContenedorPC(){
-    let listaPCs = document.getElementById("listaPCs");
-    listaPCs.innerHTML = "";
 
-    console.log(personasConfianza)
-
-    personasConfianza.forEach(persona => {
-        const nuevoElementoLista = document.createElement("li");
-
-        const nuevoBoton = document.createElement("button")
-        nuevoBoton.classList.add("elementoLista");
-        nuevoBoton.textContent = persona.nombre;
-        nuevoBoton.dataset.idGestor = persona.id;
-        
-        nuevoElementoLista.appendChild(nuevoBoton);
-
-        listaPCs.appendChild(nuevoElementoLista);
-    });
-}
-function crearContenedorMensaje(){
+function datoContenedorPermiso(id){
     
 }
-function crearContenedorPermisos(){
-    let listaPermisos = document.getElementById("listaPermisos");
-    listaPermisos.innerHTML = "";
 
-    permisos.forEach(permiso => {
-        const nuevoElementoLista = document.createElement("li");
-
-        const nuevoBoton = document.createElement("button")
-        nuevoBoton.classList.add("elementoLista");
-        nuevoBoton.textContent = permiso.nombre;
-        nuevoBoton.dataset.idGestor = permiso.id;
-
-        const nuevoInput = document.createElement("input")
-        nuevoInput.type = "checkbox";
-        nuevoInput.name = `${permiso.id}PermisoCheckBox`
-        nuevoInput.checked = permiso.estado;
-        
-        nuevoElementoLista.appendChild(nuevoBoton);
-        nuevoElementoLista.appendChild(nuevoInput);
-
-        listaPermisos.appendChild(nuevoElementoLista);
-    });
+function datoContenedorPC(id){
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    crearContenedores();
+
 });

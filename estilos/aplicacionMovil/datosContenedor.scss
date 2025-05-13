@@ -85,6 +85,7 @@
                 background-color: colores.$color-secundario;
                 padding: 3vh 2vw;
                 margin: 3vh 2vw;
+                overflow-y: auto;
                 li{
                     display: flex;
                     justify-content: space-between;
