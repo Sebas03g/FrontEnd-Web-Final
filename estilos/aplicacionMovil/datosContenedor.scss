@@ -12,6 +12,7 @@
     top: 0;
     left: 0;
     padding: 10vh 10vw;
+    overflow-y: auto;
     .datoContenedor{
         display: none;
         flex-direction: column;
@@ -28,73 +29,141 @@
             width: 100%;
             height: fit-content;
             color: black;
+            height: 40px;
         }
     }
     #dataGestor{
         #contenedorGestor{
-            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            overflow-y: auto;
             width: 100%;
-            padding: 3vh 3vw;
+            height: fit-content;
+            gap: 1rem;
+
+            .card,
+            #listaPermisosGestor,
+            .btnAceptar {
+                width: 100%;
+                max-width: 500px;
+                flex-shrink: 0;
+            }
+
             #listaPermisosGestor{
                 background-color: colores.$color-secundario;
-                height: 100%;
-                width: 100%;
                 overflow-y: auto;
+                max-height: 50vh;
+                width: 100%;
                 padding: 1vh 2vw;
                 li{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
+                    display: grid;
+                    grid-template-areas: "label select input";
+                    grid-template-columns: 60% 30% 10%;
                     width: 100%;
                     margin-bottom: 5px;
+                    padding: 10px 0;
+                    label{
+                        grid-area: label;
+                    }
                     select{
-                        width: 50%;
+                        grid-area: select;
+                        margin: 5px 5px;
+                    }
+                    input{
+                        grid-area: input;
+                        margin: 5px 5px;
                     }
                 }
+            }
+            .btnAceptar{
+                border: 0.1px solid black;
+                background-color: colores.$color-blanco;
+                border-radius: 4px;
+                width: fit-content;
+                height: fit-content;
             }
         }
     }
     #dataPC{
         #contenedorPC{
-        padding: 5vh 3vw;
-        .card{
-            height: 100%;
-            width: 100%;
-            border: none;
-            .text-end{
-                display: flex;
-                justify-content: center;
-                i{
-                    color: colores.$color-verde-primario;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 5vh 3vw;
+            .card{
+                height: 100%;
+                width: 100%;
+                border: none;
+                .text-end{
+                    display: flex;
+                    justify-content: center;
+                    i{
+                        color: colores.$color-verde-primario;
+                    }
                 }
             }
+            .btnAceptar{
+                border: 0.1px solid black;
+                background-color: colores.$color-blanco;
+                border-radius: 4px;
+                width: fit-content;
+                height: fit-content;
+            }
         }
-    }
 
     }
     
     #dataPermiso{
         #contenedorPermiso{
             display: flex;
-            justify-content: space-between;
             align-items: center;
             flex-direction: column;
+            overflow-y: auto;
+            width: 100%;
+            height: fit-content;
+            gap: 1rem;
+            .card,
+            .ul,
+            .btnAceptar {
+                width: 100%;
+                max-width: 500px;
+                flex-shrink: 0;
+            }
+            .card{
+                border-radius: 0;
+            }
             ul{
-                width: 70%;
-                height: 100%;
+                width: 100%;
                 background-color: colores.$color-secundario;
-                padding: 3vh 2vw;
-                margin: 3vh 2vw;
-                overflow-y: auto;
+                padding: 1vh 2vw;
+                border-radius: 0;
+                max-height: 40vh;
                 li{
-                    display: flex;
-                    justify-content: space-between;
+                    display: grid;
+                    justify-content: center;
+                    grid-template-areas: "label select input";
+                    grid-template-columns: 55% 35% 10%;
+                    width: 100%;
+                    margin-bottom: 5px;
+                    padding: 10px 0;
+                    label{
+                        grid-area: label;
+                    }
                     select{
-                        width: 50%;
+                        grid-area: select;
+                        
+                    }
+                    input{
+                        grid-area: input;
+                        height: 15px;
+                        margin: 5px 5px;
                     }
                 }
             }
-            .btnActivar{
+            .btnAceptar{
                 border: 0.1px solid black;
                 background-color: colores.$color-blanco;
                 border-radius: 4px;

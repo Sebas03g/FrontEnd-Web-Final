@@ -15,13 +15,13 @@
   width: 100%;
   position: inherit;
   top: 0;
-  z-index: 999;
+  z-index: 950;
 }
 #contenedoresOpciones .contenedor .mb-3 {
   width: 100%;
   position: inherit;
   top: 2vh;
-  z-index: 999;
+  z-index: 950;
 }
 #contenedoresOpciones .contenedor .mb-3 label {
   font-size: 15px;
@@ -31,7 +31,7 @@
   width: 100%;
   position: inherit;
   top: 10vh;
-  z-index: 999;
+  z-index: 950;
   height: 70%;
   overflow-y: auto;
 }
@@ -54,7 +54,7 @@
 }
 #contenedoresOpciones .contenedor .agregar {
   background-color: #f9f7f6;
-  z-index: 998;
+  z-index: 990;
   width: 100%;
   height: 10%;
   border-top: 0.1px solid lightgray;
