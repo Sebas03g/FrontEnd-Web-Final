@@ -24,10 +24,10 @@ let gestores = [
 
 let personasConfianza = [
         { id: 2, idPersona: 2, nombre: "María", telefono: "099001122", descripcion: "Hermana", imagen: "../imagenes/placeholder.png" },
-        { id: "4", idPersona: 2, nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
-        { id: "6", idPersona: 2, nombre: "Diana", telefono: "099005566", descripcion: "Cuñada", imagen: "../imagenes/placeholder.png"},
-        { id: "8", idPersona: 2, nombre: "Lucía", telefono: "099007788", descripcion: "Tía", imagen: "../imagenes/placeholder.png" },
-        { id: "10", idPersona: 2, nombre: "Paola", telefono: "099009900", descripcion: "Sobrina", imagen: "../imagenes/placeholder.png" }
+        { id: 4, idPersona: 2, nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
+        { id: 6, idPersona: 2, nombre: "Diana", telefono: "099005566", descripcion: "Cuñada", imagen: "../imagenes/placeholder.png"},
+        { id: 8, idPersona: 2, nombre: "Lucía", telefono: "099007788", descripcion: "Tía", imagen: "../imagenes/placeholder.png" },
+        { id: 10, idPersona: 2, nombre: "Paola", telefono: "099009900", descripcion: "Sobrina", imagen: "../imagenes/placeholder.png" }
     ]
 
 let permisos = [
@@ -87,18 +87,55 @@ let permisos = [
     }
 ]
 
+function funcionalidadDatosContenedor(estado){
+    if(estado && !document.getElementById("datosContenedor").classList.contains("abierto")){
+        document.getElementById("datosContenedor").classList.add("abierto");
+    }else if(!estado){
+        document.getElementById("datosContenedor").classList.remove("abierto");
+    }
+}
+
 function crearContenedoresDatos(){
+    document.getElementById("listaGestores").querySelectorAll(".elementoLista").forEach(elemento => {
+        elemento.addEventListener("click", () => {
+            datoContenedorGestor(elemento.dataset.idGestor);
+            funcionalidadDatosContenedor(true);
+            document.getElementById("dataGestor").classList.add("abierto");
+        });
+    });
+
+    document.getElementById("listaPCs").querySelectorAll(".elementoLista").forEach(elemento => {
+        elemento.addEventListener("click", () => {
+            datoContenedorPC(elemento.dataset.idPC);
+            funcionalidadDatosContenedor(true);
+            document.getElementById("dataPC").classList.add("abierto");
+        });
+    });
+
+    document.getElementById("listaPermisos").querySelectorAll(".elementoLista").forEach(elemento => {
+        elemento.addEventListener("click", () => {
+            datoContenedorPermiso(elemento.dataset.idPermiso);
+            funcionalidadDatosContenedor(true);
+            document.getElementById("dataPermiso").classList.add("abierto");
+        });
+    });
 
 }
 
 function datoContenedorGestor(id){
     let gestor = gestores.find(l => l.id == id);
-
     document.getElementById("nombreGestor").textContent = gestor.nombre;
     document.getElementById("mailGestor").textContent = gestor.mail;
 
+    document.getElementById("listaPermisosGestor").innerHTML = "";
+
+    document.getElementById("dataGestor").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataGestor").classList.remove("abierto");
+        funcionalidadDatosContenedor(false);
+    });
+
     gestor.permisos.forEach(permiso => {
-        const permisoCreado = permisos.find(l => l.id = permiso.id);
+        let permisoCreado = permisos.find(l => l.id == permiso.id);
 
         const nuevoElementoLista = document.createElement("li");
 
@@ -145,14 +182,85 @@ function datoContenedorPermiso(id){
     document.getElementById("nombrePermiso").textContent = permiso.nombre;
     document.getElementById("descripcionPermiso").textContent = permiso.descripcion;
 
-    
+    document.getElementById("dataPermiso").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataPermiso").classList.remove("abierto");
+        funcionalidadDatosContenedor(false);
+    });
+
+    let gestores_validos = gestores.filter(gestor => 
+        gestor.permisos.some(l => l.id == id)
+    );
+
+    let gestores_invalidos = gestores.filter(gestor => gestor !== gestores_validos);
+
+
+    gestores_invalidos.forEach(gestor => {
+        let nuevaOpcion = document.createElement("option");
+        nuevaOpcion.value = gestor.id;
+        nuevaOpcion.textContent = gestor.nombre;
+
+        document.getElementById("seleccionNivel").appendChild(nuevaOpcion);
+    });
+
+    document.getElementById("listaGestoresPermiso").innerHTML = "";
+
+    gestores_validos.forEach(gestor => {
+        let permisoGestor = gestor.permisos.find(l => l.id == id);
+
+        const nuevoGestor = document.createElement("li");
+        
+        const nombreGestor = document.createElement("label");
+        nombreGestor.textContent = gestor.nombre;
+
+        const selectNivel = document.createElement("select");
+        selectNivel.classList.add("selectNivel");
+        selectNivel.classList.add("form-select");
+
+        const nivel1 = document.createElement("option");
+        nivel1.value=1;
+        nivel1.textContent="Nivel 1";
+        selectNivel.appendChild(nivel1);
+
+        const nivel2 = document.createElement("option");
+        nivel2.value=2;
+        nivel2.textContent="Nivel 2";
+        selectNivel.appendChild(nivel2);
+
+        const nivel3 = document.createElement("option");
+        nivel3.value=3;
+        nivel3.textContent="Nivel 3";
+        selectNivel.appendChild(nivel3);
+
+        selectNivel.value = permisoGestor.nivel;
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = `Gestor${gestor.id}Permiso${id}`;
+        checkbox.value = "activo";
+        checkbox.checked = permisoGestor.estado;
+
+
+        nuevoGestor.appendChild(nombreGestor);
+        nuevoGestor.appendChild(selectNivel);
+        nuevoGestor.appendChild(checkbox);
+
+        document.getElementById("listaGestoresPermiso").appendChild(nuevoGestor);
+    });
     
 }
 
 function datoContenedorPC(id){
-    
+    let persona = personasConfianza.find(l => l.id == id);
+
+    document.getElementById("nombrePC").textContent = persona.nombre;
+    document.getElementById("descripcionPC").textContent = persona.descripcion;
+
+    document.getElementById("dataPC").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataPC").classList.remove("abierto");
+        funcionalidadDatosContenedor(false);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    crearContenedoresDatos();
 });

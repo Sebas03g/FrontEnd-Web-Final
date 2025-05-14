@@ -15,6 +15,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="scripts/aplicacionMovil/contenedores.js"></script>
     <script type="module" src="scripts/aplicacionMovil/cuerpo.js"></script>
+    <script type="module" src="scripts/aplicacionMovil/datosContenedor.js"></script>
 
 </head>
 <body>
@@ -53,24 +54,6 @@
                     <input type="text" class="form-control input-busqueda" id="busquedaGestor" data-id-lista = "listaGestores"placeholder="Escriba aquí">
                 </div>
                 <ul class="list-group" id="listaGestores">
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                    <input type="checkbox" name="nombreGestor" value="activo" checked>
-                  </li>
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                    <input type="checkbox" name="nombreGestor" value="activo" checked>
-                  </li>
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                    <input type="checkbox" name="nombreGestor" value="activo" checked>
-                  </li>
                 </ul>
                 <button class="btn agregar" id="crearGestor">
                     <i class="bi bi-plus-circle"></i>
@@ -83,21 +66,6 @@
                     <input type="text" class="form-control input-busqueda" id="busquedaPC" data-id-lista = "listaPCs" placeholder="Escriba aquí">
                 </div>
                 <ul class="list-group" id="listaPCs">
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                  </li>
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                  </li>
-                  <li>
-                    <button class="elementoLista">
-                      Permiso 1
-                    </button>
-                  </li>
                 </ul>
                 <button class="btn agregar" id="crearPC">
                     <i class="bi bi-plus-circle"></i>
@@ -114,68 +82,28 @@
             <div id="contenedorPermisos" class="contenedor">
                 <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
                 <ul class="list-group " id="listaPermisos">
-                    <li>
-                      <button class="elementoLista">
-                        Permiso 1
-                      </button>
-                      <input type="checkbox" name="nombreGestor" value="activo" checked>
-                    </li>
-                    <li>
-                      <button class="elementoLista">
-                        Permiso 1
-                      </button>
-                      <input type="checkbox" name="nombreGestor" value="activo" checked>
-                    </li>
-                    <li>
-                      <button class="elementoLista">
-                        Permiso 1
-                      </button>
-                      <input type="checkbox" name="nombreGestor" value="activo" checked>
-                    </li>
                 </ul>
+                
             </div>
         </section>
         <section id="datosContenedor" class="">
-            <div class="datoContenedor " id="dataGestor">
+            <div class="datoContenedor" id="dataGestor">
                 <div class="cabezaDato">
                     <h5>Gestor</h5>
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div id="contenedorGestor">
-                  <h5 id="nombreGestor">Nombre</h5>
-                  <p id="mailGestor"></p>
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 id="nombreGestor">Nombre</h5>
+                      <p id="mailGestor">Email</p>
+                    </div>
+                  </div>
                   <ul class="list-group " id="listaPermisosGestor">
-                    <li>
-                      <label>Permiso</label>
-                      <select class="form-select" class="selectNivel">
-                        <option value=1 selected>Nivel 1</option>
-                        <option value=2>Nivel 2</option>
-                        <option value=3>Nivel 3</option>
-                        <option value=0>Desactivado</option>
-                      </select>
-                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
-                    </li>
-                    <li>
-                      <label>Permiso</label>
-                      <select class="form-select" class="selectNivel">
-                        <option value=1 selected>Nivel 1</option>
-                        <option value=2>Nivel 2</option>
-                        <option value=3>Nivel 3</option>
-                        <option value=0>Desactivado</option>
-                      </select>
-                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
-                    </li>
-                    <li>
-                      <label>Permiso</label>
-                      <select class="form-select" class="selectNivel">
-                        <option value=1 selected>Nivel 1</option>
-                        <option value=2>Nivel 2</option>
-                        <option value=3>Nivel 3</option>
-                        <option value=0>Desactivado</option>
-                      </select>
-                      <input type="checkbox" name="nombrePermiso" value="activo" checked>
-                    </li>
-                </ul>
+                  </ul>
+                  <button class="btnAceptar">
+                      Aceptar
+                  </button>
                 </div>
             </div>
             <div class="datoContenedor" id="dataPermiso">
@@ -210,40 +138,10 @@
                       </div>
 
                       <ul class="list-group" id="listaGestoresPermiso">
-                        <li>
-                          <label>Gestor</label>
-                          <select class="form-select" class="selectNivel">
-                            <option value=1 selected>Nivel 1</option>
-                            <option value=2>Nivel 2</option>
-                            <option value=3>Nivel 3</option>
-                            <option value=0>Desactivado</option>
-                          </select>
-                          <input type="checkbox" name="nombreGestor" value="activo" checked>
-                        </li>
-                        <li>
-                          <label>Gestor</label>
-                          <select class="form-select" class="selectNivel">
-                            <option value=1 selected>Nivel 1</option>
-                            <option value=2>Nivel 2</option>
-                            <option value=3>Nivel 3</option>
-                            <option value=0>Desactivado</option>
-                          </select>
-                          <input type="checkbox" name="nombreGestor" value="activo" checked>
-                        </li>
-                        <li>
-                          <label>Gestor</label>
-                          <select class="form-select" class="selectNivel">
-                            <option value=1 selected>Gestor 1</option>
-                            <option value=2>Gestor 2</option>
-                            <option value=3>Gestor 3</option>
-                            <option value=0>Desactivado</option>
-                          </select>
-                          <input type="checkbox" name="nombreGestor" value="activo" checked>
-                        </li>
-                    </ul>
-                    <button class="btnActivar" id="btnActivarPermiso">
-                      Activar
-                    </button>
+                      </ul>
+                    <button class="btnAceptar" id="btnActivarPermiso">
+                      Aceptar
+                  </button>
                 </div>
             </div>
             <div class="datoContenedor" id="dataPC">
@@ -255,8 +153,8 @@
                       <div class="card">
                         <img src="/imagenes/placeholder.png" class="card-img-top" alt="Imagen de Persona" id="imgPersona">
                         <div class="card-body">
-                          <h5 class="card-title">Nombre</h5>
-                          <p class="card-text">Este es el texto descriptivo de la persona. Puedes colocar aquí cualquier contenido relevante.</p>
+                          <h5 class="card-title" id="nombrePC">Nombre</h5>
+                          <p class="card-text" id="descripcionPC">Este es el texto descriptivo de la persona. Puedes colocar aquí cualquier contenido relevante.</p>
                           <div class="text-end">
                             <i class="bi bi-telephone-outbound"></i>
                           </div>

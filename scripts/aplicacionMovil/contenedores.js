@@ -122,24 +122,20 @@ function crearContenedorPC(){
     let listaPCs = document.getElementById("listaPCs");
     listaPCs.innerHTML = "";
 
-    console.log(personasConfianza)
-
     personasConfianza.forEach(persona => {
         const nuevoElementoLista = document.createElement("li");
 
         const nuevoBoton = document.createElement("button")
         nuevoBoton.classList.add("elementoLista");
         nuevoBoton.textContent = persona.nombre;
-        nuevoBoton.dataset.idGestor = persona.id;
+        nuevoBoton.dataset.idPC = persona.id;
         
         nuevoElementoLista.appendChild(nuevoBoton);
 
         listaPCs.appendChild(nuevoElementoLista);
     });
 }
-function crearContenedorMensaje(){
-    
-}
+
 function crearContenedorPermisos(){
     let listaPermisos = document.getElementById("listaPermisos");
     listaPermisos.innerHTML = "";
@@ -150,7 +146,7 @@ function crearContenedorPermisos(){
         const nuevoBoton = document.createElement("button")
         nuevoBoton.classList.add("elementoLista");
         nuevoBoton.textContent = permiso.nombre;
-        nuevoBoton.dataset.idGestor = permiso.id;
+        nuevoBoton.dataset.idPermiso = permiso.id;
 
         const nuevoInput = document.createElement("input")
         nuevoInput.type = "checkbox";
