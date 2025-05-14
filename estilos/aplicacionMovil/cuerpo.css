@@ -6,23 +6,56 @@ html, body {
 body {
   display: grid;
   grid-template-areas: "encabezado" "icono" "imgUsuario" "opciones" "botonEmergencia";
-  grid-template-rows: 12vh 3vh 20vh 50vh 10vh;
+  grid-template-rows: 12vh 40px 20vh 50vh 10vh;
+  overflow-y: hidden;
 }
 
 #encabezado {
   grid-area: encabezado;
-  background-color: #2E6A2F; /* O usa una variable si usas SASS */
+  background-color: rgba(46, 106, 47, 0.1490196078); /* O usa una variable si usas SASS */
   height: 12vh;
 }
 
+#menuUsuario {
+  display: none;
+  position: absolute;
+  right: 1vw;
+  top: calc(12vh + 35px);
+  z-index: 995;
+  height: max-content;
+}
+#menuUsuario .card {
+  height: max-content;
+  background-color: #f9f7f6;
+}
+#menuUsuario .card-body {
+  display: flex;
+  justify-content: space-between;
+  height: max-content;
+  flex-direction: column;
+  height: fit-content;
+}
+#menuUsuario .card-body .btn {
+  border: 0.1px solid black;
+  background-color: #ffffff;
+}
+#menuUsuario input {
+  border: 0.1px solid lightgray;
+  margin: 5px 0;
+}
+
 #opcionesUsuario .icono {
-  height: 3vh;
+  height: 40px;
   width: 100%;
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 #opcionesUsuario .icono i {
   font-size: 20px;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 0 5px;
 }
 #opcionesUsuario #imgUsuario {
   grid-area: imgUsuario;

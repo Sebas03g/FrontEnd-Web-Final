@@ -47,6 +47,9 @@
   max-width: 500px;
   flex-shrink: 0;
 }
+#datosContenedor #dataGestor #contenedorGestor .card {
+  border: none;
+}
 #datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor {
   background-color: #f9f7f6;
   overflow-y: auto;
@@ -150,7 +153,6 @@
 }
 #datosContenedor #dataPermiso #contenedorPermiso ul li input {
   grid-area: input;
-  height: 15px;
   margin: 5px 5px;
 }
 #datosContenedor #dataPermiso #contenedorPermiso .btnAceptar {

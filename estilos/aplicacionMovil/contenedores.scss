@@ -18,12 +18,15 @@
             position: inherit;
             top: 0;
             z-index: 950;
+            height: 4vh;
+            border-radius: 0;
         }
         .mb-3{
             width: 100%;
             position: inherit;
-            top: 2vh;
-            z-index: 950;
+            top: 4vh;
+            z-index: 960;
+            height: fit-content;
             label{
                 font-size: 15px;
                 margin-left: 5px;
@@ -32,7 +35,7 @@
         .list-group{
             width: 100%;
             position: inherit;
-            top: 10vh;
+            top: 12vh;
             z-index: 950;
             height: 70%;
             overflow-y: auto;
@@ -85,6 +88,11 @@
             margin-bottom: 5%;
             background-color: white;
             border: 0.1px solid black;
+        }
+    }
+    #contenedorPermisos{
+        .list-group{
+            top: 5vh;
         }
     }
 }

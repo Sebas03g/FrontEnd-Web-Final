@@ -9,6 +9,26 @@ function abrirContenedores(opciones){
     });
 }
 
+function abrirMenuUsuario(botonIcono){
+    botonIcono.addEventListener("click", () => {
+
+        if(!botonIcono.classList.contains("seleccionado")){
+            botonIcono.classList.add("seleccionado");
+            document.getElementById("menuUsuario").classList.add("abierto");
+        }else{
+            botonIcono.classList.remove("seleccionado");
+            document.getElementById("menuUsuario").classList.remove("abierto");
+        }
+    });
+}
+
+function accionesMenuUsuario(menuUsuario){
+    menuUsuario.querySelector(".btn").addEventListener("click", () => {
+        document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
+        document.getElementById("menuUsuario").classList.remove("abierto");
+    });
+}
+
 function cerrarContenedor(botonesBajar){
     botonesBajar.forEach(boton => {
         boton.addEventListener("click", () => {
@@ -20,6 +40,11 @@ function cerrarContenedor(botonesBajar){
 document.addEventListener("DOMContentLoaded", () => {
     const opciones = document.getElementById("opciones");
     const botonesBajar = document.querySelectorAll(".botonBajar");
+    const iconoUsuario = document.getElementById("iconoUsuario").querySelector("i");
+    const menuUsuario = document.getElementById("menuUsuario");
+
     abrirContenedores(opciones);
     cerrarContenedor(botonesBajar);
+    abrirMenuUsuario(iconoUsuario);
+    accionesMenuUsuario(menuUsuario);
 });

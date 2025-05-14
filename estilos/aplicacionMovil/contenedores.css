@@ -16,12 +16,15 @@
   position: inherit;
   top: 0;
   z-index: 950;
+  height: 4vh;
+  border-radius: 0;
 }
 #contenedoresOpciones .contenedor .mb-3 {
   width: 100%;
   position: inherit;
-  top: 2vh;
-  z-index: 950;
+  top: 4vh;
+  z-index: 960;
+  height: fit-content;
 }
 #contenedoresOpciones .contenedor .mb-3 label {
   font-size: 15px;
@@ -30,7 +33,7 @@
 #contenedoresOpciones .contenedor .list-group {
   width: 100%;
   position: inherit;
-  top: 10vh;
+  top: 12vh;
   z-index: 950;
   height: 70%;
   overflow-y: auto;
@@ -54,7 +57,7 @@
 }
 #contenedoresOpciones .contenedor .agregar {
   background-color: #f9f7f6;
-  z-index: 990;
+  z-index: 950;
   width: 100%;
   height: 10%;
   border-top: 0.1px solid lightgray;
@@ -81,6 +84,9 @@
   margin-bottom: 5%;
   background-color: white;
   border: 0.1px solid black;
+}
+#contenedoresOpciones #contenedorPermisos .list-group {
+  top: 5vh;
 }
 
 .abierto {
