@@ -47,6 +47,14 @@ body {
   border: 0.1px solid black;
   background-color: #ffffff;
 }
+#menuUsuario .card-body #btnSalir {
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+}
+#menuUsuario .card-body #btnSalir a {
+  color: #C32F27;
+}
 #menuUsuario input {
   border: 0.1px solid lightgray;
   margin: 5px 0;

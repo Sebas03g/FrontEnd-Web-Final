@@ -51,7 +51,7 @@ function cerrarContenedor(botonesBajar){
 
 function cerrarContenido(){
     document.body.addEventListener("click", function (event) {
-        if (event.target !== document.getElementById("iconoUsuario").querySelector("i") && event.target !== document.getElementById("menuUsuario")) {
+        if (event.target !== document.getElementById("iconoUsuario").querySelector("i") && event.target !== document.getElementById("menuUsuario") && !document.getElementById("menuUsuario").contains(event.target)) {
             document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
             document.getElementById("menuUsuario").classList.remove("abierto");
         }

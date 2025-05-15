@@ -13,6 +13,7 @@
         border-top-right-radius: 20px;
         border-top-left-radius: 20px;
         bottom: 9vh;
+        overflow-y: auto;
         .botonBajar{
             width: 100%;
             position: inherit;
@@ -26,7 +27,7 @@
             position: inherit;
             top: 4vh;
             z-index: 960;
-            height: fit-content;
+            height: 75px;
             label{
                 font-size: 15px;
                 margin-left: 5px;
@@ -35,10 +36,11 @@
         .list-group{
             width: 100%;
             position: inherit;
-            top: 12vh;
-            z-index: 950;
-            height: 70%;
+            top: calc(4vh + 75px);
+            z-index: 990;
+            height: calc(60vh - 4vh - 75px - 4vh);
             overflow-y: auto;
+            margin-bottom: 4vh;
             li{
                 display: flex;
                 justify-content: left;
@@ -63,7 +65,7 @@
             background-color: colores.$color-secundario;
             z-index: 950;
             width: 100%;
-            height: 10%;
+            height: 4vh;
             border-top: 0.1px solid lightgray;
             border-radius: 0;
         }
