@@ -40,7 +40,7 @@
     left: 0;
     z-index: 3;
     top: 6vh;
-    
+    overflow-y: auto;
     height: 94vh;
     width: 20vw;
 
@@ -51,8 +51,7 @@
         width: 100vw;
         height: 40vh;
         top: 60vh;
-        bottom: 0;
-        overflow-y: auto;
+        bottom: 0;        
     }
 
     #listaDispositivos{
@@ -121,4 +120,3 @@
 .mostrar{
     display: flex !important;
 }
-

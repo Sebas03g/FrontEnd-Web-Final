@@ -1,5 +1,6 @@
 import { eliminarClase } from '../utilidades.js';
-import { funcionPanelMensaje } from './mensajesUsuario.js';
+import { esPantallaPequena } from '../utilidades.js';
+import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 let idDispositivo = null;
 
@@ -42,6 +43,12 @@ function accionesDispositivos(dispositivos){
             document.getElementById("modificarPersona").classList.toggle("abierto");
             document.getElementById("contenedor").classList.remove("abierto");
             document.getElementById("creacionPersona").classList.remove("abierto");
+
+            if(esPantallaPequena()){
+                document.getElementById('contenedorMenu').classList.remove('mostrar');
+                document.getElementById('botonMenu').classList.remove('seleccionado');
+            }
+
         });
     });
 
@@ -69,6 +76,7 @@ function crearDispositivo(btn){
         document.getElementById("creacionPersona").classList.toggle("abierto");
         document.getElementById("contenedor").classList.remove("abierto");
         document.getElementById("modificarPersona").classList.remove("abierto");
+
     });
 }
 
@@ -77,11 +85,17 @@ function cerrarDispositivo(botones){
         boton.querySelector("i").addEventListener('click', () => {
             boton.parentElement.classList.remove("abierto");
             document.getElementById("btn-creacion").classList.remove("seleccionado");
+
+            if(esPantallaPequena()){
+                document.getElementById('contenedorMenu').classList.add('mostrar');
+                document.getElementById('botonMenu').classList.add('seleccionado');
+            }
+
         });
     });
 }
 
-function agrgarDispositvo(){
+function agregarDispositvo(){
     document.getElementById("creacionPersona").querySelector(".btn-primary").addEventListener("click", () => {
         funcionPanelMensaje("Dispositivo Creado", "El dispositivo se creó exitosamente y el usuario ha sido notificado. Solo falta que el usuario agregue al gestor.", "comunicacion", "Aceptar");
         document.getElementById("creacionPersona").classList.remove("abierto");
@@ -104,5 +118,5 @@ document.addEventListener("DOMContentLoaded", function(){
     crearDispositivo(botonCreacion);
     cerrarDispositivo(botonesCerrar);
     modificarDispositvo();
-    agrgarDispositvo();
+    agregarDispositvo();
 });

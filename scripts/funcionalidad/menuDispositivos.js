@@ -1,4 +1,5 @@
 import { eliminarClase } from '../utilidades.js';
+import { esPantallaPequena } from '../utilidades.js';
 
 var idDipositivo;
 
@@ -8,6 +9,10 @@ function accionMenuBoton(btn){
     menu.classList.toggle('mostrar');
     btn.classList.toggle('seleccionado');
     document.getElementById("contenedorUbicacionesGenerales").classList.remove("activo");
+
+    if(esPantallaPequena()){
+      document.getElementById("contenedor").classList.remove("abierto");
+    }
 
   });
 }
@@ -21,6 +26,7 @@ function accionListaDispositivos(listaDispositivos){
       document.getElementById("modificarPersona").classList.remove("abierto");
       document.getElementById("creacionPersona").classList.remove("abierto");
       idDipositivo = elemento.dataset.idDispositivo;
+
     });
   });
 }
@@ -29,6 +35,12 @@ function botonAgregarDispositivo(btn, listaDispositivos){
   btn.addEventListener("click", () => {
     eliminarClase(listaDispositivos.querySelectorAll(".elementoDispositivo"), "seleccionado");
     btn.classList.toggle("seleccionado")
+
+    if(esPantallaPequena()){
+        document.getElementById('contenedorMenu').classList.remove('mostrar');
+        document.getElementById('botonMenu').classList.remove('seleccionado');
+    }
+
   });
 }
 

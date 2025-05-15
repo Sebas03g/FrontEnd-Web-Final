@@ -1,5 +1,5 @@
 import { eliminarClase } from '../utilidades.js'
-import { funcionPanelMensaje } from './mensajesUsuario.js';
+import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 let mapaUbicacion = null;
 

@@ -4,3 +4,8 @@ export function eliminarClase(elementos, clase){
     })
 }
 
+export function esPantallaPequena() {
+  return window.innerWidth <= 768;
+}
+
+

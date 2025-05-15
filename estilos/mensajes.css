@@ -50,4 +50,8 @@
   background-color: #e8e9eb;
 }
 
+.mostrar {
+  display: flex !important;
+}
+
 /*# sourceMappingURL=mensajes.css.map */

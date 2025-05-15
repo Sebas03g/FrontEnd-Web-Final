@@ -37,14 +37,12 @@
   flex-direction: column;
   overflow-y: auto;
   width: 100%;
-  height: fit-content;
   gap: 1rem;
 }
 #datosContenedor #dataGestor #contenedorGestor .card,
 #datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor,
 #datosContenedor #dataGestor #contenedorGestor .btnAceptar {
   width: 100%;
-  max-width: 500px;
   flex-shrink: 0;
 }
 #datosContenedor #dataGestor #contenedorGestor .card {
@@ -53,8 +51,8 @@
 #datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor {
   background-color: #f9f7f6;
   overflow-y: auto;
-  max-height: 50vh;
   width: 100%;
+  height: 50vh;
   padding: 1vh 2vw;
 }
 #datosContenedor #dataGestor #contenedorGestor #listaPermisosGestor li {
@@ -123,18 +121,18 @@
 #datosContenedor #dataPermiso #contenedorPermiso .ul,
 #datosContenedor #dataPermiso #contenedorPermiso .btnAceptar {
   width: 100%;
-  max-width: 500px;
   flex-shrink: 0;
 }
 #datosContenedor #dataPermiso #contenedorPermiso .card {
   border-radius: 0;
+  width: 100% !important;
 }
 #datosContenedor #dataPermiso #contenedorPermiso ul {
   width: 100%;
   background-color: #f9f7f6;
   padding: 1vh 2vw;
   border-radius: 0;
-  max-height: 40vh;
+  height: 40vh;
 }
 #datosContenedor #dataPermiso #contenedorPermiso ul li {
   display: grid;
@@ -161,6 +159,71 @@
   border-radius: 4px;
   width: fit-content;
   height: fit-content;
+}
+
+#crearDatos {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 990;
+}
+#crearDatos .contenedor {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+}
+#crearDatos .contenedor .card {
+  height: 100%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#crearDatos .contenedor .card .card-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#crearDatos .contenedor .card .card-body input {
+  border: 1px solid black;
+}
+#crearDatos .contenedor .card .card-body .btn {
+  border: 1px solid black;
+}
+#crearDatos .contenedor .cerrarContenedor {
+  display: flex;
+  justify-content: right;
+  width: 90%;
+  margin-top: 10px;
+}
+#crearDatos #crearDatoGestor {
+  top: 35vh;
+  left: 15vw;
+  height: 30vh;
+  width: 70vw;
+}
+#crearDatos #crearDatoPC {
+  top: 15vh;
+  left: 15vw;
+  height: 70vh;
+  width: 70vw;
+}
+#crearDatos #crearDatoPC #imgPC {
+  height: auto;
+  width: 150px;
+  padding: 10px 10px;
 }
 
 .abierto {

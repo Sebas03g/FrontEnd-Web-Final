@@ -1,8 +1,13 @@
 @use '../colores' as colores;
 
+@use "../fuentes";
+
 html, body {
+    @extend %font-normal;
     height: 100%;
     margin: 0;
+    
+
 }
 
 body {
@@ -19,7 +24,7 @@ body {
 
 #encabezado {
     grid-area: encabezado;
-    background-color: colores.$color-fondo-verde; /* O usa una variable si usas SASS */
+    background-color: colores.$color-verde-primario; /* O usa una variable si usas SASS */
     height: 12vh;
 }
 

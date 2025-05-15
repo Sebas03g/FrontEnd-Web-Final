@@ -1,4 +1,5 @@
 import { eliminarClase } from '../utilidades.js'
+import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 let gestores = [
     {id:1,nombre:"Diego", estado:true, permisos:[
@@ -160,6 +161,29 @@ function crearContenedorPermisos(){
     });
 }
 
+function agregarFuncionesCheck(){
+    document.getElementById("contenedorGestores").querySelectorAll('input[type="checkbox"]').forEach(elemento => {
+        elemento.addEventListener("change", (e) => {
+            if(e.target.checked){
+                funcionPanelMensaje("Activar Gestor", "¿Estas seguro que quieres activar el siguiente gestor?, esto le dara acceso a los permisos previamente registrados.", "comunicacion", "Activar");
+            }else{
+                funcionPanelMensaje("Desactivar Gestor", "¿Estas seguro que quieres desactivar el siguiente gestor?, esto le quitara acceso a todos los permisos previamente registrados.", "comunicacion", "Desactivar");
+            }
+        });
+    });
+
+    document.getElementById("contenedorPermisos").querySelectorAll('input[type="checkbox"]').forEach(elemento => {
+        elemento.addEventListener("change", (e) => {
+            if(e.target.checked){
+                funcionPanelMensaje("Activar Permiso", "¿Estas seguro que quieres activar el siguiente permiso?, esto les dara permiso a los gestores previamente registrados.", "comunicacion", "Activar");
+            }else{
+                funcionPanelMensaje("Desactivar Permiso", "¿Estas seguro que quieres desactivar el siguiente permiso?, esto le quitara acceso a todos los gestores previamente registrados.", "comunicacion", "Desactivar");
+            }
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     crearContenedores();
+    agregarFuncionesCheck();
 });

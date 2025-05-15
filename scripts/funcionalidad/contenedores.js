@@ -1,5 +1,6 @@
 import { eliminarClase } from '../utilidades.js'
-import { funcionPanelMensaje } from './mensajesUsuario.js';
+import { esPantallaPequena } from '../utilidades.js'
+import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 let idDispositivo = null;
 let mapaUbicacion = null;
@@ -105,6 +106,11 @@ function accionBotonMenu(botonMenu){
         document.getElementById("contenedor").classList.remove("abierto")
         document.getElementById("menuNavMobil").querySelector(".iconoMobil").classList.remove("seleccionado")
         document.getElementById("menuNavMobil").querySelector(".linksNavMobil").classList.remove("mostrar");
+
+        if(esPantallaPequena()){
+            document.getElementById('contenedorMenu').classList.add('mostrar');
+            document.getElementById('botonMenu').classList.add('seleccionado');
+        }
     })
 }
 
@@ -171,6 +177,12 @@ function accionesDispositivos(dispositivos){
             document.getElementById("botonPerdida").addEventListener("click", () => {
                 funcionPanelMensaje("Modo Alarma", "Al activar el modo alarma se notificara al usuario, y podra utilizar permisos de nivel 3.",  "eliminar", "Activar");
             });
+
+            if(esPantallaPequena()){
+                document.getElementById('contenedorMenu').classList.remove('mostrar');
+                document.getElementById('botonMenu').classList.remove('seleccionado');
+            }
+
         });
     });
 }

@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&display=swap");
+html, body, header #tituloPagina {
+  font-family: "National Park", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+}
+
 header {
   height: 6vh;
   display: flex;
@@ -6,7 +18,6 @@ header {
   background-color: #2E6A2F;
   color: #ffffff;
 }
-
 #enlaceInformacion {
   width: 6vh;
 }

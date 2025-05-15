@@ -1,5 +1,12 @@
 @use '../colores' as colores;
 
+@use "../fuentes";
+
+html, body {
+    @extend %font-bold;
+    margin: 0;
+}
+
 header{
     height: 6vh;
     display:flex;
@@ -7,7 +14,12 @@ header{
     justify-content: space-between;
     background-color: colores.$color-verde-primario;
     color: colores.$color-blanco;
+
+    #tituloPagina{
+        @extend %font-bold;
+    }
 }
+
 
 #enlaceInformacion{
     width: 6vh;

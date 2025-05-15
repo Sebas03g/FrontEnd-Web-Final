@@ -1,4 +1,5 @@
-import { eliminarClase } from '../utilidades.js'
+import { eliminarClase } from '../utilidades.js';
+import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 let gestores = [
     {id:1,nombre:"Diego", mail:"diego@gmail", estado:true, permisos:[
@@ -87,36 +88,32 @@ let permisos = [
     }
 ]
 
-function funcionalidadDatosContenedor(estado){
-    if(estado && !document.getElementById("datosContenedor").classList.contains("abierto")){
-        document.getElementById("datosContenedor").classList.add("abierto");
-    }else if(!estado){
-        document.getElementById("datosContenedor").classList.remove("abierto");
-    }
-}
 
 function crearContenedoresDatos(){
     document.getElementById("listaGestores").querySelectorAll(".elementoLista").forEach(elemento => {
         elemento.addEventListener("click", () => {
             datoContenedorGestor(elemento.dataset.idGestor);
-            funcionalidadDatosContenedor(true);
+            document.getElementById("datosContenedor").classList.add("abierto")
             document.getElementById("dataGestor").classList.add("abierto");
+            agregarFuncionesCheck();
         });
     });
 
     document.getElementById("listaPCs").querySelectorAll(".elementoLista").forEach(elemento => {
         elemento.addEventListener("click", () => {
             datoContenedorPC(elemento.dataset.idPC);
-            funcionalidadDatosContenedor(true);
+            document.getElementById("datosContenedor").classList.add("abierto")
             document.getElementById("dataPC").classList.add("abierto");
+            
         });
     });
 
     document.getElementById("listaPermisos").querySelectorAll(".elementoLista").forEach(elemento => {
         elemento.addEventListener("click", () => {
             datoContenedorPermiso(elemento.dataset.idPermiso);
-            funcionalidadDatosContenedor(true);
+            document.getElementById("datosContenedor").classList.add("abierto")
             document.getElementById("dataPermiso").classList.add("abierto");
+            agregarFuncionesCheck();
         });
     });
 
@@ -128,11 +125,6 @@ function datoContenedorGestor(id){
     document.getElementById("mailGestor").textContent = gestor.mail;
 
     document.getElementById("listaPermisosGestor").innerHTML = "";
-
-    document.getElementById("dataGestor").querySelector("i").addEventListener("click", () => {
-        document.getElementById("dataGestor").classList.remove("abierto");
-        funcionalidadDatosContenedor(false);
-    });
 
     gestor.permisos.forEach(permiso => {
         let permisoCreado = permisos.find(l => l.id == permiso.id);
@@ -182,10 +174,7 @@ function datoContenedorPermiso(id){
     document.getElementById("nombrePermiso").textContent = permiso.nombre;
     document.getElementById("descripcionPermiso").textContent = permiso.descripcion;
 
-    document.getElementById("dataPermiso").querySelector("i").addEventListener("click", () => {
-        document.getElementById("dataPermiso").classList.remove("abierto");
-        funcionalidadDatosContenedor(false);
-    });
+    
 
     let gestores_validos = gestores.filter(gestor => 
         gestor.permisos.some(l => l.id == id)
@@ -199,7 +188,7 @@ function datoContenedorPermiso(id){
         nuevaOpcion.value = gestor.id;
         nuevaOpcion.textContent = gestor.nombre;
 
-        document.getElementById("seleccionNivel").appendChild(nuevaOpcion);
+        document.getElementById("seleccionGestor").appendChild(nuevaOpcion);
     });
 
     document.getElementById("listaGestoresPermiso").innerHTML = "";
@@ -255,12 +244,85 @@ function datoContenedorPC(id){
     document.getElementById("nombrePC").textContent = persona.nombre;
     document.getElementById("descripcionPC").textContent = persona.descripcion;
 
+}
+
+function crearDatos(){
+    document.getElementById("crearGestor").addEventListener("click", () => {
+        document.getElementById("crearDatos").classList.add("abierto");
+        document.getElementById("crearDatoGestor").classList.add("abierto");
+    });
+
+    document.getElementById("crearPC").addEventListener("click", () => {
+        document.getElementById("crearDatos").classList.add("abierto");
+        document.getElementById("crearDatoPC").classList.add("abierto");
+    });
+}
+
+function cerrarVentanas(){
     document.getElementById("dataPC").querySelector("i").addEventListener("click", () => {
         document.getElementById("dataPC").classList.remove("abierto");
-        funcionalidadDatosContenedor(false);
+        document.getElementById("datosContenedor").classList.remove("abierto");
+    });
+
+    document.getElementById("dataPermiso").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataPermiso").classList.remove("abierto");
+        document.getElementById("datosContenedor").classList.remove("abierto");
+    });
+
+    document.getElementById("dataGestor").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataGestor").classList.remove("abierto");
+        document.getElementById("datosContenedor").classList.remove("abierto");
+    });
+
+    document.getElementById("crearDatoGestor").querySelector("i").addEventListener("click", () => {
+        document.getElementById("crearDatos").classList.remove("abierto");
+        document.getElementById("crearDatoGestor").classList.remove("abierto");
+    });
+    document.getElementById("crearDatoPC").querySelector("i").addEventListener("click", () => {
+        document.getElementById("crearDatos").classList.remove("abierto");
+        document.getElementById("crearDatoPC").classList.remove("abierto");
+    });
+}
+
+function funcionesMensajes(){
+    document.getElementById("crearNuevoPC").addEventListener("click", () => {
+        document.getElementById("crearDatos").classList.remove("abierto");
+        document.getElementById("crearDatoPC").classList.remove("abierto");
+        funcionPanelMensaje("Creacion de la Persona de Confianza", "Esta accion registrar esta persona de confianza al sistema. ¿Desea continar?", "comunicacion", "Crear");
+    });
+
+    document.getElementById("crearNuevoGestor").addEventListener("click", () => {
+        document.getElementById("dataGestor").classList.remove("abierto");
+        document.getElementById("datosContenedor").classList.remove("abierto");
+        funcionPanelMensaje("Registro de nuevo Gestor", "Esta accion registrara al gestor y podra gestionar permisos para el mismo. ¿Desea continar?", "comunicacion", "Registrar");
+    });
+}
+
+function agregarFuncionesCheck(){
+    document.getElementById("listaPermisosGestor").querySelectorAll('input[type="checkbox"]').forEach(elemento => {
+        elemento.addEventListener("change", (e) => {
+            if(e.target.checked){
+                funcionPanelMensaje("Activar Permiso", "¿Estas seguro que quieres activar el siguiente permiso?, esto le dara acceso a la informacion previamente mencionada.", "comunicacion", "Activar");
+            }else{
+                funcionPanelMensaje("Desactivar Permiso", "¿Estas seguro que quieres desactivar el siguiente permiso?, esto le quitara acceso a la informacion previamente mencionada.", "comunicacion", "Desactivar");
+            }
+        });
+    });
+
+    document.getElementById("listaGestoresPermiso").querySelectorAll('input[type="checkbox"]').forEach(elemento => {
+        elemento.addEventListener("change", (e) => {
+            if(e.target.checked){
+                funcionPanelMensaje("Activar Gestor", "¿Estas seguro que quieres activar el siguiente gestor?, esto le dara acceso a al permiso actual.", "comunicacion", "Activar");
+            }else{
+                funcionPanelMensaje("Desactivar Gestor", "¿Estas seguro que quieres desactivar el siguiente gestor?, esto le quitara acceso a el permiso actual.", "comunicacion", "Desactivar");
+            }
+        });
     });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     crearContenedoresDatos();
+    crearDatos();
+    cerrarVentanas();
+    funcionesMensajes();
 });
