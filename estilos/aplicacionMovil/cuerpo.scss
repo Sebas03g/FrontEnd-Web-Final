@@ -87,8 +87,9 @@ body {
             border: none;
             background-color: transparent;
     
-            &:hover{
-                filter: brightness(95%);
+            img{
+                height: 10vh;
+                width: auto;
             }
         }
         i{

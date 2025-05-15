@@ -51,8 +51,9 @@
             </div>
             <div id="imgUsuario">
                 <button id="agregarIMG">
-                    <i class="bi bi-image"></i>
+                    <img src="/imagenes/agregarImagen.png"  alt="Imagen de Usuario">
                 </button>
+                <input type="file" id="inputImagenUsuario" accept="image/*" style="display: none;" />
             </div>
             <div class="d-flex flex-column" id="opciones">
                 <button type="button" class="btn btn-light mb-2" data-id-contenedor="contenedorGestores" id="botonGestores">Gestores</button>
@@ -62,7 +63,7 @@
             </div>
               
             <div id="botonEmergencia">
-                <button type="button" class="btn btn-danger mb-2">Alarma</button>
+                <button type="button" class="btn btn-danger">Alarma</button>
             </div>
         </section>
         <section id="contenedoresOpciones">
@@ -205,7 +206,10 @@
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div class="card">
-                    <img src="/imagenes/agregarImagen.png" class="card-img-top" alt="Imagen de Persona" id="imgPC">
+                    <button id="agregarIMGPC">
+                        <img src="/imagenes/agregarImagen.png" class="card-img-top" alt="Imagen de Persona" id="imgPC">
+                    </button>
+                    <input type="file" id="inputImagenPC" accept="image/*" style="display: none;" />
                     <div class="card-body">
                         <div class="form-group">
                             <label for="nombreCrearPC">Nombre:</label>

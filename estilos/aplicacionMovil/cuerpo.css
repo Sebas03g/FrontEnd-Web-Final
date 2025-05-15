@@ -78,8 +78,9 @@ body {
   border: none;
   background-color: transparent;
 }
-#opcionesUsuario #imgUsuario #agregarIMG:hover {
-  filter: brightness(95%);
+#opcionesUsuario #imgUsuario #agregarIMG img {
+  height: 10vh;
+  width: auto;
 }
 #opcionesUsuario #imgUsuario i {
   font-size: 80px;

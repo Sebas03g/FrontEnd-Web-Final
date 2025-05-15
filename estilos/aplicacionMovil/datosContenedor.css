@@ -225,6 +225,10 @@
   width: 150px;
   padding: 10px 10px;
 }
+#crearDatos #crearDatoPC #agregarIMGPC {
+  background-color: transparent;
+  border: none;
+}
 
 .abierto {
   display: flex !important;

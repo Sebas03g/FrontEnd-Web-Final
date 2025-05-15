@@ -119,6 +119,22 @@ function crearContenedoresDatos(){
 
 }
 
+function funcionalidadImg(){
+    const input = document.getElementById("inputImagenPC");
+    const imagenUsuario = document.getElementById("imgPC");
+    document.getElementById("agregarIMGPC").addEventListener("click", () => input.click());
+    input.addEventListener("change", () => {
+        const archivo = input.files[0];
+        if (archivo) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                imagenUsuario.src = e.target.result;
+            };
+            reader.readAsDataURL(archivo);
+        }
+    });
+}
+
 function datoContenedorGestor(id){
     let gestor = gestores.find(l => l.id == id);
     document.getElementById("nombreGestor").textContent = gestor.nombre;
@@ -325,4 +341,5 @@ document.addEventListener("DOMContentLoaded", () => {
     crearDatos();
     cerrarVentanas();
     funcionesMensajes();
+    funcionalidadImg();
 });

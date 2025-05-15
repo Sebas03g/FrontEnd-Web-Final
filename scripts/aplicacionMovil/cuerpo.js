@@ -18,6 +18,22 @@ function abrirMenuUsuario(botonIcono){
     });
 }
 
+function funcionalidadImg(){
+    const input = document.getElementById("inputImagenUsuario");
+    const imagenUsuario = document.getElementById("agregarIMG").querySelector("img");
+    document.getElementById("agregarIMG").addEventListener("click", () => input.click());
+    input.addEventListener("change", () => {
+        const archivo = input.files[0];
+        if (archivo) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                imagenUsuario.src = e.target.result;
+            };
+            reader.readAsDataURL(archivo);
+        }
+    });
+}
+
 function accionesMenuUsuario(menuUsuario){
     menuUsuario.querySelector(".btn").addEventListener("click", () => {
         document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
@@ -30,6 +46,15 @@ function cerrarContenedor(botonesBajar){
         boton.addEventListener("click", () => {
             eliminarClase(document.querySelectorAll(".contenedor"), "abierto");
         });
+    });
+}
+
+function cerrarContenido(){
+    document.body.addEventListener("click", function (event) {
+        if (event.target !== document.getElementById("iconoUsuario").querySelector("i") && event.target !== document.getElementById("menuUsuario")) {
+            document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
+            document.getElementById("menuUsuario").classList.remove("abierto");
+        }
     });
 }
 
@@ -51,4 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cerrarContenedor(botonesBajar);
     abrirMenuUsuario(iconoUsuario);
     accionesMenuUsuario(menuUsuario);
+    funcionalidadImg();
+    cerrarContenido();
 });
