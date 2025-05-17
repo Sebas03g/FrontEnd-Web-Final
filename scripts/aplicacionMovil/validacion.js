@@ -18,3 +18,12 @@ export function validarDatosPC(){
     const telefono = document.getElementById("telCrearPC").value;
     return validarVacio(nombre) && esTelefonoValido(telefono);
 }
+
+export function validarUsuario(){
+    const nombre = document.getElementById("nombreUsuario").value;
+    const telefono = document.getElementById("telefonoUsuario").value;
+    const email = document.getElementById("correoUsuario").value;
+
+    return validarVacio(nombre) && esTelefonoValido(telefono) && esEmailValido(email);
+
+}

@@ -1,6 +1,9 @@
 import { eliminarClase } from '../utilidades.js';
 import { slideDownElementos } from '../utilidades.js';
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
+import * as validar from './validacion.js';
+
+let datosUsuario = {nombre:"Sebastian Garcia", email:"sebastian@gmail.com", telefono:"0999022665"};
 
 function abrirContenedores(opciones){
     let botones = opciones.querySelectorAll(".btn");
@@ -15,6 +18,11 @@ function abrirMenuUsuario(botonIcono){
     botonIcono.addEventListener("click", () => {
         botonIcono.classList.toggle("seleccionado");
         document.getElementById("menuUsuario").classList.toggle("abierto");
+
+        document.getElementById("nombreUsuario").value = datosUsuario.nombre;
+        document.getElementById("telefonoUsuario").value = datosUsuario.telefono;
+        document.getElementById("correoUsuario").value = datosUsuario.email;
+
     });
 }
 
@@ -36,8 +44,15 @@ function funcionalidadImg(){
 
 function accionesMenuUsuario(menuUsuario){
     menuUsuario.querySelector(".btn").addEventListener("click", () => {
-        document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
-        document.getElementById("menuUsuario").classList.remove("abierto");
+
+        if(validar.validarUsuario()){
+            document.getElementById("iconoUsuario").querySelector("i").classList.remove("seleccionado");
+            document.getElementById("menuUsuario").classList.remove("abierto");
+            funcionPanelMensaje("Modificacion Exitosa", "Se han modificado los datos", "informacion", "Aceptar");
+        }else{
+            funcionPanelMensaje("Modificacion Rechazada", "Los datos ingresados son invalidos.", "informacion", "Aceptar");
+        }
+        
     });
 }
 
