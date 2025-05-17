@@ -37,7 +37,7 @@
 #contenedoresOpciones .contenedor .list-group {
   width: 100%;
   position: inherit;
-  top: calc(4vh + 75px);
+  top: calc(4vh + 70px);
   z-index: 990;
   height: calc(56vh - 75px - 4vh);
   overflow-y: auto;
@@ -95,6 +95,13 @@
 #contenedoresOpciones #contenedorPermisos .list-group {
   top: 5vh;
   height: 90%;
+}
+#contenedoresOpciones #contenedorPCs .elementoLista {
+  width: 100%;
+}
+
+.agregar:active {
+  border: none;
 }
 
 .abierto {

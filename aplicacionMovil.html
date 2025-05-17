@@ -23,8 +23,15 @@
 <body>
     <header>
         <section id="encabezado">
-
+                <button class="iconos" style="cursor: default;">
+                    <a href="/seleccionTipo.html" style="color: white; text-decoration: none;">
+                        <i class="bi bi-arrow-left" style="cursor: pointer;"></i>
+                        <label style="cursor: pointer;">Regresar</label>
+                    </a>
+                </button>
+            
         </section>
+        
     </header>
     <main>
         <section id="mensajes">
@@ -36,10 +43,10 @@
                     <input type="text" id="nombreUsuario" placeholder="Nombre" />
 
                     <label for="correo">Telefono</label>
-                    <input type="email" id="correoUsuario" placeholder="Telefono" />
+                    <input type="tel" id="correoUsuario" placeholder="Telefono" />
 
                     <label for="contrasena">Correo</label>
-                    <input type="password" id="contrasenaUsuario" placeholder="Correo" />
+                    <input type="email" id="contrasenaUsuario" placeholder="Correo" />
 
                     <button class="btn">Aceptar</button>
                     <button id="btnSalir">
@@ -54,9 +61,9 @@
         </section>
         <section id="opcionesUsuario">
             <div class="icono" id="iconoUsuario">
-                <i class="bi bi-person"></i>
+                <i class="bi bi-person" style="cursor: pointer;"></i>
             </div>
-            <div id="imgUsuario">
+            <div id="imgUsuario"> 
                 <button id="agregarIMG">
                     <img src="/imagenes/agregarImagen.png"  alt="Imagen de Usuario">
                 </button>

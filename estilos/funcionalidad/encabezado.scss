@@ -8,16 +8,51 @@ html, body {
 }
 
 header{
-    height: 6vh;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     background-color: colores.$color-verde-primario;
     color: colores.$color-blanco;
+    padding-bottom: 5px;
 
     #tituloPagina{
         @extend %font-bold;
     }
+    #regresar{
+        display: inline;
+        @media(min-width:768px){
+            display: none;
+        }
+        
+        button{
+            cursor: default;
+        }
+        a{
+            color: white; 
+            text-decoration: none;
+        }
+        i,label {
+            cursor: pointer;
+        }
+    }
+
+    @media(min-width:768px){
+        &:hover{
+            #regresar{
+                display: inline;
+            }
+        }
+    }
+}
+
+#opcionesEncabezado{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 

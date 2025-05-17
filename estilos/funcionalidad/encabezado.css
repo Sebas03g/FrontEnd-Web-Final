@@ -8,17 +8,50 @@ html, body, header #tituloPagina {
 
 html, body {
   margin: 0;
-  overflow-y: hidden;
 }
 
 header {
-  height: 6vh;
+  height: 10vh;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
   background-color: #2E6A2F;
   color: #ffffff;
+  padding-bottom: 5px;
 }
+header #regresar {
+  display: inline;
+}
+@media (min-width: 768px) {
+  header #regresar {
+    display: none;
+  }
+}
+header #regresar button {
+  cursor: default;
+}
+header #regresar a {
+  color: white;
+  text-decoration: none;
+}
+header #regresar i, header #regresar label {
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  header:hover #regresar {
+    display: inline;
+  }
+}
+
+#opcionesEncabezado {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
 #enlaceInformacion {
   width: 6vh;
 }

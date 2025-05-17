@@ -42,7 +42,7 @@
         .list-group{
             width: 100%;
             position: inherit;
-            top: calc(4vh + 75px);
+            top: calc(4vh + 70px);
             z-index: 990;
             height: calc(60vh - 4vh - 75px - 4vh);
             overflow-y: auto;
@@ -107,8 +107,19 @@
             height: 90%;
         }
     }
+    #contenedorPCs{
+        .elementoLista{
+            width: 100%;    
+
+        }
+    }
 }
 
+.agregar{
+    &:active{
+        border: none;
+    }
+}
 
 .abierto{
     display: flex !important;

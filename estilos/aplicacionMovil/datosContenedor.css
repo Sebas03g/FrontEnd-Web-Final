@@ -209,16 +209,21 @@
   margin-top: 10px;
 }
 #crearDatos #crearDatoGestor {
-  top: 35vh;
-  left: 15vw;
-  height: 30vh;
-  width: 70vw;
+  top: calc(50vh - fit-content(100%) - 20px);
+  left: calc(50vw - fit-content(100%) - 20px);
+  height: calc(fit-content(100%) + 20px);
+  width: calc(fit-content(100%) + 20px);
+  overflow-y: auto;
+}
+#crearDatos #crearDatoGestor #crearNuevoGestor {
+  margin-top: 20px;
 }
 #crearDatos #crearDatoPC {
-  top: 15vh;
-  left: 15vw;
-  height: 70vh;
-  width: 70vw;
+  top: calc(50vh - fit-content(100%) - 20px);
+  left: calc(50vw - fit-content(100%) - 20px);
+  height: calc(fit-content(100%) + 20px);
+  width: calc(fit-content(100%) + 20px);
+  overflow-y: auto;
 }
 #crearDatos #crearDatoPC #imgPC {
   height: auto;
@@ -228,6 +233,9 @@
 #crearDatos #crearDatoPC #agregarIMGPC {
   background-color: transparent;
   border: none;
+}
+#crearDatos #crearDatoPC #crearNuevoPC {
+  margin-top: 20px;
 }
 
 .abierto {

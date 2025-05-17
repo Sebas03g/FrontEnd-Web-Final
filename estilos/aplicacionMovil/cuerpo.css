@@ -11,6 +11,10 @@ html, body {
   margin: 0;
 }
 
+.bi-x-lg {
+  cursor: pointer;
+}
+
 body {
   display: grid;
   grid-template-areas: "encabezado" "icono" "imgUsuario" "opciones" "botonEmergencia";
@@ -22,6 +26,8 @@ body {
   grid-area: encabezado;
   background-color: #2E6A2F; /* O usa una variable si usas SASS */
   height: 12vh;
+  display: flex;
+  justify-content: left;
 }
 
 #menuUsuario {

@@ -94,11 +94,24 @@ function crearContenedores(){
     crearContenedorPermisos();
 }
 
+function funcionalidadBusqueda(){
+
+}
+
 function crearContenedorGestores(){
+
+    crearListaGestores(gestores);
+    document.getElementById("busquedaGestor").addEventListener("keyup", (e) => {
+        let listaFiltradaGestores = gestores.filter(l => l.nombre.toUpperCase().includes(e.target.value.toUpperCase()));
+        crearListaGestores(listaFiltradaGestores);
+    });
+
+}
+
+function crearListaGestores(listaFiltradaGestores){
     let listaGestores = document.getElementById("listaGestores");
     listaGestores.innerHTML = "";
-
-    gestores.forEach(gestor => {
+    listaFiltradaGestores.forEach(gestor => {
         const nuevoElementoLista = document.createElement("li");
 
         const nuevoBoton = document.createElement("button")
@@ -117,13 +130,20 @@ function crearContenedorGestores(){
         listaGestores.appendChild(nuevoElementoLista);
 
     });
-
 }
+
 function crearContenedorPC(){
+    crearListaPCs(personasConfianza);
+    document.getElementById("busquedaPC").addEventListener("keyup", (e) => {
+        let listaFiltradaPC = personasConfianza.filter(l => l.nombre.toUpperCase().includes(e.target.value.toUpperCase()));
+        crearListaPCs(listaFiltradaPC);
+    });
+}
+
+function crearListaPCs(listaFiltradaPC){
     let listaPCs = document.getElementById("listaPCs");
     listaPCs.innerHTML = "";
-
-    personasConfianza.forEach(persona => {
+    listaFiltradaPC.forEach(persona => {
         const nuevoElementoLista = document.createElement("li");
 
         const nuevoBoton = document.createElement("button")

@@ -10,6 +10,10 @@ html, body {
 
 }
 
+.bi-x-lg{
+    cursor: pointer;
+}
+
 body {
     display: grid;
     grid-template-areas: 
@@ -26,6 +30,8 @@ body {
     grid-area: encabezado;
     background-color: colores.$color-verde-primario; /* O usa una variable si usas SASS */
     height: 12vh;
+    display: flex;
+    justify-content: left;
 }
 
 #menuUsuario{
