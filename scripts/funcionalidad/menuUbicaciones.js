@@ -1,7 +1,10 @@
 import { eliminarClase } from '../utilidades.js'
+import { slideDownElementos } from '../utilidades.js'
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
+import * as validar from './validacion.js';
 
 let mapaUbicacion = null;
+let marcadorSeleccionado = null;
 
 let areas = [
     {id:1, punto:[-2.8918931908671124, -79.03600936098859], nombre:"Zona Segura", descripcion:"Zona de bajo riesgo",tipo:"green"},
@@ -28,8 +31,8 @@ function abrirVentanaUbicacionesGenerales(){
 
 function cerrarMenu(){
     document.getElementById("cerrarMenu").addEventListener("click", () => {
-        document.getElementById("contenedorUbicacionesGenerales").classList.remove("activo")
-        document.getElementById("botonListaUbicaciones").classList.remove("seleccionado")
+        slideDownElementos(document.getElementById("contenedorUbicacionesGenerales"), 'activo');
+        document.getElementById("botonListaUbicaciones").classList.remove("seleccionado");
     });
 }
 
@@ -122,6 +125,10 @@ function crearMapa(elementoUbicacion) {
         attribution: '© OpenStreetMap contributors'
     }).addTo(mapaUbicacion);
 
+    marcadorSeleccionado = null;
+
+    funcionalidadMapa();
+
     return mapaUbicacion;
 }
 
@@ -136,6 +143,14 @@ function crearContenedorUbicacion(){
 
     crearCartaUbicacion(listBotonesUbicaciones, Array.from(listBotonesUbicaciones.querySelectorAll(".elementoLista"))
     .find(l => l.dataset.id = areas[0].id), areas[0]);
+
+    document.getElementById("contenedorUbicacionesGenerales").querySelector(".btnModificar").addEventListener("click", () => {
+            if(validar.validarUbicacion(marcadorSeleccionado)){
+                 funcionPanelMensaje("¿Estás seguro de que deseas administrar esta Ubicacion?", "Esta informacion sera registrada de forma permamente para todos los usuarios.", "modificar", "Crear");
+            }else{
+                funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos.", "modificar", "Aceptar");
+            }
+    });
 }
 
 function crearUbicacion(listaBotones){
@@ -145,6 +160,8 @@ function crearUbicacion(listaBotones){
     document.getElementById("miComboboxSeguridadGeneral").value = "";
     eliminarClase(listaBotones, "seleccionado");
 
+    marcadorSeleccionado = null;
+
     if (mapaUbicacion) {
         mapaUbicacion.remove(); // destruye el mapa anterior
         mapaUbicacion = null;
@@ -153,18 +170,46 @@ function crearUbicacion(listaBotones){
     // Creamos el nuevo mapa
     mapaUbicacion = L.map(document.getElementById("mapaUbicacionGeneral"), {
         center: [-2.8918931908671124, -79.03600936098859],
-        zoom: 20,
+        zoom: 14,
         zoomControl: false
     });
 
     document.getElementById("mapaUbicacionGeneral")._leafletMap = mapaUbicacion;
     document.getElementById("botonEliminarUbicacionGeneral").style.display = "none";
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(mapaUbicacion);
 
-    const mapa = document.getElementById("mapaUbicacionGeneral")._leafletMap;
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mapaUbicacion);
 
-    mapa.invalidateSize();
+    mapaUbicacion.invalidateSize();
+    funcionalidadMapa();
 
 }
+
+function funcionalidadMapa(){
+    const mapa = document.getElementById("mapaUbicacionGeneral")._leafletMap;
+
+    mapa.on('click', function(e) {
+        const { lat, lng } = e.latlng;
+        if (marcadorSeleccionado !== null) {
+            marcadorSeleccionado.setLatLng([lat, lng]);
+        } else {
+            console.log([lat, lng])
+            marcadorSeleccionado = L.circle([lat, lng], {
+                                    radius: 100,
+                                    fillColor: 'lightblue',
+                                    fillOpacity: 0.8,
+                                    color: 'black'
+                                    }).addTo(mapa);
+            marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
+        }
+        mapa.invalidateSize();
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     abrirVentanaUbicacionesGenerales();

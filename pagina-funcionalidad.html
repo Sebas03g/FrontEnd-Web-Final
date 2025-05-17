@@ -14,6 +14,7 @@
   <link href="estilos/funcionalidad/encabezado.css" rel="stylesheet">
   <link href="estilos/funcionalidad/contenedorTelefono.css" rel="stylesheet">
   <link href="estilos/mensajes.css" rel="stylesheet">
+  <link href="estilos/animaciones.css", rel="stylesheet">
   <link href="estilos/funcionalidad/menuUbicaciones.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
@@ -41,7 +42,7 @@
 
       <button id="botonMenu" class="iconos btn" type="button"><i class="bi bi-list"></i></button>
 
-      <div id="contenedorMenu">
+      <div id="contenedorMenu" class="slide-right">
         <ul id="listaDispositivos">
           <li>
             <div class="elementoDispositivo" data-id-dispositivo="1">
@@ -83,7 +84,7 @@
         <div id="mapa">
         </div>
     </section>
-    <section id="contenedor" >
+    <section id="contenedor" class="slide-up">
       <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
       <nav class="navbar navbar-expand-lg ">
         <div id="menuNavMobil" class ="d-block d-sm-none">
@@ -161,7 +162,7 @@
         </div>
       </nav>
       <div id="contenedores">
-        <div class="hijo informacion activo" id="contenedorInformacion">
+        <div class="hijo informacion activo zoom-in" id="contenedorInformacion">
           <div class ="informacionContenido">
             <div class="container carta">
               <!-- Carta -->
@@ -213,7 +214,7 @@
             <button class="btn btn-danger" id="botonPerdida">Modo Perdida</button>
           </div>
         </div>
-        <div class="hijo contenido permisos" id="contenedorPermisos">
+        <div class="hijo contenido permisos zoom-in" id="contenedorPermisos">
           <div class="container busqueda">
             <ul class="list-group " id="listaPermisos">
               <li>
@@ -249,7 +250,7 @@
           </div>
 
         </div>
-        <div class="hijo contenido ubicacion" id="contenedorUbicacion">
+        <div class="hijo contenido ubicacion zoom-in" id="contenedorUbicacion">
           <div class="container busqueda">
             <div class="mb-3">
                 <label for="busquedaUbicacion" class="form-label">Ubicacion</label>
@@ -298,7 +299,7 @@
                     <div class="mb-3">
                       <label for="miCombobox" class="form-label">Seleccione el Tipo:</label>
                       <select class="form-select" id="miComboboxSeguridad">
-                        <option selected disabled>Elige una opción</option>
+                        <option value = "" selected disabled>Elige una opción</option>
                         <option value="green">Seguro</option>
                         <option value="red">Inseguro</option>
                       </select>
@@ -314,7 +315,7 @@
             </div>
           </div>
         </div>
-        <div class="hijo contenido personas" id="contenedorPersonas">
+        <div class="hijo contenido personas zoom-in" id="contenedorPersonas">
           <div class="container busqueda">
             <div class="mb-3">
                 <label for="busquedaPC" class="form-label">Personas de Confianza</label>
@@ -343,7 +344,8 @@
           </div>
           <div class="container carta informacionContenido">
             <div class="card" >
-                <img src="https://via.placeholder.com/150" class="card-img" alt="Imagen de carta" id="imgConfianza">
+                <img src="./imagenes/placeholder.png" class="card-img" alt="Imagen de carta" id="imgConfianza">
+                <input type="file" id="inputImagenPC" accept="image/*" style="display: none;" />
                 <div class="card-body">
                   <div class="iconoMobil d-block d-sm-none">
                     <i class="bi bi-image-fill" id="iconoMobilPersona"></i>
@@ -372,7 +374,7 @@
             </div>
           </div>
         </div>
-        <div class="hijo contenido eliminacion" id="contenedorEliminacion">
+        <div class="hijo contenido eliminacion zoom-in" id="contenedorEliminacion">
 
           <div class ="contenedorEliminar">
             <div class="container carta">
@@ -403,8 +405,8 @@
         </div>
       </div>
     </section>
-    <section id="seccionPersona">
-      <div id="modificarPersona" class="contenedor-dispositivo">
+    <section id="seccionPersona" class="">
+      <div id="modificarPersona" class="contenedor-dispositivo slide-up">
         <button class="botonCerrarDispositivo iconos">
           <i class="bi bi-x-circle"></i>
         </button>
@@ -432,7 +434,7 @@
 
       </div>
 
-      <div id="creacionPersona" class="contenedor-dispositivo">
+      <div id="creacionPersona" class="contenedor-dispositivo slide-up">
         <button class="botonCerrarDispositivo iconos">
           <i class="bi bi-x-circle"></i>
         </button>
@@ -459,7 +461,7 @@
       </div>
     </section>
     <section id="menuUbicaciones">
-        <div class="contenido ubicacion" id="contenedorUbicacionesGenerales">
+        <div class="contenido ubicacion slide-up" id="contenedorUbicacionesGenerales">
           <div class="container busqueda">
             <div class="mb-3">
                 <label for="busquedaUbicacionGeneral" class="form-label">Ubicacion</label>

@@ -1,12 +1,18 @@
 import { eliminarClase } from '../utilidades.js';
 import { esPantallaPequena } from '../utilidades.js';
+import { slideLeftElementos } from '../utilidades.js';
 
 var idDipositivo;
 
 function accionMenuBoton(btn){
   const menu = document.getElementById('contenedorMenu');
   btn.addEventListener('click', () => {
-    menu.classList.toggle('mostrar');
+    if(menu.classList.contains("mostrar")){
+      slideLeftElementos(menu);
+    }else{
+      menu.classList.add('mostrar');
+    }
+    
     btn.classList.toggle('seleccionado');
     document.getElementById("contenedorUbicacionesGenerales").classList.remove("activo");
 
@@ -25,6 +31,7 @@ function accionListaDispositivos(listaDispositivos){
       document.getElementById("contenedor").classList.remove("abierto");
       document.getElementById("modificarPersona").classList.remove("abierto");
       document.getElementById("creacionPersona").classList.remove("abierto");
+      document.getElementById("btn-creacion").classList.remove("seleccionado");
       idDipositivo = elemento.dataset.idDispositivo;
 
     });

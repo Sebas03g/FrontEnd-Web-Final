@@ -1,4 +1,5 @@
 import { eliminarClase } from '../utilidades.js';
+import { slideDownElementos } from '../utilidades.js';
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
 
 function abrirContenedores(opciones){
@@ -12,7 +13,6 @@ function abrirContenedores(opciones){
 
 function abrirMenuUsuario(botonIcono){
     botonIcono.addEventListener("click", () => {
-
         botonIcono.classList.toggle("seleccionado");
         document.getElementById("menuUsuario").classList.toggle("abierto");
     });
@@ -44,7 +44,7 @@ function accionesMenuUsuario(menuUsuario){
 function cerrarContenedor(botonesBajar){
     botonesBajar.forEach(boton => {
         boton.addEventListener("click", () => {
-            eliminarClase(document.querySelectorAll(".contenedor"), "abierto");
+            slideDownElementos(boton.parentElement);
         });
     });
 }

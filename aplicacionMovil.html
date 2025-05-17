@@ -11,7 +11,8 @@
     <link href="estilos/aplicacionMovil/contenedores.css", rel="stylesheet">
     <link href="estilos/aplicacionMovil/datosContenedor.css", rel="stylesheet">
     <link href="estilos/botones.css", rel="stylesheet">
-    <link href="estilos/mensajes.css" rel="stylesheet">
+    <link href="estilos/mensajes.css", rel="stylesheet">
+    <link href="estilos/animaciones.css", rel="stylesheet">
     
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="scripts/aplicacionMovil/contenedores.js"></script>
@@ -74,7 +75,7 @@
         </section>
         <section id="contenedoresOpciones">
             
-            <div id="contenedorGestores" class="contenedor">
+            <div id="contenedorGestores" class="contenedor slide-up">
                 <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
                 <div class="mb-3">
                     <label for="busquedaGestor" class="form-label">Gestor</label>
@@ -86,7 +87,7 @@
                     <i class="bi bi-plus-circle"></i>
                 </button>
             </div>
-            <div id="contenedorPCs" class="contenedor">
+            <div id="contenedorPCs" class="contenedor slide-up">
                 <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
                 <div class="mb-3">
                     <label for="busquedaPC" class="form-label">Persona de Confianza</label>
@@ -98,7 +99,7 @@
                     <i class="bi bi-plus-circle"></i>
                 </button>
             </div>
-            <div id="contenedorMensaje" class="contenedor">
+            <div id="contenedorMensaje" class="contenedor slide-up">
                 <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
                 <div class="mb-3">
                     <label for="miTextarea" class="form-label">Escribe tu mensaje</label>
@@ -106,15 +107,15 @@
                 </div>
                 <button type="button" class="btn btn-light" id="btnEnviarMensaje">Enviar</button>
             </div>
-            <div id="contenedorPermisos" class="contenedor">
+            <div id="contenedorPermisos" class="contenedor slide-up">
                 <button class="botonBajar btn"><i class="bi bi-chevron-compact-down"></i></button>
                 <ul class="list-group " id="listaPermisos">
                 </ul>
                 
             </div>
         </section>
-        <section id="datosContenedor" class="">
-            <div class="datoContenedor" id="dataGestor">
+        <section id="datosContenedor">
+            <div class="datoContenedor zoom-in" id="dataGestor">
                 <div class="cabezaDato">
                     <h5>Gestor</h5>
                     <i class="bi bi-x-lg"></i>
@@ -133,7 +134,7 @@
                   </button>
                 </div>
             </div>
-            <div class="datoContenedor" id="dataPermiso">
+            <div class="datoContenedor zoom-in" id="dataPermiso">
                 <div class="cabezaDato">
                     <h5>Permiso</h5>
                     <i class="bi bi-x-lg"></i>
@@ -171,7 +172,7 @@
                     </button>
                 </div>
             </div>
-            <div class="datoContenedor" id="dataPC">
+            <div class="datoContenedor zoom-in" id="dataPC">
                 <div class="cabezaDato">
                     <h5>Pesona de Confinaza</h5>
                     <i class="bi bi-x-lg"></i>
@@ -191,23 +192,23 @@
             </div>
         </section>
         <section id="crearDatos">
-            <div id="crearDatoGestor" class="contenedor">
+            <div id="crearDatoGestor" class="contenedor zoom-in">
                 <div class="cerrarContenedor">
                     <i class="bi bi-x-lg"></i>
                 </div>
                 <div class="card">
                     <div class="card-body">
                         <label for="nombre">Email</label>
-                        <input type="text" id="nombre" placeholder="Ingrese su nombre" />
+                        <input type="text" id="emailGestor" placeholder="Ingrese el correo"/>
 
                         <label for="correo">Codigo</label>
-                        <input type="email" id="correo" placeholder="Ingrese su correo" />
+                        <input type="email" id="codigoGestor" placeholder="Ingrese el codigo"/>
 
                         <button class="btn" id="crearNuevoGestor">Crear</button>
                     </div>
                 </div>
             </div>
-            <div id="crearDatoPC" class="contenedor">
+            <div id="crearDatoPC" class="contenedor zoom-in">
                 <div class="cerrarContenedor">
                     <i class="bi bi-x-lg"></i>
                 </div>
@@ -224,12 +225,12 @@
 
                         <div class="form-group">
                             <label for="telefonoCrearPC">Telefono:</label>
-                            <input type="tel" id="telefonoCrearPC" class="form-control" placeholder="Ingrese el telefono">
+                            <input type="tel" id="telCrearPC" class="form-control" placeholder="Ingrese el telefono">
                         </div>
 
                         <div class="form-group">
                             <label for="descripcionCrearPC">Descripcion:</label>
-                            <textarea id="descripcionCrearPC" class="form-control" rows="4" placeholder="Escribe la descripcion aquí..."></textarea>
+                            <textarea id="descripcionCrearPC" class="form-control" rows="4" placeholder="Escribe la descripcion aquí..." ></textarea>
                         </div>
 
                         <button class="btn" id="crearNuevoPC">Crear</button>

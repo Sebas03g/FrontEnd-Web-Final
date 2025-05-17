@@ -1,5 +1,5 @@
-import { eliminarClase } from '../utilidades.js';
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
+import * as validar from './validacion.js';
 
 let gestores = [
     {id:1,nombre:"Diego", mail:"diego@gmail", estado:true, permisos:[
@@ -304,13 +304,25 @@ function funcionesMensajes(){
     document.getElementById("crearNuevoPC").addEventListener("click", () => {
         document.getElementById("crearDatos").classList.remove("abierto");
         document.getElementById("crearDatoPC").classList.remove("abierto");
-        funcionPanelMensaje("Creacion de la Persona de Confianza", "Esta accion registrar esta persona de confianza al sistema. ¿Desea continar?", "comunicacion", "Crear");
+
+        if (validar.validarDatosPC()){
+            document.getElementById("crearDatos").classList.remove("abierto");
+            document.getElementById("crearDatoPC").classList.remove("abierto");
+            funcionPanelMensaje("Creacion de la Persona de Confianza", "Esta accion registrar esta persona de confianza al sistema. ¿Desea continar?", "comunicacion", "Crear");
+        }else{
+            funcionPanelMensaje("Datos erroneos de la Persona de Confianza", "Los datos son invalidos para la creacion de una persona de confianza.", "comunicacion", "Aceptar");
+        }    
     });
 
     document.getElementById("crearNuevoGestor").addEventListener("click", () => {
-        document.getElementById("dataGestor").classList.remove("abierto");
-        document.getElementById("datosContenedor").classList.remove("abierto");
-        funcionPanelMensaje("Registro de nuevo Gestor", "Esta accion registrara al gestor y podra gestionar permisos para el mismo. ¿Desea continar?", "comunicacion", "Registrar");
+        if (validar.validarDatosGestor()){
+            document.getElementById("crearDatos").classList.remove("abierto");
+            document.getElementById("crearDatoGestor").classList.remove("abierto");
+            funcionPanelMensaje("Registro de nuevo Gestor", "Esta accion registrara al gestor y podra gestionar permisos para el mismo. ¿Desea continar?", "comunicacion", "Registrar");
+            
+        }else{
+            funcionPanelMensaje("Datos erroneos del Gestor", "Los datos son invalidos para el registro de un gestor.", "comunicacion", "Aceptar");
+        }
     });
 }
 

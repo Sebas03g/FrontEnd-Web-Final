@@ -71,6 +71,9 @@
     height: 1vh;
   }
 }
+#contenedor .botonBajar:active {
+  border: none !important;
+}
 
 #contenedores {
   grid-area: contenedores;
@@ -492,6 +495,7 @@
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
+    cursor: pointer;
     z-index: 5;
     top: 2vh;
     left: 5vw;

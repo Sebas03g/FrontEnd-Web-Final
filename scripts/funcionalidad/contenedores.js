@@ -1,9 +1,12 @@
 import { eliminarClase } from '../utilidades.js'
 import { esPantallaPequena } from '../utilidades.js'
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
+import { slideDownElementos } from '../utilidades.js';
+import * as validar from './validacion.js';
 
 let idDispositivo = null;
 let mapaUbicacion = null;
+let marcadorSeleccionado = null;
 let listaDispositivos = [
     {id:"1", nombre: "Sophia", correo: "sophia@gmail.com", telefono:"099000000", nombreDispositivo: "Samsung Sophia" , estado: "Activo",  cedula:" 01020123456", conectado:"Actual", tiempoViaje:"30 min", imagen:"../imagenes/Sophia.png", codigo: "A7F4K9X2M8B6", permisos:[
         {"id":1, "nivel":"1"},{"id":2, "nivel":"1"},{"id":3, "nivel":"1"},
@@ -96,6 +99,10 @@ function accionesNavBar(elementosNav){
             eliminarClase(elementos, "activo");
             boton.querySelector(".icono-navbar").classList.add("seleccionado");
             document.getElementById(boton.dataset.nombreContenedor).classList.add("activo");
+            if(boton.dataset.nombreContenedor === "contenedorUbicacion"){
+                let mapa = document.getElementById("mapaUbicacion")._leafletMap;
+                mapa.invalidateSize();
+            }
         });
     });
 
@@ -103,7 +110,7 @@ function accionesNavBar(elementosNav){
 
 function accionBotonMenu(botonMenu){
     botonMenu.addEventListener("click", () => {
-        document.getElementById("contenedor").classList.remove("abierto")
+        slideDownElementos(document.getElementById("contenedor"));
         document.getElementById("menuNavMobil").querySelector(".iconoMobil").classList.remove("seleccionado")
         document.getElementById("menuNavMobil").querySelector(".linksNavMobil").classList.remove("mostrar");
 
@@ -205,6 +212,25 @@ function crearContenedorInformacion(){
     document.getElementById("modificarDispositivo").dataset.idDispositivo = idDispositivo;
 
 }
+
+function modificarIMG(){
+    const input = document.getElementById("inputImagenPC");
+    const imagenPC = document.getElementById("imgConfianza");
+
+    imagenPC.addEventListener("click", () => input.click());
+
+    input.addEventListener("change", () => {
+        const archivo = input.files[0];
+        if (archivo) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                imagenPC.src = e.target.result;
+            };
+            reader.readAsDataURL(archivo);
+        }
+    });
+}
+
 function crearContenedorPermisos() {
     const persona = listaDispositivos.find(l => l.id == idDispositivo);
     let listaBotonesPermisos = document.getElementById("listaPermisos");
@@ -293,24 +319,52 @@ function crearUbicacion(listaBotones){
 
     document.getElementById("botonEliminarUbicacion").style.display = "none";
 
+    marcadorSeleccionado = null;
+
     if (mapaUbicacion) {
-        mapaUbicacion.remove(); // destruye el mapa anterior
+        mapaUbicacion.remove();
         mapaUbicacion = null;
     }
 
-    // Creamos el nuevo mapa
     mapaUbicacion = L.map(document.getElementById("mapaUbicacion"), {
         center: [-2.8918931908671124, -79.03600936098859],
-        zoom: 20,
+        zoom: 14,
         zoomControl: false
     });
 
     document.getElementById("mapaUbicacion")._leafletMap = mapaUbicacion;
 
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(mapaUbicacion);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mapaUbicacion);
+
+    mapaUbicacion.invalidateSize();
+    funcionalidadMapa();
+}
+
+function funcionalidadMapa(){
     const mapa = document.getElementById("mapaUbicacion")._leafletMap;
 
-    mapa.invalidateSize();
-
+    mapa.on('click', function(e) {
+        const { lat, lng } = e.latlng;
+        if (marcadorSeleccionado !== null) {
+            marcadorSeleccionado.setLatLng([lat, lng]);
+        } else {
+            console.log([lat, lng])
+            marcadorSeleccionado = L.circle([lat, lng], {
+                                    radius: 100,
+                                    fillColor: 'lightblue',
+                                    fillOpacity: 0.8,
+                                    color: 'black'
+                                    }).addTo(mapa);
+            marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
+        }
+        mapa.invalidateSize();
+    });
 }
 
 function crearCartaUbicacion(padre,elemento, elementoUbicacion){
@@ -329,6 +383,7 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     document.getElementById("botonEliminarUbicacion").addEventListener("click",() => {
         funcionPanelMensaje("¿Estás seguro de que deseas eliminar esta ubicacion?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
     });
+    
     
     mapa.invalidateSize();
 }
@@ -376,6 +431,10 @@ function crearMapa(elementoUbicacion) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(mapaUbicacion);
+
+    marcadorSeleccionado = null;
+
+    funcionalidadMapa();
 
     return mapaUbicacion;
 }
@@ -426,10 +485,20 @@ function crearContenedores(){
     crearContenedorPersonas();
     eliminarDispositivo();
 
-    document.querySelectorAll(".btnModificar").forEach(btn => {
-        btn.addEventListener("click", () => {
-            funcionPanelMensaje("¿Estás seguro de que deseas modificar estos datos?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente modificada.", "modificar", "Modificar");
-        });
+    document.getElementById("contenedorUbicacion").querySelector(".btnModificar").addEventListener("click", () => {
+        if(validar.validarUbicacion(marcadorSeleccionado)){
+             funcionPanelMensaje("¿Estás seguro de que deseas administrar esta Ubicacion?", "Esta informacion sera registrada y se le informara al usuario de la creacion de estos datos.", "modificar", "Crear");
+        }else{
+            funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos.", "modificar", "Aceptar");
+        }
+    });
+
+    document.getElementById("contenedorPersonas").querySelector(".btnModificar").addEventListener("click", () => {
+        if(validar.validarDatosPC()){
+             funcionPanelMensaje("¿Estás seguro de que deseas administrar esta Persona?", "Esta informacion sera registrada y se le informara al usuario de la creacion de estos datos.", "modificar", "Crear");
+        }else{
+            funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos.", "modificar", "Aceptar");
+        }
     });
     
 }
@@ -442,4 +511,5 @@ document.addEventListener("DOMContentLoaded", function() {
     accionesNavBar(elementosNav);
     accionBotonMenu(botonMenu);
     accionesDispositivos(dispositivos);
+    modificarIMG();
 });

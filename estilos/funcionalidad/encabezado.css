@@ -8,6 +8,7 @@ html, body, header #tituloPagina {
 
 html, body {
   margin: 0;
+  overflow-y: hidden;
 }
 
 header {

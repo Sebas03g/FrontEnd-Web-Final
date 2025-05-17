@@ -2,7 +2,7 @@ function crearMensaje(titulo, mensaje, clase, txtBtn) {
     let contenedor = document.getElementById("mensajes");
     contenedor.classList.add("mostrar");
     contenedor.innerHTML = `
-        <div class="mensaje">
+        <div class="mensaje zoom-in">
             <i class="bi bi-x-circle-fill"></i>
             <h4>${titulo}</h4>
             <p>${mensaje}</p>

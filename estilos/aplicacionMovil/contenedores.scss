@@ -1,5 +1,6 @@
 @use '../colores' as colores;
 
+
 #contenedoresOpciones{
     .contenedor{
         display: none;
@@ -21,6 +22,11 @@
             z-index: 950;
             height: 4vh;
             border-radius: 0;
+
+            &:active{
+                border: none;
+            }
+
         }
         .mb-3{
             width: 100%;
@@ -72,6 +78,7 @@
     }
     #contenedorMensaje{
         display: none;
+        
         height: 70vh;
         width: 100%;
         justify-content: center;
@@ -103,7 +110,8 @@
 }
 
 
-
 .abierto{
     display: flex !important;
+    
 }
+

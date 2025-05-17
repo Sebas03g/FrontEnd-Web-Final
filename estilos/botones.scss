@@ -1,7 +1,18 @@
 @use "colores" as colores;
 
+@keyframes seleccionado {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .seleccionado{
+    animation: seleccionado 1s ease-out;
     background-color: colores.$color-seleccionado !important;
+    
     &:hover{
         filter: brightness(100%);
         color: initial;

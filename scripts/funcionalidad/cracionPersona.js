@@ -1,6 +1,8 @@
 import { eliminarClase } from '../utilidades.js';
 import { esPantallaPequena } from '../utilidades.js';
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
+import { slideDownElementos } from '../utilidades.js';
+import * as validar from './validacion.js';
 
 let idDispositivo = null;
 
@@ -83,7 +85,7 @@ function crearDispositivo(btn){
 function cerrarDispositivo(botones){
     botones.forEach(boton => {
         boton.querySelector("i").addEventListener('click', () => {
-            boton.parentElement.classList.remove("abierto");
+            slideDownElementos(boton.parentElement);
             document.getElementById("btn-creacion").classList.remove("seleccionado");
 
             if(esPantallaPequena()){
@@ -97,15 +99,24 @@ function cerrarDispositivo(botones){
 
 function agregarDispositvo(){
     document.getElementById("creacionPersona").querySelector(".btn-primary").addEventListener("click", () => {
-        funcionPanelMensaje("Dispositivo Creado", "El dispositivo se creó exitosamente y el usuario ha sido notificado. Solo falta que el usuario agregue al gestor.", "comunicacion", "Aceptar");
-        document.getElementById("creacionPersona").classList.remove("abierto");
+        if(validar.validarDatosPersona("Crear")){
+            funcionPanelMensaje("Dispositivo Creado", "El dispositivo se creó exitosamente y el usuario ha sido notificado. Solo falta que el usuario agregue al gestor.", "comunicacion", "Aceptar");
+            slideDownElementos(document.getElementById("creacionPersona"));
+        }else{
+            funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos, ingrese nuevamente.", "comunicacion", "Aceptar");
+        }
+        
     });
 }
 
 function modificarDispositvo(){
     document.getElementById("modificarPersona").querySelector(".btn-primary").addEventListener("click", () => {
-        funcionPanelMensaje("Dispositivo Modificado", "El dispositivo ha sido modificado con exito.", "comunicacion", "Aceptar");
-        document.getElementById("modificarPersona").classList.remove("abierto");
+        if(validar.validarDatosPersona("Modificar")){
+            funcionPanelMensaje("Dispositivo Modificado", "El dispositivo ha sido modificado con exito.", "comunicacion", "Aceptar");
+            slideDownElementos(document.getElementById("modificarPersona"));
+        }else{
+            funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos, ingrese nuevamente.", "comunicacion", "Aceptar");
+        }
     });
 }
 

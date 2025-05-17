@@ -72,6 +72,9 @@
         @media(max-width: 768px){
             height: 1vh;
         }
+        &:active{
+            border: none !important;
+        }
     }
 
 }
@@ -509,6 +512,7 @@
                     align-items: center;
                     justify-content: space-evenly;
                     position:absolute;
+                    cursor: pointer;
                     z-index: 5;
                     top: 2vh;
                     left: 5vw;

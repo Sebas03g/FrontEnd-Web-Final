@@ -1,4 +1,13 @@
+@keyframes seleccionado {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .seleccionado {
+  animation: seleccionado 1s ease-out;
   background-color: #e8e9eb !important;
 }
 .seleccionado:hover {

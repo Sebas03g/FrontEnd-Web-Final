@@ -20,6 +20,9 @@
   height: 4vh;
   border-radius: 0;
 }
+#contenedoresOpciones .contenedor .botonBajar:active {
+  border: none;
+}
 #contenedoresOpciones .contenedor .mb-3 {
   width: 100%;
   position: inherit;
