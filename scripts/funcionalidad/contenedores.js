@@ -404,6 +404,12 @@ function eliminarDispositivo(){
             funcionPanelMensaje("¿Estás seguro de que deseas eliminar a esta persona?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
         });
     });
+
+    document.getElementById("navEliminarMobil").addEventListener("click", () => {
+        document.getElementById("btnEliminarDispositivo").addEventListener("click", () => {
+            funcionPanelMensaje("¿Estás seguro de que deseas eliminar a esta persona?", "Esta acción no se puede deshacer. Toda la información relacionada será permanentemente eliminada.", "eliminar", "Eliminar");
+        });
+    });
 }
 
 
