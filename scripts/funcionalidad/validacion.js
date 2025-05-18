@@ -4,6 +4,7 @@ import {esTelefonoValido} from  '../utilidades.js';
 import {validarVacio} from '../utilidades.js';
 
 export function validarDatosPersona(tipo){
+
     const nombre = document.getElementById(`nombreDispositivo${tipo}`)
     const cedula = document.getElementById(`cedulaDispositivo${tipo}`)
     const correo = document.getElementById(`correoDispositivo${tipo}`)

@@ -28,9 +28,6 @@
   <script type="module" src="scripts/funcionalidad/funcionalidadMobil.js"></script>
   <script type="module" src="scripts/funcionalidad/menuUbicaciones.js"></script>
   
-  <!-- CSS -->
-  
-    <!-- JS -->
   <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
 
 </head>
@@ -70,9 +67,9 @@
               </div>
             </li>
           </ul>
-          <button class="btn agregar" id="btn-creacion">
-            <i class="bi bi-plus-circle"></i>
-          </button>
+            <button class="btn agregar" id="btn-creacion">
+              <i class="bi bi-plus-circle"></i>
+            </button>
         </div>
       </div>
 
@@ -80,7 +77,7 @@
 
     </section>
     <label id="tituloPagina">Funcionalidades</label>
-    <a id="enlaceInformacion">
+    <a href="./cuenta.html" id="enlaceInformacion" style="cursor: pointer; text-decoration: none; color: white;">
       <i class="bi bi-person-circle"></i>
     </a>
   </div>
@@ -454,19 +451,19 @@
           <h4>Creacion Persona</h4>
           <div class="mb-2">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreDispositivoCraer" placeholder="Nombre Persona">
+            <input type="text" class="form-control" id="nombreDispositivoCrear" placeholder="Nombre Persona">
           </div>
           <div class="mb-2">
             <label for="telefono" class="form-label">Cedula</label>
-            <input type="text" class="form-control" name="cedula" inputmode="numeric" pattern="[0-9]*" id="cedulaDispositivoCraer" placeholder="Cédula">
+            <input type="text" class="form-control" name="cedula" inputmode="numeric" pattern="[0-9]*" id="cedulaDispositivoCrear" placeholder="Cédula">
           </div>
           <div class="mb-2">
             <label for="telefono" class="form-label">Mail</label>
-            <input type="email" class="form-control" name="correo" id="correoDispositivoCraer" placeholder="Correo electrónico">
+            <input type="email" class="form-control" name="correo" id="correoDispositivoCrear" placeholder="Correo electrónico">
           </div>
           <div class="mb-2">
             <label for="telefono" class="form-label">Telefono</label>
-            <input type="tel" class="form-control" name="telefono" id="telefonoDispositivoCraer" placeholder="Número de teléfono">
+            <input type="tel" class="form-control" name="telefono" id="telefonoDispositivoCrear" placeholder="Número de teléfono">
           </div>
           <button class="btn btn-primary">Crear</button>
         </div>

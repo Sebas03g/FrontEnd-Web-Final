@@ -286,11 +286,11 @@ function crearCartaPermiso(padre, elemento, permiso, nivel) {
     document.getElementById("contenedorPermisos").querySelectorAll(".bi-info-circle-fill").forEach(elemento => elemento.addEventListener("click", () => {
         funcionPanelMensaje("Niveles", `Existen tres niveles, que afectan como interacciona el gestionador con el sistema:<br>
                             Nivel 1:<br>
-                            Permite al gestionador interactuar todo el tiempo con el permiso, sin notificacion<br>
+                            Permite al gestionador interactuar todo el tiempo con el permiso, sin notificación.<br>
                             Nivel 2:<br>
                             Permite al gestionador interactuar todo el tiempo con el permiso pero notifica al usuario cada vez que lo hace.<br>
                             Nivel 3:<br>
-                            Permite al gestionador interactuar con el permiso unicamente si el dispositivo esta en modo perdida`, "comunicacion", "Aceptar"
+                            Permite al gestionador interactuar con el permiso unicamente si el dispositivo esta en modo perdida.`, "comunicacion", "Aceptar"
                             )
     }));
 
