@@ -29,6 +29,14 @@ body {
   display: flex;
   justify-content: left;
 }
+#encabezado a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.5;
+}
+#encabezado a:hover {
+  opacity: 1;
+}
 
 #menuUsuario {
   display: none;

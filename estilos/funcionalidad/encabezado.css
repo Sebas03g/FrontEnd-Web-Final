@@ -23,25 +23,19 @@ header {
 header #regresar {
   display: inline;
 }
-@media (min-width: 768px) {
-  header #regresar {
-    display: none;
-  }
-}
 header #regresar button {
   cursor: default;
 }
 header #regresar a {
   color: white;
   text-decoration: none;
+  opacity: 0.5;
+}
+header #regresar a:hover {
+  opacity: 1;
 }
 header #regresar i, header #regresar label {
   cursor: pointer;
-}
-@media (min-width: 768px) {
-  header:hover #regresar {
-    display: inline;
-  }
 }
 
 #opcionesEncabezado {
