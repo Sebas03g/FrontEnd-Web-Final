@@ -33,42 +33,29 @@ html {
       opacity: 0.1;
     }
 
+    // Buttons
+
   }
-  .btn-primary{
+    .btn-green{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
+    color: white;
   }
-  .btn-primary:hover{
+
+  .btn-green:hover{
     background-color: colores.$color-blanco;
     border-color: colores.$color-verde-primario;
-    color: colores.$color-verde-primario;
+    color: black;
   }
-  .btn-primary:focus{
+  .btn-green:focus{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
+    color: white;
   }
-  .btn-primary:active{
+  .btn-green:active{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
-  }
-
-  .btn-outline-primary{
-    color: colores.$color-verde-primario;
-    border-color: colores.$color-verde-primario;
-
-  }
-  .btn-outline-primary:hover{
-    background-color: colores.$color-verde-primario;
-    border-color: colores.$color-verde-primario;
-    color: colores.$color-blanco;
-  }
-  .btn-outline-primary:focus{
-    color: colores.$color-verde-primario;
-    border-color: colores.$color-verde-primario;
-  }
-  .btn-outline-primary:active{
-    color: colores.$color-verde-primario;
-    border-color: colores.$color-verde-primario;
+    color: white;
   }
   /* Since positioning the image, we need to help out the caption */
   .carousel-caption {
@@ -112,6 +99,16 @@ html {
     font-weight: 300;
     line-height: 1;
     letter-spacing: -.05rem;
+  }
+
+  /* Cards */
+  .card-body{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-content{
+    flex:1;
   }
   
   

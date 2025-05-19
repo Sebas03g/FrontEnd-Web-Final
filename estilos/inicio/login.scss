@@ -8,7 +8,7 @@ body{
 
 .form-signin {
     width: 100%;
-    max-width: 330px;
+    max-width: 400px;
     padding: 15px;
     margin: 0 auto;
   }
@@ -35,22 +35,26 @@ body{
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-  .btn-primary{
+    .btn-green{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
+    color: white;
   }
-  .btn-primary:hover{
+
+  .btn-green:hover{
     background-color: colores.$color-blanco;
     border-color: colores.$color-verde-primario;
-    color: colores.$color-verde-primario;
+    color: black;
   }
-  .btn-primary:focus{
+  .btn-green:focus{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
+    color: white;
   }
-  .btn-primary:active{
+  .btn-green:active{
     background-color: colores.$color-verde-primario;
     border-color: colores.$color-verde-primario;
+    color: white;
   }
 
   .container{

@@ -12,7 +12,7 @@ body {
 
 .form-signin {
   width: 100%;
-  max-width: 330px;
+  max-width: 400px;
   padding: 15px;
   margin: 0 auto;
 }
@@ -45,25 +45,28 @@ body {
   border-top-right-radius: 0;
 }
 
-.btn-primary {
+.btn-green {
   background-color: #2E6A2F;
   border-color: #2E6A2F;
+  color: white;
 }
 
-.btn-primary:hover {
+.btn-green:hover {
   background-color: #ffffff;
   border-color: #2E6A2F;
-  color: #2E6A2F;
+  color: black;
 }
 
-.btn-primary:focus {
+.btn-green:focus {
   background-color: #2E6A2F;
   border-color: #2E6A2F;
+  color: white;
 }
 
-.btn-primary:active {
+.btn-green:active {
   background-color: #2E6A2F;
   border-color: #2E6A2F;
+  color: white;
 }
 
 .container {
