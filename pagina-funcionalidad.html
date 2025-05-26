@@ -207,11 +207,14 @@
                   </div>
                 </div>
                 <div class="contenedorMensaje">
-                  <div class="mb-3">
+                  <form class="mb-3">
                     <label for="comentario" class="form-label">Mensaje</label>
                     <textarea class="form-control" id="mensajeUsuario" rows="4" placeholder="Escribe el mensaje aquí..."></textarea>
-                    <button class="btn btn-secondary">Enviar</button>
-                  </div>
+                    <input type="" class="btn btn-secondary" value="Enviar" readonly>
+                  </form>
+                  <!--<div class="mb-3">
+                    
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -286,7 +289,7 @@
               <i class="bi bi-plus-circle"></i>
             </button>
           </div>
-          <div class="container carta informacionContenido">
+          <form class="container carta informacionContenido">
             <div class="card" >
                 <div id="mapaUbicacion">
 
@@ -313,16 +316,15 @@
                         <option value="red">Inseguro</option>
                       </select>
                     </div>
-                    <button class="btn btnModificar">
-                      Aceptar
-                    </button>
-                    <button class="btn eliminados" id="botonEliminarUbicacion">
-                      Eliminar
-                    </button>
+                    <input type="" class="btn btnModificar" value="Aceptar" readonly>
+                    <input type="" class="btn eliminados" id="botonEliminarUbicacion" value="Eliminar" readonly>
                 </div>
                 
             </div>
-          </div>
+          </form>
+          <!--<div class="container carta informacionContenido">
+            
+          </div>-->
         </div>
         <div class="hijo contenido personas zoom-in" id="contenedorPersonas">
           <div class="container busqueda">
@@ -351,7 +353,7 @@
               <i class="bi bi-plus-circle"></i>
             </button>
           </div>
-          <div class="container carta informacionContenido">
+          <form class="container carta informacionContenido">
             <div class="card" >
                 <img src="./imagenes/placeholder.png" class="card-img" alt="Imagen de carta" id="imgConfianza">
                 <input type="file" id="inputImagenPC" accept="image/*" style="display: none;" />
@@ -373,19 +375,17 @@
                       <label for="comentario" class="form-label">Descripcion</label>
                       <textarea class="form-control" id="descripcionPersona" rows="4" placeholder="Escribe la descripcion de la persona aquí..."></textarea>
                     </div>
-                    <button class="btn btnModificar">
-                      Aceptar
-                    </button>
-                    <button class="btn eliminados" id="botonEliminarPC">
-                      Eliminar
-                    </button>
+                    <input type="" class="btn btnModificar" value="Aceptar" readonly>
+                    <input type="" class="btn eliminados" id="botonEliminarPC" value="Eliminar" readonly>
                 </div>
             </div>
-          </div>
+          </form>
+          <!--<div class="container carta informacionContenido">
+            
+          </div>-->
         </div>
         <div class="hijo contenido eliminacion zoom-in" id="contenedorEliminacion">
-
-          <div class ="contenedorEliminar">
+          <form class ="contenedorEliminar">
             <div class="container carta">
               <!-- Carta -->
               <div class="card" >
@@ -406,11 +406,11 @@
                           <li>Reportes asociados</li>
                         </ul>
                         </p>
-                      <a href="#" class="btn eliminados" id="btnEliminarDispositivo">Eliminar</a>
+                      <input type="" class="btn eliminados" id="btnEliminarDispositivo" value="Eliminar" readonly>
                   </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>
@@ -419,27 +419,29 @@
         <button class="botonCerrarDispositivo iconos">
           <i class="bi bi-x-circle"></i>
         </button>
-        <div class="formulario">
-          <h4>Modificar Datos</h4>
-          <div class="mb-2">
-            <label for="nombreDispositivoModificar" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreDispositivoModificar" placeholder="Nombre Persona">
+        <form>
+          <div class="formulario">
+            <h4>Modificar Datos</h4>
+            <div class="mb-2">
+              <label for="nombreDispositivoModificar" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombreDispositivoModificar" placeholder="Nombre Persona">
+            </div>
+            <div class="mb-2">
+              <label for="cedulaDispositivoModificar" class="form-label">Cédula</label>
+              <input type="text" class="form-control" id="cedulaDispositivoModificar" placeholder="Cédula">
+            </div>
+            <div class="mb-2">
+              <label for="correoDispositivoModificar" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="correoDispositivoModificar" placeholder="Correo electrónico">
+            </div>
+            <div class="mb-2">
+              <label for="telefonoDispositivoModificar" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefonoDispositivoModificar" placeholder="Número de teléfono">
+            </div>
+            <input type="" class="btn btn-primary" value = "Modificar" readonly>
+            <input type="" class="btn btn-primary" value = "Crear" readonly>
           </div>
-          <div class="mb-2">
-            <label for="cedulaDispositivoModificar" class="form-label">Cédula</label>
-            <input type="text" class="form-control" id="cedulaDispositivoModificar" placeholder="Cédula">
-          </div>
-          <div class="mb-2">
-            <label for="correoDispositivoModificar" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="correoDispositivoModificar" placeholder="Correo electrónico">
-          </div>
-          <div class="mb-2">
-            <label for="telefonoDispositivoModificar" class="form-label">Teléfono</label>
-            <input type="tel" class="form-control" id="telefonoDispositivoModificar" placeholder="Número de teléfono">
-          </div>
-          <button class="btn btn-primary">Modificar</button>
-        </div>
-        
+        </form>
 
       </div>
 
@@ -447,7 +449,8 @@
         <button class="botonCerrarDispositivo iconos">
           <i class="bi bi-x-circle"></i>
         </button>
-        <div class="formulario">
+        <form>
+          <div class="formulario">
           <h4>Creacion Persona</h4>
           <div class="mb-2">
             <label for="nombre" class="form-label">Nombre</label>
@@ -465,8 +468,10 @@
             <label for="telefono" class="form-label">Telefono</label>
             <input type="tel" class="form-control" name="telefono" id="telefonoDispositivoCrear" placeholder="Número de teléfono">
           </div>
-          <button class="btn btn-primary">Crear</button>
+          <input type="" class="btn btn-primary" value = "Crear" readonly>
         </div>
+        </form>
+        
       </div>
     </section>
     <section id="menuUbicaciones">
@@ -497,7 +502,7 @@
               <i class="bi bi-plus-circle"></i>
             </button>
           </div>
-          <div class="container carta informacionContenido">
+          <form class="container carta informacionContenido">
             <div class="card" >
                 <div id="mapaUbicacionGeneral">
                   
@@ -529,16 +534,12 @@
                         <option value="red">Inseguro</option>
                       </select>
                     </div>
-                    <button class="btn btnModificar">
-                      Aceptar
-                    </button>
-                    <button class="btn eliminados" id="botonEliminarUbicacionGeneral">
-                      Eliminar
-                    </button>
+                    <input type="" class="btn btnModificar" value="Aceptar" readonly>
+                    <input type="" class="btn eliminados" id="botonEliminarUbicacionGeneral" value="Eliminar" readonly>
                 </div>
                 
             </div>
-          </div>
+          </form>
         </div>
         
 

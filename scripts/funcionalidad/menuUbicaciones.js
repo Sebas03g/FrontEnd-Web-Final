@@ -65,6 +65,8 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     elemento.classList.add("seleccionado");
     generarPuntos(elementoUbicacion, mapa);
 
+    marcadorSeleccionado = elementoUbicacion.punto;
+
     document.getElementById("nombreUbicacionGeneral").value = elementoUbicacion.nombre;
     document.getElementById("descripcionUbicacionGeneral").textContent = elementoUbicacion.descripcion;
     document.getElementById("miComboboxSeguridadGeneral").value = elementoUbicacion.tipo;
@@ -125,7 +127,6 @@ function crearMapa(elementoUbicacion) {
         attribution: '© OpenStreetMap contributors'
     }).addTo(mapaUbicacion);
 
-    marcadorSeleccionado = null;
 
     funcionalidadMapa();
 
@@ -145,7 +146,7 @@ function crearContenedorUbicacion(){
     .find(l => l.dataset.id = areas[0].id), areas[0]);
 
     document.getElementById("contenedorUbicacionesGenerales").querySelector(".btnModificar").addEventListener("click", () => {
-            if(validar.validarUbicacion(marcadorSeleccionado)){
+            if(validar.validarUbicacion(marcadorSeleccionado, "General")){
                  funcionPanelMensaje("¿Estás seguro de que deseas administrar esta Ubicacion?", "Esta informacion sera registrada de forma permamente para todos los usuarios.", "modificar", "Crear");
             }else{
                 funcionPanelMensaje("Datos invalidos", "Los datos ingresados son invalidos.", "modificar", "Aceptar");
@@ -159,8 +160,6 @@ function crearUbicacion(listaBotones){
     document.getElementById("descripcionUbicacionGeneral").textContent = "";
     document.getElementById("miComboboxSeguridadGeneral").value = "";
     eliminarClase(listaBotones, "seleccionado");
-
-    marcadorSeleccionado = null;
 
     if (mapaUbicacion) {
         mapaUbicacion.remove(); // destruye el mapa anterior
@@ -195,17 +194,17 @@ function funcionalidadMapa(){
     mapa.on('click', function(e) {
         const { lat, lng } = e.latlng;
         if (marcadorSeleccionado !== null) {
-            marcadorSeleccionado.setLatLng([lat, lng]);
-        } else {
-            console.log([lat, lng])
-            marcadorSeleccionado = L.circle([lat, lng], {
+            mapa.removeLayer(marcadorSeleccionado);
+            marcadorSeleccionado = null;
+        }
+        marcadorSeleccionado = L.circle([lat, lng], {
                                     radius: 100,
                                     fillColor: 'lightblue',
                                     fillOpacity: 0.8,
                                     color: 'black'
                                     }).addTo(mapa);
-            marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
-        }
+        marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
+
         mapa.invalidateSize();
     });
 }

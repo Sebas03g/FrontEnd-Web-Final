@@ -5,16 +5,22 @@ import {validarVacio} from '../utilidades.js';
 
 export function validarDatosPersona(tipo){
 
-    const nombre = document.getElementById(`nombreDispositivo${tipo}`)
-    const cedula = document.getElementById(`cedulaDispositivo${tipo}`)
-    const correo = document.getElementById(`correoDispositivo${tipo}`)
-    const telefono = document.getElementById(`telefonoDispositivo${tipo}`)
+    const nombre = document.getElementById(`nombreDispositivo${tipo}`).value;
+    const cedula = document.getElementById(`cedulaDispositivo${tipo}`).value;
+    const correo = document.getElementById(`correoDispositivo${tipo}`).value;
+    const telefono = document.getElementById(`telefonoDispositivo${tipo}`).value;
+
     return validarVacio(nombre) && validarCedulaBasica(cedula) && esEmailValido(correo) && esTelefonoValido(telefono);
 }
 
-export function validarUbicacion(punto){
-    const nombre = document.getElementById("nombreUbicacion").value;
-    const tipo =  document.getElementById("miComboboxSeguridad").value;
+export function validarUbicacion(punto, nivel=""){
+    const nombre = document.getElementById(`nombreUbicacion${nivel}`).value;
+    const tipo =  document.getElementById(`miComboboxSeguridad${nivel}`).value;
+
+    console.log(punto)
+    console.log(nombre)
+    console.log(tipo);
+
     return validarVacio(nombre) && validarVacio(tipo) && punto != null;
 }
 

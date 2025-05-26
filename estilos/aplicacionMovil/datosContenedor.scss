@@ -98,6 +98,14 @@
                 height: 100%;
                 width: 100%;
                 border: none;
+                display: flex;
+                align-items: center;
+
+                .card-img-top{
+                    max-width: 500px;
+                    height: auto;
+                }
+
                 .text-end{
                     display: flex;
                     justify-content: center;

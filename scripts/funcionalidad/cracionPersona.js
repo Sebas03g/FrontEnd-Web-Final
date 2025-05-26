@@ -99,6 +99,7 @@ function cerrarDispositivo(botones){
 
 function agregarDispositvo(){
     document.getElementById("creacionPersona").querySelector(".btn-primary").addEventListener("click", () => {
+        console.log("Hola Mundo")
         if(validar.validarDatosPersona("Crear")){
             funcionPanelMensaje("Dispositivo Creado", "El dispositivo se creó exitosamente y el usuario ha sido notificado. Solo falta que el usuario agregue al gestor.", "comunicacion", "Aceptar");
             slideDownElementos(document.getElementById("creacionPersona"));

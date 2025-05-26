@@ -319,8 +319,6 @@ function crearUbicacion(listaBotones){
 
     document.getElementById("botonEliminarUbicacion").style.display = "none";
 
-    marcadorSeleccionado = null;
-
     if (mapaUbicacion) {
         mapaUbicacion.remove();
         mapaUbicacion = null;
@@ -352,17 +350,17 @@ function funcionalidadMapa(){
     mapa.on('click', function(e) {
         const { lat, lng } = e.latlng;
         if (marcadorSeleccionado !== null) {
-            marcadorSeleccionado.setLatLng([lat, lng]);
-        } else {
-            console.log([lat, lng])
-            marcadorSeleccionado = L.circle([lat, lng], {
+            mapa.removeLayer(marcadorSeleccionado);
+            marcadorSeleccionado = null;
+        }
+        marcadorSeleccionado = L.circle([lat, lng], {
                                     radius: 100,
                                     fillColor: 'lightblue',
                                     fillOpacity: 0.8,
                                     color: 'black'
                                     }).addTo(mapa);
-            marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
-        }
+        marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
+
         mapa.invalidateSize();
     });
 }
@@ -373,6 +371,8 @@ function crearCartaUbicacion(padre,elemento, elementoUbicacion){
     eliminarClase(padre.querySelectorAll(".elementoLista"), "seleccionado");
     elemento.classList.add("seleccionado");
     generarPuntos(elementoUbicacion, mapa);
+
+    marcadorSeleccionado = elementoUbicacion.punto;
 
     document.getElementById("nombreUbicacion").value = elementoUbicacion.nombre;
     document.getElementById("descripcionUbicacion").textContent = elementoUbicacion.descripcion;
@@ -437,8 +437,6 @@ function crearMapa(elementoUbicacion) {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(mapaUbicacion);
-
-    marcadorSeleccionado = null;
 
     funcionalidadMapa();
 

@@ -93,6 +93,12 @@
   height: 100%;
   width: 100%;
   border: none;
+  display: flex;
+  align-items: center;
+}
+#datosContenedor #dataPC #contenedorPC .card .card-img-top {
+  max-width: 500px;
+  height: auto;
 }
 #datosContenedor #dataPC #contenedorPC .card .text-end {
   display: flex;

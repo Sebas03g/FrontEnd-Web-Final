@@ -70,7 +70,7 @@
 }
 #contenedoresOpciones #contenedorMensaje {
   display: none;
-  height: 70vh;
+  height: 60vh;
   width: 100%;
   justify-content: center;
   align-items: end;
@@ -82,12 +82,12 @@
   height: 80%;
 }
 #contenedoresOpciones #contenedorMensaje .mb-3 #miTextarea {
-  height: 95%;
+  height: 80%;
 }
 #contenedoresOpciones #contenedorMensaje #btnEnviarMensaje {
   height: fit-content;
   width: fit-content;
-  margin-top: 4%;
+  margin-top: 10px;
   margin-bottom: 1%;
   background-color: white;
   border: 0.1px solid black;
