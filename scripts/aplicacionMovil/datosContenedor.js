@@ -23,6 +23,11 @@ let gestores = [
     ]}
 ]
 
+let ubicaciones = [
+    {id:"1", idPersona:"1", punto:[-2.859448, -78.963261], nombre:"Casa", tipo:"green", descripcion:"Case de Sophia"},
+    {id:"2", idPersona:"1",punto:[-2.8913363513451396, -78.97706831779115], nombre:"Casa ex-novio", tipo:"red", descripcion:"Casa del ex-novia abusivo."},
+]
+
 let personasConfianza = [
         { id: 2, idPersona: 2, nombre: "María", telefono: "099001122", descripcion: "Hermana", imagen: "../imagenes/placeholder.png" },
         { id: 4, idPersona: 2, nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
@@ -260,6 +265,12 @@ function datoContenedorPC(id){
     document.getElementById("nombrePC").textContent = persona.nombre;
     document.getElementById("descripcionPC").textContent = persona.descripcion;
 
+}
+
+function datoContenedorUbicacion(id){
+    let ubicacion = ubicaciones.find(l => l.id == id);
+
+    
 }
 
 function crearDatos(){

@@ -23,6 +23,11 @@ let gestores = [
     ]}
 ]
 
+let ubicaciones = [
+    {id:"1", idPersona:"1", punto:[-2.859448, -78.963261], nombre:"Casa", tipo:"green", descripcion:"Case de Sophia"},
+    {id:"2", idPersona:"1",punto:[-2.8913363513451396, -78.97706831779115], nombre:"Casa ex-novio", tipo:"red", descripcion:"Casa del ex-novia abusivo."},
+]
+
 let personasConfianza = [
         { id: "2", idPersona: "2", nombre: "María", telefono: "099001122", descripcion: "Hermana", imagen: "../imagenes/placeholder.png" },
         { id: "4", idPersona: "2", nombre: "Ana", telefono: "099003344", descripcion: "Vecina", imagen: "../imagenes/placeholder.png" },
@@ -92,10 +97,7 @@ function crearContenedores(){
     crearContenedorGestores();
     crearContenedorPC();
     crearContenedorPermisos();
-}
-
-function funcionalidadBusqueda(){
-
+    crearContenedorUbicaciones();
 }
 
 function crearContenedorGestores(){
@@ -179,6 +181,26 @@ function crearContenedorPermisos(){
 
         listaPermisos.appendChild(nuevoElementoLista);
     });
+}
+
+function crearContenedorUbicaciones(){
+    let listaUbicaciones = document.getElementById("listaUbicaciones");
+    listaUbicaciones.innerHTML = "";
+
+    ubicaciones.forEach(ubicacion => {
+        const nuevoElementoLista = document.createElement("li");
+
+        const nuevoBoton = document.createElement("button")
+        nuevoBoton.classList.add("elementoLista");
+        nuevoBoton.textContent = ubicacion.nombre;
+        nuevoBoton.dataset.idPermiso = ubicacion.id;
+        
+        nuevoElementoLista.appendChild(nuevoBoton);
+
+        listaUbicaciones.appendChild(nuevoElementoLista);
+
+    });
+
 }
 
 function agregarFuncionesCheck(){
