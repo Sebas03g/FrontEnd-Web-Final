@@ -17,9 +17,12 @@
   <link href="estilos/animaciones.css", rel="stylesheet">
   <link href="estilos/funcionalidad/menuUbicaciones.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
 
 
   <!-- Bootstrap JS (al final del body) -->
+  <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script defer src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="scripts/funcionalidad/menuDispositivos.js"></script>
   <script type="module" src="scripts/funcionalidad/scriptApiMapa.js"></script>
@@ -28,8 +31,6 @@
   <script type="module" src="scripts/funcionalidad/funcionalidadMobil.js"></script>
   <script type="module" src="scripts/funcionalidad/menuUbicaciones.js"></script>
   
-  <script defer src="https://unpkg.com/leaflet/dist/leaflet.js"></script>  
-
 </head>
 <body>
 
@@ -118,6 +119,11 @@
                 </a> 
               </li>
               <li class="nav-item">
+                <a class="nav-link" data-nombre-contenedor="contenedorRutas" id="navRutasMobil">
+                  <p class="texto-navbar">Rutas</p>
+                </a> 
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" data-nombre-contenedor="contenedorPersonas" id="navPersonasMobil">
                   <p class="texto-navbar">Personas de Confianza</p>
                 </a>
@@ -152,6 +158,12 @@
                 <a class="nav-link" data-nombre-contenedor="contenedorUbicacion" id="navUnicaciones">
                   <i class="icono-navbar bi bi-geo-alt"></i>
                   <p class="texto-navbar">Ubicaciones</p>
+                </a> 
+              </li>
+              <li class="nav-item d-none d-md-block">
+                <a class="nav-link" data-nombre-contenedor="contenedorRutas" id="navRutas">
+                  <i class="icono-navbar bi bi-map"></i>
+                  <p class="texto-navbar">Rutas</p>
                 </a> 
               </li>
               <li class="nav-item d-none d-md-block">
@@ -292,7 +304,6 @@
           <form class="container carta informacionContenido">
             <div class="card" >
                 <div id="mapaUbicacion">
-
                 </div>
                 <div class="card-body">
                   <div class="iconoMobil d-block d-sm-none">
@@ -322,9 +333,60 @@
                 
             </div>
           </form>
-          <!--<div class="container carta informacionContenido">
-            
-          </div>-->
+        </div>
+        <div class="hijo contenido ubicacion zoom-in" id="contenedorRutas">
+          <div class="container busqueda">
+            <div class="mb-3">
+                <label for="busquedaRuta" class="form-label">Ruta</label>
+                <input type="text" class="form-control input-busqueda" id="busquedaRuta" data-id-lista = "listaRutas"placeholder="Escriba aquí">
+            </div>
+            <ul class="list-group" id="listaRutas">
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+              <li>
+                <button class="elementoLista">
+                  Permiso 1
+                </button>
+              </li>
+            </ul>
+            <button class="btn agregar" id="crearRuta">
+              <i class="bi bi-plus-circle"></i>
+            </button>
+          </div>
+          <form class="container carta informacionContenido">
+            <div class="card" >
+                <div id="mapaRuta">
+                </div>
+                <div class="card-body">
+                  <div class="iconoMobil d-block d-sm-none">
+                    <i class="icono-navbar bi bi-geo-alt" id="iconoMobilRuta"></i>
+                    <i class="icono-navbar bi bi-search" id="iconoMobilBusquedaRuta"></i>
+                  </div>
+                    <h5 class="card-title">Rutas</h5>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombreRuta" placeholder="Nombre Ruta">
+                    </div>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Punto Inicial</label>
+                      <input type="text" class="form-control" id="puntoInicialRuta" placeholder="[0.000 0.000]">
+                      <label for="nombre" class="form-label">Punto Final</label>
+                      <input type="text" class="form-control" id="puntoFinalRuta" placeholder="[0.000 0.000]">
+                    </div>
+                    <input type="" class="btn btnModificar" value="Aceptar" readonly>
+                    <input type="" class="btn eliminados" id="botonEliminarRuta" value="Eliminar" readonly>
+                </div>
+                
+            </div>
+          </form>
         </div>
         <div class="hijo contenido personas zoom-in" id="contenedorPersonas">
           <div class="container busqueda">

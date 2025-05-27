@@ -150,17 +150,17 @@
     display: flex !important;
   }
 }
-#contenedores .contenido .informacionContenido #mapaUbicacion {
+#contenedores .contenido .informacionContenido #mapaUbicacion, #contenedores .contenido .informacionContenido #mapaRuta {
   width: 30vw;
   height: 60vh;
 }
 @media (min-width: 768px) and (max-width: 1023px) {
-  #contenedores .contenido .informacionContenido #mapaUbicacion {
+  #contenedores .contenido .informacionContenido #mapaUbicacion, #contenedores .contenido .informacionContenido #mapaRuta {
     width: 40vw;
   }
 }
 @media (max-width: 768px) {
-  #contenedores .contenido .informacionContenido #mapaUbicacion {
+  #contenedores .contenido .informacionContenido #mapaUbicacion, #contenedores .contenido .informacionContenido #mapaRuta {
     display: none;
     align-items: center;
     position: absolute;
