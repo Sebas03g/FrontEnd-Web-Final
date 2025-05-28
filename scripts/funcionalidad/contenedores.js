@@ -478,7 +478,10 @@ function crearCartaRuta(padre,elemento, elementoRuta){
     });
     
     
-    mapa.invalidateSize();
+    setTimeout(() => {
+        mapa.invalidateSize();
+    }, 200);
+
 }
 
 function crearRuta(elementoRuta) {

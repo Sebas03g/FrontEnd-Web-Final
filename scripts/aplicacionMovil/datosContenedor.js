@@ -1,6 +1,9 @@
 import { funcionPanelMensaje } from '../mensajesUsuario.js';
 import * as validar from './validacion.js';
 
+let mapaUbicacion = null;
+let marcadorSeleccionado = null;
+
 let gestores = [
     {id:1,nombre:"Diego", mail:"diego@gmail", estado:true, permisos:[
         {id:1, nivel:1, estado:true},
@@ -95,34 +98,41 @@ let permisos = [
 
 
 function crearContenedoresDatos(){
-    document.getElementById("listaGestores").querySelectorAll(".elementoLista").forEach(elemento => {
-        elemento.addEventListener("click", () => {
-            datoContenedorGestor(elemento.dataset.idGestor);
-            document.getElementById("datosContenedor").classList.add("abierto")
-            document.getElementById("dataGestor").classList.add("abierto");
-            agregarFuncionesCheck();
-        });
-    });
 
-    document.getElementById("listaPCs").querySelectorAll(".elementoLista").forEach(elemento => {
-        elemento.addEventListener("click", () => {
-            datoContenedorPC(elemento.dataset.idPC);
-            document.getElementById("datosContenedor").classList.add("abierto")
-            document.getElementById("dataPC").classList.add("abierto");
-            
-        });
-    });
+    agregarAccionesElementos("listaGestores", "dataGestor", datoContenedorGestor, "idGestor", agregarFuncionesCheck);
+    agregarAccionesElementos("listaPCs", "dataPC", datoContenedorPC, "idPC");
+    agregarAccionesElementos("listaUbicaciones", "dataUbicacion", datoContenedorUbicacion, "idUbicacion");
+    agregarAccionesElementos("listaPermisos", "dataPermiso", datoContenedorPermiso, "idPermiso", agregarFuncionesCheck);
 
-    document.getElementById("listaPermisos").querySelectorAll(".elementoLista").forEach(elemento => {
-        elemento.addEventListener("click", () => {
-            datoContenedorPermiso(elemento.dataset.idPermiso);
-            document.getElementById("datosContenedor").classList.add("abierto")
-            document.getElementById("dataPermiso").classList.add("abierto");
-            agregarFuncionesCheck();
-        });
-    });
-
+    funcionalidadBusquedaDatos();
 }
+
+function funcionalidadBusquedaDatos(){
+    document.getElementById("busquedaUbicacion").addEventListener("keyup", (e) => {
+        agregarAccionesElementos("listaUbicaciones", "dataUbicacion", datoContenedorUbicacion, "idUbicacion");
+    });
+
+    document.getElementById("busquedaPC").addEventListener("keyup", (e) => {
+        agregarAccionesElementos("listaPCs", "dataPC", datoContenedorPC, "idPC");
+    });
+    document.getElementById("busquedaGestor").addEventListener("keyup", (e) => {
+        agregarAccionesElementos("listaGestores", "dataGestor", datoContenedorGestor, "idGestor", agregarFuncionesCheck);
+    });
+}
+
+function agregarAccionesElementos(nombreLista, data, funcion, nombreID, funcionExta = null){
+    document.getElementById(nombreLista).querySelectorAll(".elementoLista").forEach(elemento => {
+        elemento.addEventListener("click", () => {
+            funcion(elemento.dataset[nombreID]);
+            document.getElementById("datosContenedor").classList.add("abierto")
+            document.getElementById(data).classList.add("abierto");
+            if (typeof funcionExta === "function") {
+                funcionExta();
+            }
+        });
+    });
+}
+
 
 function funcionalidadImg(){
     const input = document.getElementById("inputImagenPC");
@@ -195,14 +205,11 @@ function datoContenedorPermiso(id){
     document.getElementById("nombrePermiso").textContent = permiso.nombre;
     document.getElementById("descripcionPermiso").textContent = permiso.descripcion;
 
-    
-
     let gestores_validos = gestores.filter(gestor => 
         gestor.permisos.some(l => l.id == id)
     );
 
     let gestores_invalidos = gestores.filter(gestor => gestor !== gestores_validos);
-
 
     gestores_invalidos.forEach(gestor => {
         let nuevaOpcion = document.createElement("option");
@@ -269,8 +276,77 @@ function datoContenedorPC(id){
 
 function datoContenedorUbicacion(id){
     let ubicacion = ubicaciones.find(l => l.id == id);
+    let mapa = crearMapa(ubicacion);
+    generarPuntos(ubicacion, mapa);
 
-    
+    document.getElementById("nombreUbicacion").textContent = ubicacion.nombre;
+    document.getElementById("descripcionUbicacion").textContent = ubicacion.descripcion;
+    document.getElementById("miComboboxSeguridad").value = ubicacion.tipo;
+}
+
+function crearMapa(elementoUbicacion){
+    if (mapaUbicacion) {
+        mapaUbicacion.remove(); // destruye el mapa anterior
+        mapaUbicacion = null;
+    }
+
+    // Creamos el nuevo mapa
+    mapaUbicacion = L.map(document.getElementById("mapaUbicacion"), {
+        center: elementoUbicacion.punto,
+        zoom: 14,
+        zoomControl: false
+    });
+
+    document.getElementById("mapaUbicacion")._leafletMap = mapaUbicacion;
+
+    L.control.zoom({
+        position: 'bottomright'
+    }).addTo(mapaUbicacion);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(mapaUbicacion);
+
+    funcionalidadMapa();
+
+    setTimeout(() => {
+        mapaUbicacion.invalidateSize();
+    }, 200);
+
+    return mapaUbicacion;
+}
+
+function generarPuntos(elementoUbicacion, mapa){
+    let area = L.circle(elementoUbicacion.punto, {
+        color: "black",
+        fillColor: elementoUbicacion.tipo,
+        fillOpacity: 0.3,
+        radius: 100
+    }).addTo(mapa);
+    area.bindPopup(elementoUbicacion.nombre);
+}
+
+function funcionalidadMapa(){
+    const mapa = document.getElementById("mapaUbicacion")._leafletMap;
+
+    mapa.on('click', function(e) {
+        const { lat, lng } = e.latlng;
+        if (marcadorSeleccionado !== null) {
+            mapa.removeLayer(marcadorSeleccionado);
+            marcadorSeleccionado = null;
+        }
+        marcadorSeleccionado = L.circle([lat, lng], {
+                                    radius: 100,
+                                    fillColor: 'lightblue',
+                                    fillOpacity: 0.8,
+                                    color: 'black'
+                                    }).addTo(mapa);
+        marcadorSeleccionado.bindPopup("Nueva Area").openPopup();
+
+        setTimeout(() => {
+            mapa.invalidateSize();
+        }, 200);
+    });
 }
 
 function crearDatos(){
@@ -293,6 +369,11 @@ function cerrarVentanas(){
 
     document.getElementById("dataPermiso").querySelector("i").addEventListener("click", () => {
         document.getElementById("dataPermiso").classList.remove("abierto");
+        document.getElementById("datosContenedor").classList.remove("abierto");
+    });
+
+    document.getElementById("dataUbicacion").querySelector("i").addEventListener("click", () => {
+        document.getElementById("dataUbicacion").classList.remove("abierto");
         document.getElementById("datosContenedor").classList.remove("abierto");
     });
 

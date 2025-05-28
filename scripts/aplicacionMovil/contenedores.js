@@ -184,23 +184,32 @@ function crearContenedorPermisos(){
 }
 
 function crearContenedorUbicaciones(){
+    
+    crearListaUbicaciones(ubicaciones);
+    document.getElementById("busquedaUbicacion").addEventListener("keyup", (e) => {
+        let listaFiltradaUbicaciones = ubicaciones.filter(l => l.nombre.toUpperCase().includes(e.target.value.toUpperCase()));
+        crearListaUbicaciones(listaFiltradaUbicaciones);
+    });
+
+}
+
+function crearListaUbicaciones(listaFiltradaUbicaciones){
     let listaUbicaciones = document.getElementById("listaUbicaciones");
     listaUbicaciones.innerHTML = "";
 
-    ubicaciones.forEach(ubicacion => {
+    listaFiltradaUbicaciones.forEach(ubicacion => {
         const nuevoElementoLista = document.createElement("li");
 
         const nuevoBoton = document.createElement("button")
         nuevoBoton.classList.add("elementoLista");
         nuevoBoton.textContent = ubicacion.nombre;
-        nuevoBoton.dataset.idPermiso = ubicacion.id;
+        nuevoBoton.dataset.idUbicacion = ubicacion.id;
         
         nuevoElementoLista.appendChild(nuevoBoton);
 
         listaUbicaciones.appendChild(nuevoElementoLista);
 
     });
-
 }
 
 function agregarFuncionesCheck(){
